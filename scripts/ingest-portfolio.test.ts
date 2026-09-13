@@ -62,6 +62,7 @@ describe('portfolio ingestion', () => {
           id: 'typescript',
           displayName: 'TypeScript',
           yearsOfExperience: 6,
+          hideFromSkills: true,
           aliases: ['ts'],
         },
       ],

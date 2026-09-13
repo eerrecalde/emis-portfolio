@@ -7,6 +7,7 @@ export type PortfolioSkill = {
   id: string;
   displayName: string;
   yearsOfExperience: number;
+  hideFromSkills?: boolean;
   aliases: string[];
 };
 
