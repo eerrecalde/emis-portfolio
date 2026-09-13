@@ -1,11 +1,28 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: Geist, Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   margin: 0;
-  background: #f8fafc;
-  color: #0f172a;
+  min-width: 320px;
+  background:
+    radial-gradient(
+      circle at 82% -8%,
+      rgb(34 211 238 / 0.13),
+      transparent 24rem
+    ),
+    radial-gradient(
+      circle at 8% 35%,
+      rgb(99 102 241 / 0.11),
+      transparent 28rem
+    ),
+    #080d0f;
+  color: #e5e7eb;
+}
+
+::selection {
+  background: rgb(34 211 238 / 0.35);
+  color: #f8fafc;
 }

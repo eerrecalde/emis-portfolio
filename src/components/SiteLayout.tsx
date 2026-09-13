@@ -5,31 +5,31 @@ type SiteLayoutProps = { children: ReactNode };
 
 export function SiteLayout({ children }: SiteLayoutProps) {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-950">
+    <div className="min-h-screen text-slate-100">
       <a
-        className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-10 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:font-medium focus:shadow"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-10 focus:rounded-md focus:bg-slate-50 focus:px-4 focus:py-2 focus:font-medium focus:text-slate-950 focus:shadow"
         href="#main-content"
       >
         Skip to content
       </a>
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-5 sm:px-10">
+      <header className="border-b border-slate-800/80 bg-[#080d0f]/80 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-10 sm:py-5">
           <NavLink
-            className="text-base font-semibold tracking-tight focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700"
+            className="text-sm font-semibold tracking-tight text-slate-100 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 sm:text-base"
             to="/"
           >
-            Emiliano Errecalde
+            Emiliano<span className="text-cyan-300">.</span>
           </NavLink>
           <nav
-            className="flex items-center gap-5"
+            className="flex items-center gap-4 sm:gap-6"
             aria-label="Primary navigation"
           >
             <NavLink
               className={({ isActive }) =>
-                `text-sm font-medium focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700 ${
+                `text-sm font-medium transition-colors focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${
                   isActive
-                    ? 'text-indigo-700'
-                    : 'text-slate-600 hover:text-slate-950'
+                    ? 'text-cyan-300'
+                    : 'text-slate-400 hover:text-slate-100'
                 }`
               }
               to="/"
@@ -38,10 +38,10 @@ export function SiteLayout({ children }: SiteLayoutProps) {
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-                `text-sm font-medium focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700 ${
+                `text-sm font-medium transition-colors focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${
                   isActive
-                    ? 'text-indigo-700'
-                    : 'text-slate-600 hover:text-slate-950'
+                    ? 'text-cyan-300'
+                    : 'text-slate-400 hover:text-slate-100'
                 }`
               }
               to="/experience"
@@ -52,7 +52,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
         </div>
       </header>
       <main
-        className="mx-auto max-w-6xl px-6 py-12 sm:px-10 sm:py-16"
+        className="mx-auto max-w-6xl px-5 py-12 sm:px-10 sm:py-16 lg:py-20"
         id="main-content"
       >
         {children}
