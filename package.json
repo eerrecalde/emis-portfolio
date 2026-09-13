@@ -15,6 +15,7 @@
     "format:check": "prettier --check .",
     "lint": "eslint .",
     "test": "vitest run",
+    "test:e2e": "playwright test",
     "test:watch": "vitest",
     "extract:projects": "tsx scripts/extract-projects.ts",
     "ingest:portfolio": "tsx scripts/ingest-portfolio.ts"
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.0.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^16.0.0",
