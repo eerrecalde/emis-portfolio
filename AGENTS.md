@@ -8,6 +8,10 @@ Before changing frontend code in this repo, read and follow both local skills:
 - `.agents/skills/design-ui-with-restraint/SKILL.md`
 - `.agents/skills/write-practical-copy/SKILL.md`
 
+Before making frontend design decisions, read
+[`docs/design/README.md`](docs/design/README.md) and inspect the linked mood
+board.
+
 For any completed task with a user-visible visual result, follow `.agents/skills/visual-completion-proof/SKILL.md` before reporting completion. Verify the current rendered result and include a current screenshot as proof.
 
 ## Work with starter project
