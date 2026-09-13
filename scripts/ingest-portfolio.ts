@@ -4,6 +4,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import type {
   PortfolioContent,
   PortfolioProject,
+  PortfolioSkill,
   ProfessionalExperience,
 } from '../src/types/portfolio';
 
@@ -13,14 +14,17 @@ export type CuratedProjectSource = {
   repositoryUrl: string;
   readme: string;
   screenshots: PortfolioProject['screenshots'];
+  skillIds: string[];
 };
 
 type CuratedProjects = { projects: CuratedProjectSource[] };
 type ProfessionalExperienceSource = { experience: ProfessionalExperience[] };
+type SkillCatalogueSource = { skills: PortfolioSkill[] };
 
 export type IngestionOptions = {
   curatedProjectsPath: string;
   professionalExperiencePath: string;
+  skillsPath: string;
   outputPath: string;
 };
 
@@ -85,7 +89,7 @@ export function normalizeProject(
     capabilities: list(section(source.readme, 'What it does')),
     technicalHighlights: list(section(source.readme, 'Technical highlights')),
     keyDecisions: list(section(source.readme, 'Key decisions and trade-offs')),
-    techStack: list(section(source.readme, 'Tech stack')),
+    skillIds: source.skillIds,
     status: cleanMarkdown(section(source.readme, 'Status')),
   };
 }
@@ -93,24 +97,42 @@ export function normalizeProject(
 export function buildPortfolioContent(
   curatedProjects: CuratedProjects,
   professionalExperience: ProfessionalExperienceSource,
+  skillCatalogue: SkillCatalogueSource,
 ): PortfolioContent {
+  const knownSkillIds = new Set(skillCatalogue.skills.map((skill) => skill.id));
+
+  for (const project of curatedProjects.projects) {
+    const unknownSkillIds = project.skillIds.filter(
+      (skillId) => !knownSkillIds.has(skillId),
+    );
+
+    if (unknownSkillIds.length > 0) {
+      throw new Error(
+        `Project ${project.slug} references unknown skills: ${unknownSkillIds.join(', ')}.`,
+      );
+    }
+  }
+
   return {
     projects: curatedProjects.projects.map(normalizeProject),
     experience: professionalExperience.experience,
+    skills: skillCatalogue.skills,
   };
 }
 
 export async function runIngestion(
   options: IngestionOptions,
 ): Promise<PortfolioContent> {
-  const [curatedProjectsSource, professionalExperienceSource] =
+  const [curatedProjectsSource, professionalExperienceSource, skillsSource] =
     await Promise.all([
       readFile(options.curatedProjectsPath, 'utf8'),
       readFile(options.professionalExperiencePath, 'utf8'),
+      readFile(options.skillsPath, 'utf8'),
     ]);
   const content = buildPortfolioContent(
     JSON.parse(curatedProjectsSource) as CuratedProjects,
     JSON.parse(professionalExperienceSource) as ProfessionalExperienceSource,
+    JSON.parse(skillsSource) as SkillCatalogueSource,
   );
   const output = `${JSON.stringify(content, null, 2)}\n`;
 
@@ -130,6 +152,7 @@ async function main(): Promise<void> {
       projectRoot,
       'data/professional-experience.json',
     ),
+    skillsPath: resolve(projectRoot, 'data/skills.json'),
     outputPath: resolve(projectRoot, 'public/data/portfolio.json'),
   });
 

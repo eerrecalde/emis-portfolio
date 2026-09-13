@@ -35,13 +35,11 @@
         "A single global reminder tone avoids turning a simple setting into per-medication configuration.",
         "Android notification channel sounds are immutable after creation; the scheduler therefore uses stable per-sound channel identifiers for selected tones."
       ],
-      "techStack": [
-        "Flutter and Dart",
-        "Material UI and Flutter localisation",
-        "flutter_local_notifications, permission_handler, and timezone",
-        "shared_preferences for local persistence",
-        "audioplayers for in-app ringtone preview",
-        "Flutter unit and widget tests"
+      "skillIds": [
+        "flutter-dart",
+        "internationalisation-localisation",
+        "web-accessibility",
+        "testing"
       ],
       "status": "The application has implemented medication management, schedules, a today dashboard, due-reminder actions, medication history, privacy controls, local notification handling, English/Latin American Spanish support, and ringtone selection. It remains an active mobile project rather than a published medication-management service."
     },
@@ -83,13 +81,13 @@
         "The first scope is intentionally US stocks and manual tracking, which keeps the data model and market-data integration focused.",
         "A full local backend is useful for schema work, but normal browser development can use a hosted Supabase project to avoid a Docker dependency."
       ],
-      "techStack": [
-        "Next.js App Router and React",
-        "TypeScript and Tailwind CSS",
-        "Supabase Auth and Postgres",
-        "Vitest and ESLint",
-        "Financial Modeling Prep market-data adapter",
-        "Gemini AI provider adapter"
+      "skillIds": [
+        "next-js",
+        "react",
+        "typescript",
+        "tailwind-css",
+        "supabase",
+        "vitest"
       ],
       "status": "This is an in-progress prototype. Its authenticated portfolio, holdings, watchlist, stock-detail, scoring, user-rule, cached-market-data, and on-demand AI pathways are implemented in the repository. The wider product roadmap remains in docs/product-plan.md."
     },
@@ -140,11 +138,16 @@
         "Photo originals remain private. Public delivery uses processed derivatives and short, bounded cache lifetimes instead of unrestricted storage access.",
         "AI can add operational support, but the system keeps deterministic rules, cost guards, staff review, and safe fallbacks in control."
       ],
-      "techStack": [
-        "React, TypeScript, Vite, React Router, and Tailwind CSS",
-        "Supabase Auth, Postgres, PostGIS, Storage, and Edge Functions",
-        "TanStack Query, i18next, MapLibre, and QR-code generation",
-        "Vitest, Playwright, ESLint, and Prettier"
+      "skillIds": [
+        "react",
+        "typescript",
+        "vite",
+        "tailwind-css",
+        "supabase",
+        "internationalisation-localisation",
+        "vitest",
+        "web-accessibility",
+        "frontend-architecture"
       ],
       "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
     }
@@ -237,6 +240,336 @@
       "location": "Rosario, Argentina",
       "highlights": [
         "Provided Linux server administration, technical support, administrative support, and web-development work."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "frontend-engineering",
+      "displayName": "Frontend engineering",
+      "yearsOfExperience": 19,
+      "aliases": [
+        "frontend development",
+        "front-end engineering",
+        "front end engineering",
+        "frontend engineer"
+      ]
+    },
+    {
+      "id": "react",
+      "displayName": "React",
+      "yearsOfExperience": 8,
+      "aliases": [
+        "reactjs",
+        "react.js",
+        "react js"
+      ]
+    },
+    {
+      "id": "typescript",
+      "displayName": "TypeScript",
+      "yearsOfExperience": 6,
+      "aliases": [
+        "ts"
+      ]
+    },
+    {
+      "id": "javascript",
+      "displayName": "JavaScript",
+      "yearsOfExperience": 19,
+      "aliases": [
+        "js",
+        "ecmascript",
+        "es6",
+        "es2015"
+      ]
+    },
+    {
+      "id": "responsive-web-design",
+      "displayName": "Responsive web design",
+      "yearsOfExperience": 15,
+      "aliases": [
+        "responsive design",
+        "responsive web development",
+        "rwd",
+        "mobile-first design"
+      ]
+    },
+    {
+      "id": "web-accessibility",
+      "displayName": "Web accessibility",
+      "yearsOfExperience": 8,
+      "aliases": [
+        "accessibility",
+        "a11y",
+        "wcag",
+        "inclusive design"
+      ]
+    },
+    {
+      "id": "design-systems",
+      "displayName": "Design systems",
+      "yearsOfExperience": 5,
+      "aliases": [
+        "design system",
+        "ui systems",
+        "component system"
+      ]
+    },
+    {
+      "id": "frontend-architecture",
+      "displayName": "Frontend architecture",
+      "yearsOfExperience": 10,
+      "aliases": [
+        "front-end architecture",
+        "front end architecture",
+        "ui architecture",
+        "client-side architecture"
+      ]
+    },
+    {
+      "id": "component-libraries",
+      "displayName": "Component libraries",
+      "yearsOfExperience": 8,
+      "aliases": [
+        "component library",
+        "ui library",
+        "ui libraries",
+        "design system libraries"
+      ]
+    },
+    {
+      "id": "performance-optimisation",
+      "displayName": "Performance optimisation",
+      "yearsOfExperience": 8,
+      "aliases": [
+        "performance optimization",
+        "frontend performance",
+        "web performance",
+        "performance tuning",
+        "core web vitals"
+      ]
+    },
+    {
+      "id": "testing",
+      "displayName": "Testing",
+      "yearsOfExperience": 8,
+      "aliases": [
+        "unit testing",
+        "component testing",
+        "end-to-end testing",
+        "e2e testing",
+        "quality assurance"
+      ]
+    },
+    {
+      "id": "vitest",
+      "displayName": "Vitest",
+      "yearsOfExperience": 1,
+      "aliases": [
+        "vite test"
+      ]
+    },
+    {
+      "id": "tailwind-css",
+      "displayName": "Tailwind CSS",
+      "yearsOfExperience": 8,
+      "aliases": [
+        "tailwind",
+        "tailwindcss"
+      ]
+    },
+    {
+      "id": "sass-less",
+      "displayName": "Sass / Less",
+      "yearsOfExperience": 6,
+      "aliases": [
+        "sass",
+        "scss",
+        "less",
+        "css preprocessors"
+      ]
+    },
+    {
+      "id": "angular",
+      "displayName": "Angular",
+      "yearsOfExperience": 4,
+      "aliases": [
+        "angular 2",
+        "angular 2+",
+        "ng"
+      ]
+    },
+    {
+      "id": "angularjs",
+      "displayName": "AngularJS",
+      "yearsOfExperience": 4,
+      "aliases": [
+        "angular.js",
+        "angular 1",
+        "angular 1.x",
+        "ng1"
+      ]
+    },
+    {
+      "id": "next-js",
+      "displayName": "Next.js",
+      "yearsOfExperience": 1,
+      "aliases": [
+        "nextjs",
+        "next js"
+      ]
+    },
+    {
+      "id": "vite",
+      "displayName": "Vite",
+      "yearsOfExperience": 1,
+      "aliases": [
+        "vitejs",
+        "vite.js"
+      ]
+    },
+    {
+      "id": "npm-tooling",
+      "displayName": "npm tooling",
+      "yearsOfExperience": 10,
+      "aliases": [
+        "npm",
+        "node package manager",
+        "package scripts"
+      ]
+    },
+    {
+      "id": "rest-api-integration",
+      "displayName": "REST API integration",
+      "yearsOfExperience": 15,
+      "aliases": [
+        "rest api",
+        "restful api",
+        "restful services",
+        "http api",
+        "api integration"
+      ]
+    },
+    {
+      "id": "supabase",
+      "displayName": "Supabase",
+      "yearsOfExperience": 2,
+      "aliases": []
+    },
+    {
+      "id": "internationalisation-localisation",
+      "displayName": "Internationalisation and localisation",
+      "yearsOfExperience": 8,
+      "aliases": [
+        "i18n",
+        "internationalization",
+        "localization",
+        "localisation",
+        "translation"
+      ]
+    },
+    {
+      "id": "seo",
+      "displayName": "SEO",
+      "yearsOfExperience": 6,
+      "aliases": [
+        "search engine optimization",
+        "search engine optimisation"
+      ]
+    },
+    {
+      "id": "ai-assisted-engineering-workflows",
+      "displayName": "AI-assisted engineering workflows",
+      "yearsOfExperience": 3,
+      "aliases": [
+        "ai-assisted development",
+        "ai assisted development",
+        "ai coding workflows",
+        "llm-assisted development"
+      ]
+    },
+    {
+      "id": "flutter-dart",
+      "displayName": "Flutter / Dart",
+      "yearsOfExperience": 0.2,
+      "aliases": [
+        "flutter",
+        "dart"
+      ]
+    },
+    {
+      "id": "technical-leadership",
+      "displayName": "Technical leadership",
+      "yearsOfExperience": 6,
+      "aliases": [
+        "tech leadership",
+        "engineering leadership",
+        "technical lead"
+      ]
+    },
+    {
+      "id": "agile-delivery",
+      "displayName": "Agile delivery",
+      "yearsOfExperience": 12,
+      "aliases": [
+        "agile",
+        "scrum",
+        "kanban",
+        "agile software development"
+      ]
+    },
+    {
+      "id": "feature-flags",
+      "displayName": "Feature flags",
+      "yearsOfExperience": 5,
+      "aliases": [
+        "feature flag",
+        "feature toggles",
+        "feature toggle",
+        "release toggles"
+      ]
+    },
+    {
+      "id": "technical-design-docs",
+      "displayName": "Technical design docs",
+      "yearsOfExperience": 4,
+      "aliases": [
+        "technical design documents",
+        "technical documentation",
+        "design docs",
+        "rfc",
+        "rfcs",
+        "architecture decision records",
+        "adr"
+      ]
+    },
+    {
+      "id": "telemetry",
+      "displayName": "Telemetry",
+      "yearsOfExperience": 6,
+      "aliases": [
+        "observability",
+        "analytics instrumentation",
+        "product analytics",
+        "monitoring",
+        "logging",
+        "metrics"
+      ]
+    },
+    {
+      "id": "ab-testing",
+      "displayName": "A/B testing",
+      "yearsOfExperience": 4,
+      "aliases": [
+        "a/b test",
+        "a/b testing",
+        "ab test",
+        "ab testing",
+        "experimentation",
+        "experiments",
+        "split testing",
+        "split test"
       ]
     }
   ]

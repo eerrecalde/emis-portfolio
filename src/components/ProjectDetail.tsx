@@ -1,9 +1,13 @@
-import type { PortfolioProject } from '../types/portfolio';
+import type { PortfolioProject, PortfolioSkill } from '../types/portfolio';
 import { Link } from 'react-router';
+import { resolveSkills } from '../data/skills';
 
-type ProjectDetailProps = { project: PortfolioProject };
+type ProjectDetailProps = {
+  project: PortfolioProject;
+  skillsById: ReadonlyMap<string, PortfolioSkill>;
+};
 
-export function ProjectDetail({ project }: ProjectDetailProps) {
+export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
   return (
     <article className="max-w-4xl">
       <Link
@@ -61,12 +65,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           className="mt-4 flex flex-wrap gap-2"
           aria-label={`${project.title} tech stack`}
         >
-          {project.techStack.map((technology) => (
+          {resolveSkills(project.skillIds, skillsById).map((skill) => (
             <li
               className="rounded-full border border-slate-700 bg-slate-900 px-3 py-1 text-sm text-slate-300"
-              key={technology}
+              key={skill.id}
             >
-              {technology}
+              {skill.displayName}
             </li>
           ))}
         </ul>

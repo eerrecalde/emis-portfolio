@@ -7,6 +7,7 @@ import { SiteLayout } from './components/SiteLayout';
 import { fetchPortfolio } from './data/portfolio';
 import type {
   PortfolioProject,
+  PortfolioSkill,
   ProfessionalExperience,
 } from './types/portfolio';
 
@@ -26,6 +27,7 @@ export default function App() {
         <PortfolioRoutes
           experience={projectsQuery.data.experience}
           projects={projectsQuery.data.projects}
+          skills={projectsQuery.data.skills}
         />
       ) : null}
     </SiteLayout>
@@ -35,18 +37,28 @@ export default function App() {
 type PortfolioRoutesProps = {
   projects: PortfolioProject[];
   experience: ProfessionalExperience[];
+  skills: PortfolioSkill[];
 };
 
-function PortfolioRoutes({ projects, experience }: PortfolioRoutesProps) {
+function PortfolioRoutes({
+  projects,
+  experience,
+  skills,
+}: PortfolioRoutesProps) {
+  const skillsById = new Map(skills.map((skill) => [skill.id, skill]));
+
   return (
     <Routes>
-      <Route element={<HomePage projects={projects} />} path="/" />
+      <Route
+        element={<HomePage projects={projects} skillsById={skillsById} />}
+        path="/"
+      />
       <Route
         element={<ExperiencePage experience={experience} />}
         path="/experience"
       />
       <Route
-        element={<ProjectPage projects={projects} />}
+        element={<ProjectPage projects={projects} skillsById={skillsById} />}
         path="/projects/:slug"
       />
       <Route element={<NotFound />} path="*" />
@@ -54,11 +66,19 @@ function PortfolioRoutes({ projects, experience }: PortfolioRoutesProps) {
   );
 }
 
-function ProjectPage({ projects }: Pick<PortfolioRoutesProps, 'projects'>) {
+type ProjectPageProps = Pick<PortfolioRoutesProps, 'projects'> & {
+  skillsById: ReadonlyMap<string, PortfolioSkill>;
+};
+
+function ProjectPage({ projects, skillsById }: ProjectPageProps) {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
 
-  return project ? <ProjectDetail project={project} /> : <NotFound />;
+  return project ? (
+    <ProjectDetail project={project} skillsById={skillsById} />
+  ) : (
+    <NotFound />
+  );
 }
 
 function NotFound() {

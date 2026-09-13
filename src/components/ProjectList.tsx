@@ -1,13 +1,16 @@
 import { Link } from 'react-router';
-import type { PortfolioProject } from '../types/portfolio';
+import { resolveSkills } from '../data/skills';
+import type { PortfolioProject, PortfolioSkill } from '../types/portfolio';
 
 type ProjectListProps = {
   projects: PortfolioProject[];
+  skillsById: ReadonlyMap<string, PortfolioSkill>;
   headingLevel?: 'h2' | 'h3';
 };
 
 export function ProjectList({
   projects,
+  skillsById,
   headingLevel = 'h2',
 }: ProjectListProps) {
   const Heading = headingLevel;
@@ -42,7 +45,10 @@ export function ProjectList({
               {project.summary}
             </p>
             <p className="mt-5 text-xs font-medium tracking-wide text-slate-400">
-              {project.techStack.slice(0, 2).join(' · ')}
+              {resolveSkills(project.skillIds, skillsById)
+                .map((skill) => skill.displayName)
+                .slice(0, 2)
+                .join(' · ')}
             </p>
             <Link
               aria-label={`View project: ${project.title}`}

@@ -4,6 +4,7 @@
       "slug": "demo-project",
       "featured": true,
       "repositoryUrl": "https://github.com/example/demo-project",
+      "skillIds": ["react", "typescript"],
       "readme": "# Demo Project\n\nDemo Project helps teams plan dependable deliveries.\n\n## Why I built it\n\nI wanted to explore how a focused workflow can reduce delivery risk.\n\n## What it does\n\n- Creates a clear delivery plan.\n- Keeps risks visible.\n\n## Technical highlights\n\n- **Focused architecture.** Keeps domain logic separate from page composition.\n\n## Key decisions and trade-offs\n\n- Uses static data to keep builds repeatable.\n\n## Tech stack\n\n- React, TypeScript, and `some_library`\n\n## Status\n\nThe prototype is ready for portfolio review.\n",
       "screenshots": [
         {

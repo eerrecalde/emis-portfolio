@@ -25,10 +25,23 @@ describe('ProjectList', () => {
               capabilities: [],
               technicalHighlights: [],
               keyDecisions: [],
-              techStack: ['TypeScript'],
+              skillIds: ['typescript'],
               status: 'Ready',
             },
           ]}
+          skillsById={
+            new Map([
+              [
+                'typescript',
+                {
+                  id: 'typescript',
+                  displayName: 'TypeScript',
+                  yearsOfExperience: 6,
+                  aliases: ['ts'],
+                },
+              ],
+            ])
+          }
         />
       </MemoryRouter>,
     );
@@ -37,6 +50,7 @@ describe('ProjectList', () => {
     expect(
       screen.getByRole('link', { name: 'View project: Demo' }),
     ).toHaveAttribute('href', '/projects/demo');
+    expect(screen.getByText('TypeScript')).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Demo dashboard' })).toHaveAttribute(
       'loading',
       'lazy',
