@@ -48,6 +48,18 @@ export function SiteLayout({ children }: SiteLayoutProps) {
             >
               Experience
             </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${
+                  isActive
+                    ? 'text-cyan-300'
+                    : 'text-slate-400 hover:text-slate-100'
+                }`
+              }
+              to="/skills"
+            >
+              Skills
+            </NavLink>
           </nav>
         </div>
       </header>

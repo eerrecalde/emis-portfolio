@@ -35,6 +35,7 @@ describe('ProjectDetail', () => {
                   id: 'typescript',
                   displayName: 'TypeScript',
                   yearsOfExperience: 6,
+                  areas: ['frontend'],
                   aliases: ['ts'],
                 },
               ],

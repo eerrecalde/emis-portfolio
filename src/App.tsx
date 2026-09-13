@@ -3,6 +3,7 @@ import { Link, Route, Routes, useParams } from 'react-router';
 import { ExperiencePage } from './components/ExperiencePage';
 import { HomePage } from './components/HomePage';
 import { ProjectDetail } from './components/ProjectDetail';
+import { SkillsPage } from './components/SkillsPage';
 import { SiteLayout } from './components/SiteLayout';
 import { fetchPortfolio } from './data/portfolio';
 import type {
@@ -57,6 +58,7 @@ function PortfolioRoutes({
         element={<ExperiencePage experience={experience} />}
         path="/experience"
       />
+      <Route element={<SkillsPage skills={skills} />} path="/skills" />
       <Route
         element={<ProjectPage projects={projects} skillsById={skillsById} />}
         path="/projects/:slug"

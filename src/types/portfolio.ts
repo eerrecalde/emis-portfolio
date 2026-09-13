@@ -3,10 +3,22 @@ export type ProjectScreenshot = {
   url: string;
 };
 
+export const skillAreas = [
+  'frontend',
+  'backend',
+  'analytics',
+  'testing',
+  'devops',
+  'ci-cd',
+] as const;
+
+export type SkillArea = (typeof skillAreas)[number];
+
 export type PortfolioSkill = {
   id: string;
   displayName: string;
   yearsOfExperience: number;
+  areas: SkillArea[];
   hideFromSkills?: boolean;
   aliases: string[];
 };

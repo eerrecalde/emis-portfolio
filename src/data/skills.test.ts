@@ -1,15 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import { resolveSkills } from './skills';
+import type { PortfolioSkill } from '../types/portfolio';
 
 describe('resolveSkills', () => {
   it('keeps the project-defined order and ignores missing IDs', () => {
-    const skillsById = new Map([
+    const skillsById = new Map<string, PortfolioSkill>([
       [
         'react',
         {
           id: 'react',
           displayName: 'React',
           yearsOfExperience: 8,
+          areas: ['frontend'],
           aliases: ['reactjs'],
         },
       ],
@@ -19,6 +21,7 @@ describe('resolveSkills', () => {
           id: 'typescript',
           displayName: 'TypeScript',
           yearsOfExperience: 6,
+          areas: ['frontend'],
           aliases: ['ts'],
         },
       ],

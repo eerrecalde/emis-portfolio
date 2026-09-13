@@ -248,6 +248,9 @@
       "id": "frontend-engineering",
       "displayName": "Frontend engineering",
       "yearsOfExperience": 19,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "frontend development",
         "front-end engineering",
@@ -259,6 +262,9 @@
       "id": "react",
       "displayName": "React",
       "yearsOfExperience": 8,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "reactjs",
         "react.js",
@@ -269,6 +275,10 @@
       "id": "typescript",
       "displayName": "TypeScript",
       "yearsOfExperience": 6,
+      "areas": [
+        "frontend",
+        "testing"
+      ],
       "aliases": [
         "ts"
       ]
@@ -277,6 +287,10 @@
       "id": "javascript",
       "displayName": "JavaScript",
       "yearsOfExperience": 19,
+      "areas": [
+        "frontend",
+        "testing"
+      ],
       "aliases": [
         "js",
         "ecmascript",
@@ -288,6 +302,9 @@
       "id": "responsive-web-design",
       "displayName": "Responsive web design",
       "yearsOfExperience": 15,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "responsive design",
         "responsive web development",
@@ -299,6 +316,10 @@
       "id": "web-accessibility",
       "displayName": "Web accessibility",
       "yearsOfExperience": 8,
+      "areas": [
+        "frontend",
+        "testing"
+      ],
       "aliases": [
         "accessibility",
         "a11y",
@@ -310,6 +331,9 @@
       "id": "design-systems",
       "displayName": "Design systems",
       "yearsOfExperience": 5,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "design system",
         "ui systems",
@@ -320,6 +344,9 @@
       "id": "frontend-architecture",
       "displayName": "Frontend architecture",
       "yearsOfExperience": 10,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "front-end architecture",
         "front end architecture",
@@ -331,6 +358,10 @@
       "id": "component-libraries",
       "displayName": "Component libraries",
       "yearsOfExperience": 8,
+      "areas": [
+        "frontend",
+        "testing"
+      ],
       "aliases": [
         "component library",
         "ui library",
@@ -342,6 +373,10 @@
       "id": "performance-optimisation",
       "displayName": "Performance optimisation",
       "yearsOfExperience": 8,
+      "areas": [
+        "frontend",
+        "analytics"
+      ],
       "aliases": [
         "performance optimization",
         "frontend performance",
@@ -354,6 +389,10 @@
       "id": "testing",
       "displayName": "Testing",
       "yearsOfExperience": 8,
+      "areas": [
+        "testing",
+        "ci-cd"
+      ],
       "aliases": [
         "unit testing",
         "component testing",
@@ -366,6 +405,10 @@
       "id": "vitest",
       "displayName": "Vitest",
       "yearsOfExperience": 1,
+      "areas": [
+        "testing",
+        "ci-cd"
+      ],
       "aliases": [
         "vite test"
       ]
@@ -374,6 +417,9 @@
       "id": "tailwind-css",
       "displayName": "Tailwind CSS",
       "yearsOfExperience": 8,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "tailwind",
         "tailwindcss"
@@ -383,6 +429,9 @@
       "id": "sass-less",
       "displayName": "Sass / Less",
       "yearsOfExperience": 6,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "sass",
         "scss",
@@ -394,6 +443,9 @@
       "id": "angular",
       "displayName": "Angular",
       "yearsOfExperience": 4,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "angular 2",
         "angular 2+",
@@ -404,6 +456,9 @@
       "id": "angularjs",
       "displayName": "AngularJS",
       "yearsOfExperience": 4,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "angular.js",
         "angular 1",
@@ -415,6 +470,10 @@
       "id": "next-js",
       "displayName": "Next.js",
       "yearsOfExperience": 1,
+      "areas": [
+        "frontend",
+        "backend"
+      ],
       "aliases": [
         "nextjs",
         "next js"
@@ -424,6 +483,10 @@
       "id": "vite",
       "displayName": "Vite",
       "yearsOfExperience": 1,
+      "areas": [
+        "frontend",
+        "ci-cd"
+      ],
       "aliases": [
         "vitejs",
         "vite.js"
@@ -433,6 +496,10 @@
       "id": "npm-tooling",
       "displayName": "npm tooling",
       "yearsOfExperience": 10,
+      "areas": [
+        "devops",
+        "ci-cd"
+      ],
       "aliases": [
         "npm",
         "node package manager",
@@ -443,6 +510,10 @@
       "id": "rest-api-integration",
       "displayName": "REST API integration",
       "yearsOfExperience": 15,
+      "areas": [
+        "frontend",
+        "backend"
+      ],
       "aliases": [
         "rest api",
         "restful api",
@@ -455,12 +526,19 @@
       "id": "supabase",
       "displayName": "Supabase",
       "yearsOfExperience": 2,
+      "areas": [
+        "backend",
+        "analytics"
+      ],
       "aliases": []
     },
     {
       "id": "internationalisation-localisation",
       "displayName": "Internationalisation and localisation",
       "yearsOfExperience": 8,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "i18n",
         "internationalization",
@@ -473,6 +551,10 @@
       "id": "seo",
       "displayName": "SEO",
       "yearsOfExperience": 6,
+      "areas": [
+        "frontend",
+        "analytics"
+      ],
       "aliases": [
         "search engine optimization",
         "search engine optimisation"
@@ -482,6 +564,10 @@
       "id": "ai-assisted-engineering-workflows",
       "displayName": "AI-assisted engineering workflows",
       "yearsOfExperience": 3,
+      "areas": [
+        "devops",
+        "ci-cd"
+      ],
       "aliases": [
         "ai-assisted development",
         "ai assisted development",
@@ -493,6 +579,9 @@
       "id": "flutter-dart",
       "displayName": "Flutter / Dart",
       "yearsOfExperience": 0.2,
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "flutter",
         "dart"
@@ -502,6 +591,9 @@
       "id": "technical-leadership",
       "displayName": "Technical leadership",
       "yearsOfExperience": 6,
+      "areas": [
+        "ci-cd"
+      ],
       "aliases": [
         "tech leadership",
         "engineering leadership",
@@ -512,6 +604,9 @@
       "id": "agile-delivery",
       "displayName": "Agile delivery",
       "yearsOfExperience": 12,
+      "areas": [
+        "ci-cd"
+      ],
       "aliases": [
         "agile",
         "scrum",
@@ -523,6 +618,11 @@
       "id": "feature-flags",
       "displayName": "Feature flags",
       "yearsOfExperience": 5,
+      "areas": [
+        "frontend",
+        "analytics",
+        "ci-cd"
+      ],
       "aliases": [
         "feature flag",
         "feature toggles",
@@ -534,6 +634,10 @@
       "id": "technical-design-docs",
       "displayName": "Technical design docs",
       "yearsOfExperience": 4,
+      "areas": [
+        "frontend",
+        "backend"
+      ],
       "aliases": [
         "technical design documents",
         "technical documentation",
@@ -548,6 +652,10 @@
       "id": "telemetry",
       "displayName": "Telemetry",
       "yearsOfExperience": 6,
+      "areas": [
+        "frontend",
+        "analytics"
+      ],
       "aliases": [
         "observability",
         "analytics instrumentation",
@@ -561,6 +669,10 @@
       "id": "ab-testing",
       "displayName": "A/B testing",
       "yearsOfExperience": 4,
+      "areas": [
+        "analytics",
+        "frontend"
+      ],
       "aliases": [
         "a/b test",
         "a/b testing",
