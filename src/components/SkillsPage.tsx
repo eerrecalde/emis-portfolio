@@ -111,51 +111,37 @@ export function SkillsPage({ skills }: SkillsPageProps) {
 
   return (
     <>
-      <header className="max-w-3xl">
-        <p className="text-xs font-semibold tracking-[0.24em] text-cyan-300 uppercase">
+      <header>
+        <h1 className="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
           Skills
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
-          Experience across the stack
         </h1>
-        <p className="mt-5 text-lg leading-8 text-slate-300">
-          Each arc begins when I started working with a skill and ends today.
-        </p>
       </header>
 
-      <section className="mt-12" aria-labelledby="skill-areas-heading">
-        <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <div>
-            <h2 className="text-xl font-semibold tracking-tight text-slate-50" id="skill-areas-heading">
-              Skill areas
-            </h2>
-            <p className="mt-1 text-sm text-slate-400">
-              Turn areas on or off to focus the chart.
-            </p>
-          </div>
+      <section className="mt-8" aria-label="Filter skills by area">
+        <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-slate-400" aria-live="polite">
             {visibleSkills.length} of {sortedSkills.length} skills shown
           </p>
-        </div>
-        <div className="mt-5 flex flex-wrap gap-2" aria-label="Filter skills by area">
-          {availableAreas.map((area) => {
-            const isActive = activeAreas.has(area);
-            return (
-              <button
-                aria-pressed={isActive}
-                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 motion-reduce:transition-none ${
-                  isActive
-                    ? 'border-cyan-300/50 bg-cyan-300/10 text-cyan-100'
-                    : 'border-slate-700 bg-slate-950/40 text-slate-400 hover:border-slate-500 hover:text-slate-200'
-                }`}
-                key={area}
-                onClick={() => toggleArea(area)}
-                type="button"
-              >
-                {AREA_LABELS[area]}
-              </button>
-            );
-          })}
+          <div className="flex flex-wrap gap-2">
+            {availableAreas.map((area) => {
+              const isActive = activeAreas.has(area);
+              return (
+                <button
+                  aria-pressed={isActive}
+                  className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 motion-reduce:transition-none ${
+                    isActive
+                      ? 'border-cyan-300/50 bg-cyan-300/10 text-cyan-100'
+                      : 'border-slate-700 bg-slate-950/40 text-slate-400 hover:border-slate-500 hover:text-slate-200'
+                  }`}
+                  key={area}
+                  onClick={() => toggleArea(area)}
+                  type="button"
+                >
+                  {AREA_LABELS[area]}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -167,7 +153,7 @@ export function SkillsPage({ skills }: SkillsPageProps) {
           <p className="text-sm text-slate-400">Years of experience</p>
         </div>
         <svg
-          aria-describedby="experience-arcs-description"
+          aria-label="Experience arcs showing years of experience for selected skills"
           className="mt-5 block w-full overflow-visible"
           ref={chartRef}
           role="img"
@@ -249,9 +235,6 @@ export function SkillsPage({ skills }: SkillsPageProps) {
             );
           })}
         </svg>
-        <figcaption className="mt-4 text-sm leading-6 text-slate-400" id="experience-arcs-description">
-          The left marker is an estimated starting year based on the recorded experience. Every arc ends at the present.
-        </figcaption>
       </figure>
 
       <section className="sr-only" aria-live="polite" aria-labelledby="visible-skills-heading">
