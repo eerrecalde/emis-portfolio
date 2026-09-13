@@ -6,9 +6,9 @@ does not begin until every Phase 1 curation task is done. See
 
 ## Current next task
 
-**P1-01 — Curate `pill-reminder`.** Capture its curated screenshots, verify the
-README and setup documentation against the codebase, run relevant tests, and
-commit the completed curation pass in its source repository.
+**P2-01 — Reassess the curated repository output and finalize the smallest
+ingestion format.** The Phase 1 curation passes are complete; this decision
+defines how the portfolio will consume the final repository content.
 
 ## Completed groundwork
 
@@ -19,18 +19,18 @@ commit the completed curation pass in its source repository.
 
 ## Phase 1 — repository curation
 
-| ID    | Task                                                                                                                | Status      | Depends on  |
-| ----- | ------------------------------------------------------------------------------------------------------------------- | ----------- | ----------- |
-| P1-01 | Curate `pill-reminder`; screenshots are pending.                                                                    | Next        | —           |
-| P1-02 | Curate `assets-watcher`; screenshots are pending.                                                                   | Not started | P1-01       |
-| P1-03 | Verify `pet-seen` against the Phase 1 definition of done; documentation and screenshots are currently marked ready. | Not started | P1-02       |
-| P1-04 | Confirm all three repositories meet the Phase 1 definition of done.                                                 | Not started | P1-01–P1-03 |
+| ID    | Task                                                                                                            | Status | Depends on  |
+| ----- | --------------------------------------------------------------------------------------------------------------- | ------ | ----------- |
+| P1-01 | Curate `pill-reminder`; reviewed documentation and screenshot set are merged into `main`.                       | Done   | —           |
+| P1-02 | Curate `assets-watcher`; reviewed documentation and screenshot set are merged into `main`.                      | Done   | P1-01       |
+| P1-03 | Verify `pet-seen` against the Phase 1 definition of done; documentation and screenshots are merged into `main`. | Done   | P1-02       |
+| P1-04 | Confirm all three repositories meet the Phase 1 definition of done.                                             | Done   | P1-01–P1-03 |
 
 ## Phase 2 — portfolio application
 
 | ID    | Task                                                                                                                        | Status      | Depends on        |
 | ----- | --------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
-| P2-01 | Reassess curated repository output and finalize the smallest ingestion format.                                              | Not started | P1-04             |
+| P2-01 | Reassess curated repository output and finalize the smallest ingestion format.                                              | Next        | P1-04             |
 | P2-02 | Update the frontend foundation to the latest stable React with React Compiler; add React Router and ESLint.                 | Not started | P2-01             |
 | P2-03 | Define project and professional-experience domain content; test ingestion with fixtures.                                    | Not started | P2-01             |
 | P2-04 | Build accessible shared layout, routing, project listing, and detail-page composition.                                      | Not started | P2-02, P2-03      |

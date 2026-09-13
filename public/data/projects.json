@@ -5,8 +5,7 @@
       "featured": false,
       "curation": {
         "documentation": "ready",
-        "screenshots": "pending",
-        "branch": "docs/portfolio-curation"
+        "screenshots": "ready"
       },
       "repository": {
         "name": "pill_reminder",
@@ -78,8 +77,7 @@
       "featured": false,
       "curation": {
         "documentation": "ready",
-        "screenshots": "pending",
-        "branch": "docs/portfolio-curation"
+        "screenshots": "ready"
       },
       "repository": {
         "name": "assets-watcher",
@@ -128,8 +126,7 @@
       "featured": false,
       "curation": {
         "documentation": "ready",
-        "screenshots": "ready",
-        "branch": "docs/portfolio-curation"
+        "screenshots": "ready"
       },
       "repository": {
         "name": "pet-seen",
