@@ -179,6 +179,20 @@
       ]
     },
     {
+      "id": "golang",
+      "displayName": "Golang",
+      "yearsOfExperience": 1,
+      "areas": ["backend"],
+      "aliases": ["Go"]
+    },
+    {
+      "id": "node",
+      "displayName": "Node",
+      "yearsOfExperience": 2,
+      "areas": ["backend"],
+      "aliases": ["NodeJS"]
+    },
+    {
       "id": "supabase",
       "displayName": "Supabase",
       "yearsOfExperience": 2,
