@@ -22,3 +22,9 @@ Keep the supplied User Insights project intact as the starting example. Make sco
 
 Treat [`docs/PROJECT_BREAKDOWN.md`](docs/PROJECT_BREAKDOWN.md) as the source of truth for project tasks. For any task-related request, review and update its matching entry there. Before pushing a commit that completes a task, mark that task's status as `Done` in the breakdown and include the update in the same commit.
 Also when I mention next task, or task ### I mean from the tasks in the docs/PROJECT_BREAKDOWN.md
+
+## Git workflow
+
+Make changes on a `feat/` branch. Push that feature branch before merging it
+into `main`, then push the updated `main` branch. Do not push task changes
+directly from `main`.
