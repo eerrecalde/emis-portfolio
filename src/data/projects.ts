@@ -1,7 +1,7 @@
 import type { GeneratedProjects } from '../types/projects';
 
 export async function fetchProjects(): Promise<GeneratedProjects> {
-  const response = await fetch('/data/projects.json');
+  const response = await fetch(`${import.meta.env.BASE_URL}data/projects.json`);
 
   if (!response.ok) {
     throw new Error(`Project data could not be loaded (${response.status}).`);

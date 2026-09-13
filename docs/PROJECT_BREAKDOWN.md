@@ -6,8 +6,7 @@ does not begin until every Phase 1 curation task is done. See
 
 ## Current next task
 
-**P2-08 — Build an accessible `/skills` page that visualises the individual
-skills by years of experience using D3 or a similarly suitable chart library.**
+**All planned tasks complete.**
 
 ## Completed groundwork
 
@@ -27,14 +26,14 @@ skills by years of experience using D3 or a similarly suitable chart library.**
 
 ## Phase 2 — portfolio application
 
-| ID    | Task                                                                                                                                            | Status      | Depends on          |
-| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------- |
-| P2-01 | Reassess curated repository output and finalize the smallest ingestion format.                                                                  | Done        | P1-04               |
-| P2-02 | Update the frontend foundation to the latest stable React with React Compiler; add React Router and ESLint.                                     | Done        | P2-01               |
-| P2-03 | Define project and professional-experience domain content; test ingestion with fixtures.                                                        | Done        | P2-01               |
-| P2-04 | Build accessible shared layout, routing, project listing, and detail-page composition.                                                          | Done        | P2-02, P2-03        |
-| P2-05 | Build the project-portfolio homepage and a dedicated professional-experience page.                                                              | Done        | P2-04               |
-| P2-06 | Apply the approved visual direction, responsive behaviour, and image performance treatment.                                                     | Done        | P2-04, mood board   |
-| P2-07 | Define the skill list and years of experience; use that shared data to replace the current combined skill pills wherever skills appear.         | Done        | P2-05, P2-06        |
-| P2-08 | Build an accessible `/skills` page that visualises the individual skills by years of experience using D3 or a similarly suitable chart library. | Done        | P2-07               |
-| P2-09 | Complete component/page tests, a small E2E suite if warranted, accessibility and performance review, and static deployment.                     | Not started | P2-05, P2-06, P2-08 |
+| ID    | Task                                                                                                                                            | Status | Depends on          |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------------- |
+| P2-01 | Reassess curated repository output and finalize the smallest ingestion format.                                                                  | Done   | P1-04               |
+| P2-02 | Update the frontend foundation to the latest stable React with React Compiler; add React Router and ESLint.                                     | Done   | P2-01               |
+| P2-03 | Define project and professional-experience domain content; test ingestion with fixtures.                                                        | Done   | P2-01               |
+| P2-04 | Build accessible shared layout, routing, project listing, and detail-page composition.                                                          | Done   | P2-02, P2-03        |
+| P2-05 | Build the project-portfolio homepage and a dedicated professional-experience page.                                                              | Done   | P2-04               |
+| P2-06 | Apply the approved visual direction, responsive behaviour, and image performance treatment.                                                     | Done   | P2-04, mood board   |
+| P2-07 | Define the skill list and years of experience; use that shared data to replace the current combined skill pills wherever skills appear.         | Done   | P2-05, P2-06        |
+| P2-08 | Build an accessible `/skills` page that visualises the individual skills by years of experience using D3 or a similarly suitable chart library. | Done   | P2-07               |
+| P2-09 | Complete component/page tests, a small E2E suite if warranted, accessibility and performance review, and static deployment.                     | Done   | P2-05, P2-06, P2-08 |
