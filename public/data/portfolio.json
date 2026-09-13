@@ -414,6 +414,42 @@
       ]
     },
     {
+      "id": "karma",
+      "displayName": "Karma",
+      "yearsOfExperience": 4,
+      "areas": [
+        "testing"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "jasmine",
+      "displayName": "Jasmine",
+      "yearsOfExperience": 4,
+      "areas": [
+        "testing"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "cypress",
+      "displayName": "Cypress",
+      "yearsOfExperience": 2,
+      "areas": [
+        "testing"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "playwright",
+      "displayName": "Playwright",
+      "yearsOfExperience": 3,
+      "areas": [
+        "testing"
+      ],
+      "aliases": []
+    },
+    {
       "id": "tailwind-css",
       "displayName": "Tailwind CSS",
       "yearsOfExperience": 8,
