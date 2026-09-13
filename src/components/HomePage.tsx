@@ -9,7 +9,7 @@ export function HomePage({ projects }: HomePageProps) {
   return (
     <>
       <header className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/55 px-6 py-12 shadow-2xl shadow-black/20 sm:px-10 sm:py-16">
-        <div className="absolute -right-24 top-1/2 size-72 -translate-y-1/2 rounded-full border border-cyan-400/45 shadow-[0_0_80px_15px_rgba(99,102,241,0.25)]" />
+        <div className="absolute -right-24 top-1/2 size-72 -translate-y-1/2 rounded-full bg-[#080d0f] shadow-[0_0_58px_12px_rgba(99,102,241,0.28),0_0_14px_2px_rgba(34,211,238,0.42)]" />
         <div className="relative max-w-3xl">
           <p className="text-xs font-semibold tracking-[0.24em] text-cyan-300 uppercase">
             Portfolio

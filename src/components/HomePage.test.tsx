@@ -46,6 +46,11 @@ describe('HomePage', () => {
       screen.getByRole('heading', { name: 'Selected projects' }),
     ).toBeInTheDocument();
     expect(
+      screen.getByRole('heading', {
+        name: 'Complex products.Thoughtful interfaces.',
+      }),
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole('heading', { name: 'Featured Project' }),
     ).toBeInTheDocument();
     expect(
