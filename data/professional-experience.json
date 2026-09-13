@@ -1,0 +1,93 @@
+{
+  "experience": [
+    {
+      "company": "Luno",
+      "title": "Senior Software Engineer",
+      "startDate": "2022-07",
+      "endDate": "2026-08",
+      "location": "Greater London, United Kingdom",
+      "highlights": [
+        "Led frontend delivery for customer-facing Buy, Sell, Send, and Receive journeys across Angular and TypeScript.",
+        "Partnered with product, design, iOS, Android, and engineering teams to clarify requirements and surface technical risks early.",
+        "Built and maintained web and mobile web-view Help Centre experiences, and used AI-assisted workflows with clear delivery guardrails."
+      ]
+    },
+    {
+      "company": "Freelance",
+      "title": "Frontend Developer",
+      "startDate": "2007-01",
+      "endDate": "2022-08",
+      "location": "Rosario, Argentina and London, United Kingdom",
+      "highlights": [
+        "Delivered frontend work using HTML, CSS, Sass, Less, Tailwind CSS, React, Next.js, Angular, TypeScript, and JavaScript.",
+        "Applied SEO and visual-design skills across a range of web projects."
+      ]
+    },
+    {
+      "company": "TechSoup",
+      "title": "Principal Engineer",
+      "startDate": "2017-06",
+      "endDate": "2022-07",
+      "location": "London Area, United Kingdom",
+      "highlights": [
+        "Set frontend architecture and engineering direction across TypeScript, React, AngularJS, Tailwind CSS, and Bootstrap.",
+        "Created a reusable TypeScript data-layer library that made complex backend structures easier for frontend features to consume.",
+        "Led migrations from AngularJS to React and from Bootstrap to Tailwind CSS."
+      ]
+    },
+    {
+      "company": "Sainsbury's",
+      "title": "Front End Engineer",
+      "startDate": "2016-04",
+      "endDate": "2017-05",
+      "location": "London Area, United Kingdom",
+      "highlights": [
+        "Built accessible web experiences using BEM, ITCSS, React, ES6, npm scripts, and Webpack.",
+        "Worked to AA-level accessibility standards."
+      ]
+    },
+    {
+      "company": "Digital Annexe",
+      "title": "Front End Developer",
+      "startDate": "2014-09",
+      "endDate": "2016-05",
+      "location": "London, United Kingdom",
+      "highlights": [
+        "Delivered responsive web projects for automotive clients using HTML5, CSS3, Sass, AngularJS, jQuery, and Git.",
+        "Worked in Agile delivery teams on client-facing web applications."
+      ]
+    },
+    {
+      "company": "BairesDev",
+      "title": "Front-end Developer",
+      "startDate": "2013-06",
+      "endDate": "2014-09",
+      "location": "Rosario, Argentina",
+      "highlights": [
+        "Built user interfaces for enterprise clients including General Electric and Netgear.",
+        "Collaborated with Agile teams on API integrations spanning PHP, Grails, Python, and C#."
+      ]
+    },
+    {
+      "company": "Globant",
+      "title": "Front-end Developer",
+      "startDate": "2011-06",
+      "endDate": "2013-06",
+      "location": "Rosario, Argentina",
+      "highlights": [
+        "Developed semantic, standards-compliant XHTML and HTML5 interfaces with responsive CSS3 and JavaScript.",
+        "Integrated APIs including Google Maps and social-media services."
+      ]
+    },
+    {
+      "company": "ultrasitios.com",
+      "title": "Technical Support and Server Administrator",
+      "startDate": "2007-08",
+      "endDate": "2011-06",
+      "location": "Rosario, Argentina",
+      "highlights": [
+        "Provided Linux server administration, technical support, administrative support, and web-development work."
+      ]
+    }
+  ]
+}

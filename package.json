@@ -16,7 +16,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "extract:projects": "tsx scripts/extract-projects.ts"
+    "extract:projects": "tsx scripts/extract-projects.ts",
+    "ingest:portfolio": "tsx scripts/ingest-portfolio.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.0.0",

@@ -42,3 +42,17 @@ either volatile, duplicate the curated documentation, or have no approved
 portfolio use. The browser consumes a later normalized domain model and never
 calls GitHub; P2-03 will transform this input alongside hand-authored
 professional-experience content.
+
+## Normalized portfolio content
+
+P2-03 adds a second, local-only ingestion step. Run `npm run ingest:portfolio`
+after changing either `data/curated-projects.json` or
+`data/professional-experience.json`, then commit the resulting
+`public/data/portfolio.json`.
+
+The generated model retains the curated title, summary, rationale,
+capabilities, technical highlights, decisions, stack, status, screenshots, and
+canonical repository link for each project. It combines those records with
+hand-authored professional experience: company, role, dates, location, and
+outcome-focused highlights. This is the static, browser-safe contract for the
+portfolio; it excludes CV contact details and never calls GitHub at runtime.

@@ -1,0 +1,12 @@
+{
+  "experience": [
+    {
+      "company": "Example Co",
+      "title": "Senior Frontend Engineer",
+      "startDate": "2024-01",
+      "endDate": "2025-12",
+      "location": "London, United Kingdom",
+      "highlights": ["Led an accessible account-management journey."]
+    }
+  ]
+}

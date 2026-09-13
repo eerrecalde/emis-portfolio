@@ -1,0 +1,243 @@
+{
+  "projects": [
+    {
+      "slug": "pill-reminder",
+      "title": "Pill Reminder",
+      "summary": "Pill Reminder is a local-first mobile app for creating medication reminders and keeping a simple daily record of whether a dose was taken, skipped, or missed.",
+      "whyBuilt": "Medication reminders are often used by people who need an interface to be calm, legible, and dependable. I used the project to explore a deliberately small, offline-capable product where accessibility, privacy, and reliable local notifications are core requirements rather than late additions.",
+      "featured": false,
+      "repositoryUrl": "https://github.com/eerrecalde/pill_reminder",
+      "screenshots": [
+        {
+          "alt": "Today dashboard with an example reminder",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pill_reminder/main/docs/screenshots/01-today-dashboard.webp"
+        }
+      ],
+      "capabilities": [
+        "Guides a person through language, privacy, and notification-permission setup.",
+        "Supports English and Latin American Spanish.",
+        "Lets people add, edit, pause, resume, and remove medications.",
+        "Creates reminder schedules and a focused today view.",
+        "Handles due reminders, including recording whether a dose was taken or skipped and retaining medication history.",
+        "Schedules local notifications and offers a settings-based picker for app-bundled reminder tones.",
+        "Keeps core data and preferences on-device without requiring an account or a network connection."
+      ],
+      "technicalHighlights": [
+        "Local-first design. Medication, schedules, reminder handling, history, setup, and ringtone preferences use focused repositories backed by local preferences.",
+        "Reliable notification lifecycle. Scheduling, due-reminder reconciliation, reminder actions, permission status, and ringtone selection are separated into testable services and domain models.",
+        "Accessible mobile UX. The product design treats older-adult accessibility as a release requirement, with clear flows, readable type, large touch targets, and localised copy.",
+        "Focused Flutter architecture. Presentation, domain logic, persistence, notification services, localisation, and theme code are kept in distinct areas rather than being folded into one screen.",
+        "Automated coverage. Unit and widget tests cover medication validation, schedules, today-dashboard behaviour, notification handling, history, setup, settings, and ringtone behaviour."
+      ],
+      "keyDecisions": [
+        "The core experience is account-free and offline-capable. This reduces setup burden and keeps medication data private, at the cost of not providing cloud sync.",
+        "Notification permission and device settings can override audible reminders, so the application keeps permission status visible and safely falls back to the default sound when needed.",
+        "A single global reminder tone avoids turning a simple setting into per-medication configuration.",
+        "Android notification channel sounds are immutable after creation; the scheduler therefore uses stable per-sound channel identifiers for selected tones."
+      ],
+      "techStack": [
+        "Flutter and Dart",
+        "Material UI and Flutter localisation",
+        "flutter_local_notifications, permission_handler, and timezone",
+        "shared_preferences for local persistence",
+        "audioplayers for in-app ringtone preview",
+        "Flutter unit and widget tests"
+      ],
+      "status": "The application has implemented medication management, schedules, a today dashboard, due-reminder actions, medication history, privacy controls, local notification handling, English/Latin American Spanish support, and ringtone selection. It remains an active mobile project rather than a published medication-management service."
+    },
+    {
+      "slug": "assets-watcher",
+      "title": "Assets Watcher",
+      "summary": "Assets Watcher is a multi-user stock-portfolio intelligence prototype for tracking US-listed holdings and watchlist ideas. It turns cached market data and transparent, deterministic rules into educational context—not trading instructions.",
+      "whyBuilt": "I wanted to explore the engineering boundaries of a personal-finance product: user-owned data, scheduled third-party data refreshes, explicit data freshness, and explainable scoring. The product deliberately keeps the decision with the user; its labels and optional AI explanation are informative rather than prescriptive.",
+      "featured": false,
+      "repositoryUrl": "https://github.com/eerrecalde/assets-watcher",
+      "screenshots": [
+        {
+          "alt": "Dashboard populated with local demo data",
+          "url": "https://raw.githubusercontent.com/eerrecalde/assets-watcher/main/docs/screenshots/01-dashboard.webp"
+        },
+        {
+          "alt": "Holdings populated with local demo data",
+          "url": "https://raw.githubusercontent.com/eerrecalde/assets-watcher/main/docs/screenshots/02-holdings.webp"
+        }
+      ],
+      "capabilities": [
+        "Authenticates users and creates a default portfolio.",
+        "Lets users maintain a cash balance, holdings, and a separate watchlist.",
+        "Shows cached company, price, fundamentals, allocation, valuation, quality, safety, and portfolio-fit context.",
+        "Makes cached data freshness visible and supports controlled market-data refresh paths rather than fetching on every page render.",
+        "Applies deterministic scoring rules with stored, user-scoped score snapshots.",
+        "Can generate an on-demand AI take from the app's structured portfolio snapshot, while keeping the deterministic engine as the source of truth."
+      ],
+      "technicalHighlights": [
+        "Clear domain boundaries. Market-data providers, scoring, portfolios, holdings, watchlists, authentication, and AI each live behind focused modules.",
+        "Safe financial-product language. The scoring model uses cautious labels such as Attractive, Watch, and Avoid / Review; it does not issue buy or sell recommendations.",
+        "Protected multi-user data. Supabase Auth, Postgres, row-level security, user-scoped queries, and database migrations model the ownership boundary.",
+        "Testable business logic. The repository includes unit and page tests around validation, scoring thresholds, cached-data handling, portfolio calculations, user rules, scheduled refreshes, and provider adapters.",
+        "Controlled integrations. Server-only credentials are used for Financial Modeling Prep, scheduled refresh authorization, Supabase administration, and Gemini; the browser does not receive them."
+      ],
+      "keyDecisions": [
+        "The app stores and displays cached market snapshots rather than presenting an implied live feed. Freshness states make the limitation explicit.",
+        "Deterministic rules are separated from the optional AI explanation, which receives a bounded structured snapshot rather than authority to invent financial facts.",
+        "The first scope is intentionally US stocks and manual tracking, which keeps the data model and market-data integration focused.",
+        "A full local backend is useful for schema work, but normal browser development can use a hosted Supabase project to avoid a Docker dependency."
+      ],
+      "techStack": [
+        "Next.js App Router and React",
+        "TypeScript and Tailwind CSS",
+        "Supabase Auth and Postgres",
+        "Vitest and ESLint",
+        "Financial Modeling Prep market-data adapter",
+        "Gemini AI provider adapter"
+      ],
+      "status": "This is an in-progress prototype. Its authenticated portfolio, holdings, watchlist, stock-detail, scoring, user-rule, cached-market-data, and on-demand AI pathways are implemented in the repository. The wider product roadmap remains in docs/product-plan.md."
+    },
+    {
+      "slug": "pet-seen",
+      "title": "Pet Seen",
+      "summary": "Pet Seen is a mobile-first web application for helping people report missing dogs and cats, share privacy-safe public case pages, and submit sightings without creating an account.",
+      "whyBuilt": "Losing a pet is time-sensitive, emotionally difficult, and location-sensitive. I wanted to design a service that makes reporting and sharing fast without exposing the exact location of a missing animal publicly. The central product constraint is simple: public views are useful, but exact locations remain available only to the case owner and authorised staff.",
+      "featured": false,
+      "repositoryUrl": "https://github.com/eerrecalde/pet-seen",
+      "screenshots": [
+        {
+          "alt": "Missing-pet case flow",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pet-seen/main/docs/screenshots/01-missing-case.png"
+        },
+        {
+          "alt": "Pet Seen home",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pet-seen/main/docs/screenshots/01-home.webp"
+        },
+        {
+          "alt": "Missing pets near you in list view",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pet-seen/main/docs/screenshots/02-nearby-pets-list.webp"
+        },
+        {
+          "alt": "Missing pets near you in map view",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pet-seen/main/docs/screenshots/03-nearby-pets-map.webp"
+        }
+      ],
+      "capabilities": [
+        "Lets authenticated owners create, edit, share, close, and mark missing-pet cases as reunited.",
+        "Generates non-sequential public case URLs that show an approximate, server-provided location area rather than an exact pin.",
+        "Lets neighbours submit a location-first sighting without an account, with GPS, place search, movable-pin confirmation, and manual fallback paths.",
+        "Gives owners protected access to their case timeline and authorised exact sighting locations.",
+        "Includes moderation, found-pet reporting, candidate matching, watch-area alerts, photo processing, poster generation, and multilingual foundations."
+      ],
+      "technicalHighlights": [
+        "Privacy-aware geospatial data model. Supabase/Postgres with PostGIS, row-level security, and separate protected and public-safe location data preserve the public/private boundary.",
+        "Resilient location UX. MapLibre supports GPS, place search, movable pins, and manual fallback so denied location permission does not block a report.",
+        "Feature-oriented React architecture. React Router, TanStack Query, typed Supabase access, focused feature APIs, mutations, and workflows keep page composition separate from data access.",
+        "Safe image handling. The upload workflow validates images, strips EXIF metadata, creates private display derivatives, and exposes public images through bounded cacheable URLs only after publication checks.",
+        "Controlled assisted matching. Deterministic matching narrows candidates first; AI-assisted scoring is rate- and budget-limited, auditable, and intended for staff review rather than automatic certainty.",
+        "Practical quality gates. The project includes unit tests, SQL contracts, end-to-end flows, visual-regression coverage, type checking, linting, and production builds."
+      ],
+      "keyDecisions": [
+        "A missing-case owner signs in, but a person reporting a sighting does not need an account. This reduces friction during urgent reporting while retaining a protected owner workspace.",
+        "Public exact coordinates are not returned to the client. Approximate locations are generated and persisted server-side for public use.",
+        "The initial beta is deliberately restricted to dogs, cats, the United Kingdom, and a focused local launch area.",
+        "Photo originals remain private. Public delivery uses processed derivatives and short, bounded cache lifetimes instead of unrestricted storage access.",
+        "AI can add operational support, but the system keeps deterministic rules, cost guards, staff review, and safe fallbacks in control."
+      ],
+      "techStack": [
+        "React, TypeScript, Vite, React Router, and Tailwind CSS",
+        "Supabase Auth, Postgres, PostGIS, Storage, and Edge Functions",
+        "TanStack Query, i18next, MapLibre, and QR-code generation",
+        "Vitest, Playwright, ESLint, and Prettier"
+      ],
+      "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
+    }
+  ],
+  "experience": [
+    {
+      "company": "Luno",
+      "title": "Senior Software Engineer",
+      "startDate": "2022-07",
+      "endDate": "2026-08",
+      "location": "Greater London, United Kingdom",
+      "highlights": [
+        "Led frontend delivery for customer-facing Buy, Sell, Send, and Receive journeys across Angular and TypeScript.",
+        "Partnered with product, design, iOS, Android, and engineering teams to clarify requirements and surface technical risks early.",
+        "Built and maintained web and mobile web-view Help Centre experiences, and used AI-assisted workflows with clear delivery guardrails."
+      ]
+    },
+    {
+      "company": "Freelance",
+      "title": "Frontend Developer",
+      "startDate": "2007-01",
+      "endDate": "2022-08",
+      "location": "Rosario, Argentina and London, United Kingdom",
+      "highlights": [
+        "Delivered frontend work using HTML, CSS, Sass, Less, Tailwind CSS, React, Next.js, Angular, TypeScript, and JavaScript.",
+        "Applied SEO and visual-design skills across a range of web projects."
+      ]
+    },
+    {
+      "company": "TechSoup",
+      "title": "Principal Engineer",
+      "startDate": "2017-06",
+      "endDate": "2022-07",
+      "location": "London Area, United Kingdom",
+      "highlights": [
+        "Set frontend architecture and engineering direction across TypeScript, React, AngularJS, Tailwind CSS, and Bootstrap.",
+        "Created a reusable TypeScript data-layer library that made complex backend structures easier for frontend features to consume.",
+        "Led migrations from AngularJS to React and from Bootstrap to Tailwind CSS."
+      ]
+    },
+    {
+      "company": "Sainsbury's",
+      "title": "Front End Engineer",
+      "startDate": "2016-04",
+      "endDate": "2017-05",
+      "location": "London Area, United Kingdom",
+      "highlights": [
+        "Built accessible web experiences using BEM, ITCSS, React, ES6, npm scripts, and Webpack.",
+        "Worked to AA-level accessibility standards."
+      ]
+    },
+    {
+      "company": "Digital Annexe",
+      "title": "Front End Developer",
+      "startDate": "2014-09",
+      "endDate": "2016-05",
+      "location": "London, United Kingdom",
+      "highlights": [
+        "Delivered responsive web projects for automotive clients using HTML5, CSS3, Sass, AngularJS, jQuery, and Git.",
+        "Worked in Agile delivery teams on client-facing web applications."
+      ]
+    },
+    {
+      "company": "BairesDev",
+      "title": "Front-end Developer",
+      "startDate": "2013-06",
+      "endDate": "2014-09",
+      "location": "Rosario, Argentina",
+      "highlights": [
+        "Built user interfaces for enterprise clients including General Electric and Netgear.",
+        "Collaborated with Agile teams on API integrations spanning PHP, Grails, Python, and C#."
+      ]
+    },
+    {
+      "company": "Globant",
+      "title": "Front-end Developer",
+      "startDate": "2011-06",
+      "endDate": "2013-06",
+      "location": "Rosario, Argentina",
+      "highlights": [
+        "Developed semantic, standards-compliant XHTML and HTML5 interfaces with responsive CSS3 and JavaScript.",
+        "Integrated APIs including Google Maps and social-media services."
+      ]
+    },
+    {
+      "company": "ultrasitios.com",
+      "title": "Technical Support and Server Administrator",
+      "startDate": "2007-08",
+      "endDate": "2011-06",
+      "location": "Rosario, Argentina",
+      "highlights": [
+        "Provided Linux server administration, technical support, administrative support, and web-development work."
+      ]
+    }
+  ]
+}
