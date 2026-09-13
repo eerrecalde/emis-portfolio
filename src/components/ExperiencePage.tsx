@@ -9,7 +9,7 @@ export function ExperiencePage({ experience }: ExperiencePageProps) {
         <p className="text-xs font-semibold tracking-[0.24em] text-cyan-300 uppercase">
           Experience
         </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-normal tracking-tight text-slate-100 sm:text-4xl">
           Professional experience
         </h1>
         <p className="mt-5 text-lg leading-8 text-slate-300">
@@ -26,7 +26,7 @@ export function ExperiencePage({ experience }: ExperiencePageProps) {
               aria-hidden="true"
             />
             <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-              <h2 className="text-xl font-semibold tracking-tight text-slate-50">
+              <h2 className="text-xl font-semibold tracking-tight text-slate-100">
                 {role.title}
               </h2>
               <p className="shrink-0 text-sm text-slate-400">

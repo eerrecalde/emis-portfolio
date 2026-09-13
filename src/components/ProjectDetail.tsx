@@ -20,7 +20,7 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
         <p className="text-xs font-semibold tracking-[0.24em] text-cyan-300 uppercase">
           Case study
         </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-100 sm:text-5xl">
           {project.title}
         </h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
@@ -35,7 +35,7 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
       </header>
 
       <section className="mt-10" aria-labelledby="why-built">
-        <h2 className="text-xl font-semibold text-slate-50" id="why-built">
+        <h2 className="text-xl font-semibold text-slate-100" id="why-built">
           Why I built it
         </h2>
         <p className="mt-3 leading-7 text-slate-300">{project.whyBuilt}</p>
@@ -58,7 +58,7 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
       />
 
       <section className="mt-10" aria-labelledby="tech-stack">
-        <h2 className="text-xl font-semibold text-slate-50" id="tech-stack">
+        <h2 className="text-xl font-semibold text-slate-100" id="tech-stack">
           Tech stack
         </h2>
         <ul
@@ -77,7 +77,7 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
       </section>
 
       <section className="mt-10" aria-labelledby="project-status">
-        <h2 className="text-xl font-semibold text-slate-50" id="project-status">
+        <h2 className="text-xl font-semibold text-slate-100" id="project-status">
           Status
         </h2>
         <p className="mt-3 leading-7 text-slate-300">{project.status}</p>
@@ -85,7 +85,7 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
 
       {project.screenshots.length > 0 ? (
         <section className="mt-10" aria-labelledby="screenshots">
-          <h2 className="text-xl font-semibold text-slate-50" id="screenshots">
+          <h2 className="text-xl font-semibold text-slate-100" id="screenshots">
             Screenshots
           </h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -119,7 +119,7 @@ type DetailListProps = { heading: string; id: string; items: string[] };
 function DetailList({ heading, id, items }: DetailListProps) {
   return (
     <section className="mt-10" aria-labelledby={id}>
-      <h2 className="text-xl font-semibold text-slate-50" id={id}>
+      <h2 className="text-xl font-semibold text-slate-100" id={id}>
         {heading}
       </h2>
       <ul className="mt-4 list-disc space-y-3 pl-5 leading-7 text-slate-300 marker:text-violet-400">

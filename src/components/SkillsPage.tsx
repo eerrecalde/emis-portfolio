@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { select } from 'd3-selection';
 import { scaleLinear } from 'd3-scale';
 import 'd3-transition';
+import { useSearchParams } from 'react-router';
 import {
   skillAreas,
   type PortfolioSkill,
@@ -31,11 +32,12 @@ const MOBILE_LABELS: Record<string, string> = {
 type SkillsPageProps = { skills: PortfolioSkill[] };
 
 export function SkillsPage({ skills }: SkillsPageProps) {
-  const [activeAreas, setActiveAreas] = useState<Set<SkillArea>>(
-    () => new Set(skillAreas),
-  );
+  const [searchParams, setSearchParams] = useSearchParams();
   const [chartWidth, setChartWidth] = useState(960);
   const chartRef = useRef<SVGSVGElement>(null);
+  const activeArea = skillAreas.find(
+    (area) => area === searchParams.get('filter'),
+  );
 
   const availableAreas = useMemo(
     () =>
@@ -57,10 +59,12 @@ export function SkillsPage({ skills }: SkillsPageProps) {
   );
   const visibleSkills = useMemo(
     () =>
-      sortedSkills.filter((skill) =>
-        skill.areas.some((area) => activeAreas.has(area)),
-      ),
-    [activeAreas, sortedSkills],
+      activeArea === undefined
+        ? sortedSkills
+        : sortedSkills.filter((skill) =>
+            skill.areas.includes(activeArea),
+          ),
+    [activeArea, sortedSkills],
   );
   const visibleIndex = useMemo(
     () => new Map(visibleSkills.map((skill, index) => [skill.id, index])),
@@ -108,21 +112,21 @@ export function SkillsPage({ skills }: SkillsPageProps) {
   }, [chartHeight, visibleIndex, visibleSkills.length]);
 
   function toggleArea(area: SkillArea) {
-    setActiveAreas((current) => {
-      const next = new Set(current);
-      if (next.has(area)) {
-        next.delete(area);
-      } else {
-        next.add(area);
-      }
-      return next;
-    });
+    const nextParams = new URLSearchParams(searchParams);
+
+    if (activeArea === area) {
+      nextParams.delete('filter');
+    } else {
+      nextParams.set('filter', area);
+    }
+
+    setSearchParams(nextParams);
   }
 
   return (
     <>
       <header>
-        <h1 className="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">
+        <h1 className="text-3xl font-normal tracking-tight text-slate-100 sm:text-4xl">
           Skills
         </h1>
       </header>
@@ -134,7 +138,7 @@ export function SkillsPage({ skills }: SkillsPageProps) {
           </p>
           <div className="flex flex-wrap gap-2">
             {availableAreas.map((area) => {
-              const isActive = activeAreas.has(area);
+              const isActive = activeArea === area;
               return (
                 <button
                   aria-pressed={isActive}
@@ -158,7 +162,7 @@ export function SkillsPage({ skills }: SkillsPageProps) {
       <figure className="mt-10" aria-labelledby="experience-arcs-title">
         <div className="flex flex-wrap items-baseline justify-between gap-4">
           <h2
-            className="text-xl font-semibold tracking-tight text-slate-50"
+            className="text-xl font-semibold tracking-tight text-slate-100"
             id="experience-arcs-title"
           >
             Experience arcs
