@@ -6,8 +6,8 @@ does not begin until every Phase 1 curation task is done. See
 
 ## Current next task
 
-**P2-02 — Update the frontend foundation to the latest stable React with React
-Compiler; add React Router and ESLint.**
+**P2-03 — Define project and professional-experience domain content; test
+ingestion with fixtures.**
 
 ## Completed groundwork
 
@@ -30,8 +30,8 @@ Compiler; add React Router and ESLint.**
 | ID    | Task                                                                                                                        | Status      | Depends on        |
 | ----- | --------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
 | P2-01 | Reassess curated repository output and finalize the smallest ingestion format.                                              | Done        | P1-04             |
-| P2-02 | Update the frontend foundation to the latest stable React with React Compiler; add React Router and ESLint.                 | Next        | P2-01             |
-| P2-03 | Define project and professional-experience domain content; test ingestion with fixtures.                                    | Not started | P2-01             |
+| P2-02 | Update the frontend foundation to the latest stable React with React Compiler; add React Router and ESLint.                 | Done        | P2-01             |
+| P2-03 | Define project and professional-experience domain content; test ingestion with fixtures.                                    | Next        | P2-01             |
 | P2-04 | Build accessible shared layout, routing, project listing, and detail-page composition.                                      | Not started | P2-02, P2-03      |
 | P2-05 | Build the homepage with professional experience and featured projects.                                                      | Not started | P2-04             |
 | P2-06 | Apply the approved visual direction, responsive behaviour, and image performance treatment.                                 | Not started | P2-04, mood board |
