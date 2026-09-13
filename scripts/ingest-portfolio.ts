@@ -135,11 +135,51 @@ export async function runIngestion(
     JSON.parse(skillsSource) as SkillCatalogueSource,
   );
   const output = `${JSON.stringify(content, null, 2)}\n`;
+  const homeContent = {
+    projects: content.projects.map(
+      ({ slug, title, summary, featured, screenshots, skillIds, status }) => ({
+        slug,
+        title,
+        summary,
+        featured,
+        screenshots,
+        skillIds,
+        status,
+      }),
+    ),
+    skills: content.skills.map(({ id, displayName }) => ({ id, displayName })),
+  };
+  const projectDetails = { projects: content.projects };
 
   await mkdir(dirname(options.outputPath), { recursive: true });
-  const temporaryOutput = `${options.outputPath}.tmp`;
-  await writeFile(temporaryOutput, output, 'utf8');
-  await rename(temporaryOutput, options.outputPath);
+  const outputs = [
+    [options.outputPath, output],
+    [
+      resolve(dirname(options.outputPath), 'home.json'),
+      `${JSON.stringify(homeContent, null, 2)}\n`,
+    ],
+    [
+      resolve(dirname(options.outputPath), 'project-details.json'),
+      `${JSON.stringify(projectDetails, null, 2)}\n`,
+    ],
+    [
+      resolve(dirname(options.outputPath), 'experience.json'),
+      `${JSON.stringify({ experience: content.experience }, null, 2)}\n`,
+    ],
+    [
+      resolve(dirname(options.outputPath), 'skills.json'),
+      `${JSON.stringify({ skills: content.skills }, null, 2)}\n`,
+    ],
+  ] as const;
+
+  await Promise.all(
+    outputs.map(async ([path, contents]) => {
+      const temporaryOutput = `${path}.tmp`;
+
+      await writeFile(temporaryOutput, contents, 'utf8');
+      await rename(temporaryOutput, path);
+    }),
+  );
 
   return content;
 }

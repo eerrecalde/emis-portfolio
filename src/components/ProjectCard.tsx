@@ -1,10 +1,13 @@
 import { Link } from 'react-router';
 import { resolveSkills } from '../data/skills';
-import type { PortfolioProject, PortfolioSkill } from '../types/portfolio';
+import type {
+  PortfolioProjectPreview,
+  PortfolioSkillPreview,
+} from '../types/portfolio';
 
 type ProjectCardProps = {
-  project: PortfolioProject;
-  skillsById: ReadonlyMap<string, PortfolioSkill>;
+  project: PortfolioProjectPreview;
+  skillsById: ReadonlyMap<string, PortfolioSkillPreview>;
   headingLevel: 'h2' | 'h3';
 };
 

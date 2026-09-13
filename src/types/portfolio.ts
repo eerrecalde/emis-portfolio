@@ -23,6 +23,8 @@ export type PortfolioSkill = {
   aliases: string[];
 };
 
+export type PortfolioSkillPreview = Pick<PortfolioSkill, 'id' | 'displayName'>;
+
 export type PortfolioProject = {
   slug: string;
   title: string;
@@ -38,6 +40,17 @@ export type PortfolioProject = {
   status: string;
 };
 
+export type PortfolioProjectPreview = Pick<
+  PortfolioProject,
+  | 'slug'
+  | 'title'
+  | 'summary'
+  | 'featured'
+  | 'screenshots'
+  | 'skillIds'
+  | 'status'
+>;
+
 export type ProfessionalExperience = {
   company: string;
   title: string;
@@ -52,3 +65,10 @@ export type PortfolioContent = {
   experience: ProfessionalExperience[];
   skills: PortfolioSkill[];
 };
+
+export type HomePortfolioContent = {
+  projects: PortfolioProjectPreview[];
+  skills: PortfolioSkillPreview[];
+};
+
+export type ProjectDetailsContent = { projects: PortfolioProject[] };

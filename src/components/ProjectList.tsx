@@ -1,9 +1,12 @@
-import type { PortfolioProject, PortfolioSkill } from '../types/portfolio';
+import type {
+  PortfolioProjectPreview,
+  PortfolioSkillPreview,
+} from '../types/portfolio';
 import { ProjectCard } from './ProjectCard';
 
 type ProjectListProps = {
-  projects: PortfolioProject[];
-  skillsById: ReadonlyMap<string, PortfolioSkill>;
+  projects: PortfolioProjectPreview[];
+  skillsById: ReadonlyMap<string, PortfolioSkillPreview>;
   headingLevel?: 'h2' | 'h3';
 };
 

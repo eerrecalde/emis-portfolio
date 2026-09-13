@@ -1,0 +1,262 @@
+{
+  "projects": [
+    {
+      "slug": "pill-reminder",
+      "title": "Pill Reminder",
+      "summary": "Pill Reminder is a local-first mobile app for creating medication reminders and keeping a simple daily record of whether a dose was taken, skipped, or missed.",
+      "featured": false,
+      "screenshots": [
+        {
+          "alt": "Today dashboard with an example reminder",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pill_reminder/main/docs/screenshots/01-today-dashboard.webp"
+        }
+      ],
+      "skillIds": [
+        "flutter-dart",
+        "internationalisation-localisation",
+        "web-accessibility",
+        "testing"
+      ],
+      "status": "The application has implemented medication management, schedules, a today dashboard, due-reminder actions, medication history, privacy controls, local notification handling, English/Latin American Spanish support, and ringtone selection. It remains an active mobile project rather than a published medication-management service."
+    },
+    {
+      "slug": "assets-watcher",
+      "title": "Assets Watcher",
+      "summary": "Assets Watcher is a multi-user stock-portfolio intelligence prototype for tracking US-listed holdings and watchlist ideas. It turns cached market data and transparent, deterministic rules into educational context—not trading instructions.",
+      "featured": false,
+      "screenshots": [
+        {
+          "alt": "Dashboard populated with local demo data",
+          "url": "https://raw.githubusercontent.com/eerrecalde/assets-watcher/main/docs/screenshots/01-dashboard.webp"
+        },
+        {
+          "alt": "Holdings populated with local demo data",
+          "url": "https://raw.githubusercontent.com/eerrecalde/assets-watcher/main/docs/screenshots/02-holdings.webp"
+        }
+      ],
+      "skillIds": [
+        "next-js",
+        "react",
+        "typescript",
+        "tailwind-css",
+        "supabase",
+        "vitest"
+      ],
+      "status": "This is an in-progress prototype. Its authenticated portfolio, holdings, watchlist, stock-detail, scoring, user-rule, cached-market-data, and on-demand AI pathways are implemented in the repository. The wider product roadmap remains in docs/product-plan.md."
+    },
+    {
+      "slug": "pet-seen",
+      "title": "Pet Seen",
+      "summary": "Pet Seen is a mobile-first web application for helping people report missing dogs and cats, share privacy-safe public case pages, and submit sightings without creating an account.",
+      "featured": true,
+      "screenshots": [
+        {
+          "alt": "Missing-pet case flow",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pet-seen/main/docs/screenshots/01-missing-case.png"
+        },
+        {
+          "alt": "Pet Seen home",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pet-seen/main/docs/screenshots/01-home.webp"
+        },
+        {
+          "alt": "Missing pets near you in list view",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pet-seen/main/docs/screenshots/02-nearby-pets-list.webp"
+        },
+        {
+          "alt": "Missing pets near you in map view",
+          "url": "https://raw.githubusercontent.com/eerrecalde/pet-seen/main/docs/screenshots/03-nearby-pets-map.webp"
+        }
+      ],
+      "skillIds": [
+        "react",
+        "typescript",
+        "vite",
+        "tailwind-css",
+        "supabase",
+        "internationalisation-localisation",
+        "vitest",
+        "web-accessibility",
+        "frontend-architecture"
+      ],
+      "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
+    }
+  ],
+  "skills": [
+    {
+      "id": "frontend-engineering",
+      "displayName": "Frontend engineering"
+    },
+    {
+      "id": "react",
+      "displayName": "React"
+    },
+    {
+      "id": "typescript",
+      "displayName": "TypeScript"
+    },
+    {
+      "id": "javascript",
+      "displayName": "JavaScript"
+    },
+    {
+      "id": "responsive-web-design",
+      "displayName": "Responsive web design"
+    },
+    {
+      "id": "web-accessibility",
+      "displayName": "Web accessibility"
+    },
+    {
+      "id": "design-systems",
+      "displayName": "Design systems"
+    },
+    {
+      "id": "frontend-architecture",
+      "displayName": "Frontend architecture"
+    },
+    {
+      "id": "component-libraries",
+      "displayName": "Component libraries"
+    },
+    {
+      "id": "performance-optimisation",
+      "displayName": "Performance optimisation"
+    },
+    {
+      "id": "testing",
+      "displayName": "Testing"
+    },
+    {
+      "id": "vitest",
+      "displayName": "Vitest"
+    },
+    {
+      "id": "karma",
+      "displayName": "Karma"
+    },
+    {
+      "id": "jasmine",
+      "displayName": "Jasmine"
+    },
+    {
+      "id": "cypress",
+      "displayName": "Cypress"
+    },
+    {
+      "id": "playwright",
+      "displayName": "Playwright"
+    },
+    {
+      "id": "tailwind-css",
+      "displayName": "Tailwind CSS"
+    },
+    {
+      "id": "sass-less",
+      "displayName": "Sass / Less"
+    },
+    {
+      "id": "angular",
+      "displayName": "Angular"
+    },
+    {
+      "id": "angularjs",
+      "displayName": "AngularJS"
+    },
+    {
+      "id": "next-js",
+      "displayName": "Next.js"
+    },
+    {
+      "id": "vite",
+      "displayName": "Vite"
+    },
+    {
+      "id": "npm-tooling",
+      "displayName": "npm tooling"
+    },
+    {
+      "id": "rest-api-integration",
+      "displayName": "REST API integration"
+    },
+    {
+      "id": "golang",
+      "displayName": "Golang"
+    },
+    {
+      "id": "node",
+      "displayName": "Node"
+    },
+    {
+      "id": "supabase",
+      "displayName": "Supabase"
+    },
+    {
+      "id": "gcloud",
+      "displayName": "GCloud"
+    },
+    {
+      "id": "aws",
+      "displayName": "AWS"
+    },
+    {
+      "id": "internationalisation-localisation",
+      "displayName": "Internationalisation and localisation"
+    },
+    {
+      "id": "seo",
+      "displayName": "SEO"
+    },
+    {
+      "id": "ai-assisted-engineering-workflows",
+      "displayName": "AI-assisted engineering workflows"
+    },
+    {
+      "id": "flutter-dart",
+      "displayName": "Flutter / Dart"
+    },
+    {
+      "id": "technical-leadership",
+      "displayName": "Technical leadership"
+    },
+    {
+      "id": "agile-delivery",
+      "displayName": "Agile delivery"
+    },
+    {
+      "id": "feature-flags",
+      "displayName": "Feature flags"
+    },
+    {
+      "id": "bitbucket",
+      "displayName": "Bitbucket"
+    },
+    {
+      "id": "github",
+      "displayName": "GitHub"
+    },
+    {
+      "id": "gitlab",
+      "displayName": "GitLab"
+    },
+    {
+      "id": "technical-design-docs",
+      "displayName": "Technical design docs"
+    },
+    {
+      "id": "telemetry",
+      "displayName": "Telemetry"
+    },
+    {
+      "id": "amplitude",
+      "displayName": "Amplitude"
+    },
+    {
+      "id": "gtags",
+      "displayName": "gtags"
+    },
+    {
+      "id": "ab-testing",
+      "displayName": "A/B testing"
+    }
+  ]
+}

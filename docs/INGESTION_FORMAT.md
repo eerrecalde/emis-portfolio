@@ -47,8 +47,8 @@ professional-experience content.
 
 P2-03 adds a second, local-only ingestion step. Run `npm run ingest:portfolio`
 after changing either `data/curated-projects.json` or
-`data/professional-experience.json`, then commit the resulting
-`public/data/portfolio.json`.
+`data/professional-experience.json`, then commit the resulting files in
+`public/data/`.
 
 The generated model retains the curated title, summary, rationale,
 capabilities, technical highlights, decisions, stack, status, screenshots, and
@@ -56,3 +56,9 @@ canonical repository link for each project. It combines those records with
 hand-authored professional experience: company, role, dates, location, and
 outcome-focused highlights. This is the static, browser-safe contract for the
 portfolio; it excludes CV contact details and never calls GitHub at runtime.
+
+The generated content is split by route: `home.json` contains the project
+previews and skill names needed for the home page, while project details,
+experience, and the complete skill catalogue are emitted separately. This
+keeps the first request focused on the home page and lets the application warm
+the other routes after it is visible.
