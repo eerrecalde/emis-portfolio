@@ -16,7 +16,12 @@ describe('ProjectList', () => {
               summary: 'A short description',
               whyBuilt: 'To prove the project detail route.',
               repositoryUrl: 'https://github.com/owner/demo',
-              screenshots: [],
+              screenshots: [
+                {
+                  alt: 'Demo dashboard',
+                  url: 'https://example.com/dashboard.webp',
+                },
+              ],
               capabilities: [],
               technicalHighlights: [],
               keyDecisions: [],
@@ -32,5 +37,13 @@ describe('ProjectList', () => {
     expect(
       screen.getByRole('link', { name: 'View project: Demo' }),
     ).toHaveAttribute('href', '/projects/demo');
+    expect(screen.getByRole('img', { name: 'Demo dashboard' })).toHaveAttribute(
+      'loading',
+      'lazy',
+    );
+    expect(screen.getByRole('img', { name: 'Demo dashboard' })).toHaveAttribute(
+      'decoding',
+      'async',
+    );
   });
 });
