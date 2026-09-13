@@ -22,6 +22,7 @@ does not begin until every Phase 1 curation task is done. See
 | M-01 | Organise route-specific UI in `src/pages` and split reusable JSX components by file. | Done   |
 | M-02 | Align the project-detail title treatment with the experience and skills pages.       | Done   |
 | M-03 | Defer non-home route code and content, then warm it after the home page is visible.  | Done   |
+| M-04 | Reset the scroll position when visitors navigate between portfolio routes.           | Done   |
 
 ## Phase 1 — repository curation
 
