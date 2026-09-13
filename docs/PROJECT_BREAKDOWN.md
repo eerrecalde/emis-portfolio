@@ -6,8 +6,8 @@ does not begin until every Phase 1 curation task is done. See
 
 ## Current next task
 
-**P2-07 — Complete component/page tests, a small E2E suite if warranted,
-accessibility and performance review, and static deployment.**
+**P2-07 — Define reusable skills with years of experience and replace the
+combined skill pills throughout the portfolio.**
 
 ## Completed groundwork
 
@@ -35,4 +35,6 @@ accessibility and performance review, and static deployment.**
 | P2-04 | Build accessible shared layout, routing, project listing, and detail-page composition.                                      | Done        | P2-02, P2-03      |
 | P2-05 | Build the project-portfolio homepage and a dedicated professional-experience page.                                          | Done        | P2-04             |
 | P2-06 | Apply the approved visual direction, responsive behaviour, and image performance treatment.                                 | Done        | P2-04, mood board |
-| P2-07 | Complete component/page tests, a small E2E suite if warranted, accessibility and performance review, and static deployment. | Not started | P2-05, P2-06      |
+| P2-07 | Define the skill list and years of experience; use that shared data to replace the current combined skill pills wherever skills appear. | Not started | P2-05, P2-06 |
+| P2-08 | Build an accessible `/skills` page that visualises the individual skills by years of experience using D3 or a similarly suitable chart library. | Not started | P2-07 |
+| P2-09 | Complete component/page tests, a small E2E suite if warranted, accessibility and performance review, and static deployment. | Not started | P2-05, P2-06, P2-08 |
