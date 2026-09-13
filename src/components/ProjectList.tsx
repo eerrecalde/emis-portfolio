@@ -1,9 +1,17 @@
 import { Link } from 'react-router';
 import type { PortfolioProject } from '../types/portfolio';
 
-type ProjectListProps = { projects: PortfolioProject[] };
+type ProjectListProps = {
+  projects: PortfolioProject[];
+  headingLevel?: 'h2' | 'h3';
+};
 
-export function ProjectList({ projects }: ProjectListProps) {
+export function ProjectList({
+  projects,
+  headingLevel = 'h2',
+}: ProjectListProps) {
+  const Heading = headingLevel;
+
   return (
     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => (
@@ -11,14 +19,14 @@ export function ProjectList({ projects }: ProjectListProps) {
           className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
           key={project.slug}
         >
-          <h2 className="text-lg font-semibold text-slate-950">
+          <Heading className="text-lg font-semibold text-slate-950">
             <Link
               className="focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700"
               to={`/projects/${project.slug}`}
             >
               {project.title}
             </Link>
-          </h2>
+          </Heading>
           <p className="mt-2 min-h-12 text-sm leading-6 text-slate-600">
             {project.summary}
           </p>

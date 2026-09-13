@@ -29,7 +29,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
                     : 'text-slate-600 hover:text-slate-950'
                 }`
               }
-              to="/"
+              to="/projects"
             >
               Selected work
             </NavLink>

@@ -11,7 +11,7 @@ const portfolio = {
       title: 'Demo project',
       summary: 'A project used to verify application routes.',
       whyBuilt: 'To verify project detail composition.',
-      featured: false,
+      featured: true,
       repositoryUrl: 'https://github.com/owner/demo',
       screenshots: [],
       capabilities: ['Shows a project detail page.'],
@@ -54,7 +54,7 @@ describe('App', () => {
     renderApp();
 
     expect(
-      await screen.findByRole('heading', { name: 'Selected work' }),
+      await screen.findByRole('heading', { name: 'Emiliano Errecalde' }),
     ).toBeInTheDocument();
     await waitFor(() =>
       expect(screen.queryByText('Loading portfolio…')).not.toBeInTheDocument(),
@@ -83,6 +83,24 @@ describe('App', () => {
     expect(
       screen.getByRole('link', { name: 'View repository' }),
     ).toHaveAttribute('href', 'https://github.com/owner/demo');
+  });
+
+  it('keeps all curated projects available from the project listing route', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(
+        async () => new Response(JSON.stringify(portfolio), { status: 200 }),
+      ),
+    );
+
+    renderApp('/projects');
+
+    expect(
+      await screen.findByRole('heading', { name: 'Selected work' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'View project: Demo project' }),
+    ).toHaveAttribute('href', '/projects/demo');
   });
 
   it('shows a useful not-found page for an unknown route', async () => {

@@ -1,10 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link, Route, Routes, useParams } from 'react-router';
+import { HomePage } from './components/HomePage';
 import { ProjectDetail } from './components/ProjectDetail';
 import { ProjectList } from './components/ProjectList';
 import { SiteLayout } from './components/SiteLayout';
 import { fetchPortfolio } from './data/portfolio';
-import type { PortfolioProject } from './types/portfolio';
+import type {
+  PortfolioProject,
+  ProfessionalExperience,
+} from './types/portfolio';
 
 export default function App() {
   const projectsQuery = useQuery({
@@ -19,20 +23,34 @@ export default function App() {
         <p role="alert">{projectsQuery.error.message}</p>
       ) : null}
       {projectsQuery.data ? (
-        <PortfolioRoutes projects={projectsQuery.data.projects} />
+        <PortfolioRoutes
+          experience={projectsQuery.data.experience}
+          projects={projectsQuery.data.projects}
+        />
       ) : null}
     </SiteLayout>
   );
 }
 
-type PortfolioRoutesProps = {
+type ProjectsProps = {
   projects: PortfolioProject[];
 };
 
-function PortfolioRoutes({ projects }: PortfolioRoutesProps) {
+type PortfolioRoutesProps = ProjectsProps & {
+  experience: ProfessionalExperience[];
+};
+
+function PortfolioRoutes({ projects, experience }: PortfolioRoutesProps) {
   return (
     <Routes>
-      <Route element={<ProjectListing projects={projects} />} path="/" />
+      <Route
+        element={<HomePage experience={experience} projects={projects} />}
+        path="/"
+      />
+      <Route
+        element={<ProjectListing projects={projects} />}
+        path="/projects"
+      />
       <Route
         element={<ProjectPage projects={projects} />}
         path="/projects/:slug"
@@ -42,12 +60,15 @@ function PortfolioRoutes({ projects }: PortfolioRoutesProps) {
   );
 }
 
-function ProjectListing({ projects }: PortfolioRoutesProps) {
+function ProjectListing({ projects }: ProjectsProps) {
   return (
-    <>
+    <section aria-labelledby="projects-heading">
       <header className="max-w-2xl">
         <p className="text-sm font-medium text-indigo-700">Portfolio</p>
-        <h1 className="mt-3 text-4xl font-semibold tracking-tight text-slate-950">
+        <h1
+          className="mt-3 text-4xl font-semibold tracking-tight text-slate-950"
+          id="projects-heading"
+        >
           Selected work
         </h1>
         <p className="mt-4 text-base leading-7 text-slate-600">
@@ -55,25 +76,18 @@ function ProjectListing({ projects }: PortfolioRoutesProps) {
           behind each one.
         </p>
       </header>
-      <section
-        className="mt-12"
-        id="projects"
-        aria-labelledby="projects-heading"
-      >
-        <h2 className="sr-only" id="projects-heading">
-          Projects
-        </h2>
-        {projects.length > 0 ? (
+      {projects.length > 0 ? (
+        <div className="mt-12">
           <ProjectList projects={projects} />
-        ) : (
-          <p>No projects are available yet.</p>
-        )}
-      </section>
-    </>
+        </div>
+      ) : (
+        <p className="mt-12">No projects are available yet.</p>
+      )}
+    </section>
   );
 }
 
-function ProjectPage({ projects }: PortfolioRoutesProps) {
+function ProjectPage({ projects }: ProjectsProps) {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
 

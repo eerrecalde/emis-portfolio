@@ -8,7 +8,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
     <article className="max-w-4xl">
       <Link
         className="text-sm font-medium text-indigo-700 hover:text-indigo-900 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700"
-        to="/#projects"
+        to="/projects"
       >
         Back to selected work
       </Link>
