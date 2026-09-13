@@ -1,11 +1,22 @@
-import type { ReactNode } from 'react';
-import { NavLink } from 'react-router';
+import { useEffect, type ReactNode } from 'react';
+import { NavLink, useLocation } from 'react-router';
 
 type SiteLayoutProps = { children: ReactNode };
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export function SiteLayout({ children }: SiteLayoutProps) {
   return (
     <div className="min-h-screen text-slate-100">
+      <ScrollToTop />
       <a
         className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-6 focus:z-10 focus:rounded-md focus:bg-slate-50 focus:px-4 focus:py-2 focus:font-medium focus:text-slate-950 focus:shadow"
         href="#main-content"
