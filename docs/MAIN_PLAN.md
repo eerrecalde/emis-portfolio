@@ -56,6 +56,14 @@ search, blog, theme switcher, or animation framework in version 1.
 - Test ingestion with fixtures and cover important component and page behaviour.
   Add only a small desktop-and-mobile end-to-end suite if it provides value.
 
+## Visual direction
+
+Use [the portfolio mood board](./design/emis-portfolio-moodboard.png) as the
+reference for Phase 2 interface work: a near-black and slate foundation,
+restrained violet-to-cyan accents, confident typography, generous whitespace,
+and subtle purposeful interaction. Keep the result calm, accessible, and
+focused on real project work rather than decorative effects.
+
 ## Source and tracking
 
 This is the repository copy of the approved main plan. The ordered implementation
