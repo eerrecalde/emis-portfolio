@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Portfolio project configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["projects"],
+  "properties": {
+    "projects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "repositoryUrl", "featured"],
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Stable, URL-friendly identifier for the portfolio project page.",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "repositoryUrl": {
+            "type": "string",
+            "description": "Canonical public GitHub repository URL.",
+            "format": "uri",
+            "pattern": "^https://github\\.com/[^/]+/[^/]+/?$"
+          },
+          "featured": {
+            "type": "boolean",
+            "description": "Whether to show this project in a future featured-projects section."
+          },
+          "curation": {
+            "type": "object",
+            "description": "Optional Phase 1 curation progress. Omit it for newly added projects.",
+            "additionalProperties": false,
+            "required": ["documentation", "screenshots"],
+            "properties": {
+              "documentation": {
+                "type": "string",
+                "enum": ["pending", "ready"]
+              },
+              "screenshots": {
+                "type": "string",
+                "enum": ["pending", "ready"]
+              },
+              "branch": {
+                "type": "string",
+                "description": "Branch containing the curation work until it is merged."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

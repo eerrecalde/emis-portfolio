@@ -1,0 +1,35 @@
+{
+  "$schema": "./projects.config.schema.json",
+  "projects": [
+    {
+      "slug": "pill-reminder",
+      "repositoryUrl": "https://github.com/eerrecalde/pill_reminder",
+      "featured": false,
+      "curation": {
+        "documentation": "ready",
+        "screenshots": "pending",
+        "branch": "docs/portfolio-curation"
+      }
+    },
+    {
+      "slug": "assets-watcher",
+      "repositoryUrl": "https://github.com/eerrecalde/assets-watcher",
+      "featured": false,
+      "curation": {
+        "documentation": "ready",
+        "screenshots": "pending",
+        "branch": "docs/portfolio-curation"
+      }
+    },
+    {
+      "slug": "pet-seen",
+      "repositoryUrl": "https://github.com/eerrecalde/pet-seen",
+      "featured": false,
+      "curation": {
+        "documentation": "ready",
+        "screenshots": "ready",
+        "branch": "docs/portfolio-curation"
+      }
+    }
+  ]
+}
