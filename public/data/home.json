@@ -83,10 +83,6 @@
   ],
   "skills": [
     {
-      "id": "frontend-engineering",
-      "displayName": "Frontend engineering"
-    },
-    {
       "id": "react",
       "displayName": "React"
     },
