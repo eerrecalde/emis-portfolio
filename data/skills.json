@@ -322,6 +322,20 @@
       ]
     },
     {
+      "id": "amplitude",
+      "displayName": "Amplitude",
+      "yearsOfExperience": 4,
+      "areas": ["analytics"],
+      "aliases": []
+    },
+    {
+      "id": "gtags",
+      "displayName": "gtags",
+      "yearsOfExperience": 4,
+      "areas": ["analytics"],
+      "aliases": []
+    },
+    {
       "id": "ab-testing",
       "displayName": "A/B testing",
       "yearsOfExperience": 4,
