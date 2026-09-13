@@ -33,6 +33,6 @@ performance treatment.**
 | P2-02 | Update the frontend foundation to the latest stable React with React Compiler; add React Router and ESLint.                 | Done        | P2-01             |
 | P2-03 | Define project and professional-experience domain content; test ingestion with fixtures.                                    | Done        | P2-01             |
 | P2-04 | Build accessible shared layout, routing, project listing, and detail-page composition.                                      | Done        | P2-02, P2-03      |
-| P2-05 | Build the homepage with professional experience and featured projects.                                                      | Done        | P2-04             |
+| P2-05 | Build the project-portfolio homepage and a dedicated professional-experience page.                                          | Done        | P2-04             |
 | P2-06 | Apply the approved visual direction, responsive behaviour, and image performance treatment.                                 | Not started | P2-04, mood board |
 | P2-07 | Complete component/page tests, a small E2E suite if warranted, accessibility and performance review, and static deployment. | Not started | P2-05, P2-06      |

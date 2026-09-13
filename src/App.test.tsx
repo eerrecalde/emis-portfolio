@@ -54,7 +54,7 @@ describe('App', () => {
     renderApp();
 
     expect(
-      await screen.findByRole('heading', { name: 'Emiliano Errecalde' }),
+      await screen.findByRole('heading', { name: 'Selected projects' }),
     ).toBeInTheDocument();
     await waitFor(() =>
       expect(screen.queryByText('Loading portfolio…')).not.toBeInTheDocument(),
@@ -85,7 +85,7 @@ describe('App', () => {
     ).toHaveAttribute('href', 'https://github.com/owner/demo');
   });
 
-  it('keeps all curated projects available from the project listing route', async () => {
+  it('shows professional experience at its dedicated route', async () => {
     vi.stubGlobal(
       'fetch',
       vi.fn(
@@ -93,14 +93,15 @@ describe('App', () => {
       ),
     );
 
-    renderApp('/projects');
+    renderApp('/experience');
 
     expect(
-      await screen.findByRole('heading', { name: 'Selected work' }),
+      await screen.findByRole('heading', { name: 'Professional experience' }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole('link', { name: 'View project: Demo project' }),
-    ).toHaveAttribute('href', '/projects/demo');
+    expect(screen.getByRole('link', { name: 'Portfolio' })).toHaveAttribute(
+      'href',
+      '/',
+    );
   });
 
   it('shows a useful not-found page for an unknown route', async () => {

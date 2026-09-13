@@ -20,7 +20,10 @@ export function SiteLayout({ children }: SiteLayoutProps) {
           >
             Emiliano Errecalde
           </NavLink>
-          <nav aria-label="Primary navigation">
+          <nav
+            className="flex items-center gap-5"
+            aria-label="Primary navigation"
+          >
             <NavLink
               className={({ isActive }) =>
                 `text-sm font-medium focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700 ${
@@ -29,9 +32,21 @@ export function SiteLayout({ children }: SiteLayoutProps) {
                     : 'text-slate-600 hover:text-slate-950'
                 }`
               }
-              to="/projects"
+              to="/"
             >
-              Selected work
+              Portfolio
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `text-sm font-medium focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700 ${
+                  isActive
+                    ? 'text-indigo-700'
+                    : 'text-slate-600 hover:text-slate-950'
+                }`
+              }
+              to="/experience"
+            >
+              Experience
             </NavLink>
           </nav>
         </div>

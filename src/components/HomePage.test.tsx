@@ -4,20 +4,10 @@ import { describe, expect, it } from 'vitest';
 import { HomePage } from './HomePage';
 
 describe('HomePage', () => {
-  it('shows professional experience and only featured projects', () => {
+  it('lists every curated project', () => {
     render(
       <MemoryRouter>
         <HomePage
-          experience={[
-            {
-              company: 'Example Co',
-              title: 'Senior Frontend Engineer',
-              startDate: '2024-01',
-              endDate: '2025-12',
-              location: 'London, United Kingdom',
-              highlights: ['Led an accessible account journey.'],
-            },
-          ]}
           projects={[
             {
               slug: 'featured-project',
@@ -53,15 +43,13 @@ describe('HomePage', () => {
     );
 
     expect(
-      screen.getByRole('heading', { name: 'Emiliano Errecalde' }),
+      screen.getByRole('heading', { name: 'Selected projects' }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { name: 'Professional experience' }),
+      screen.getByRole('heading', { name: 'Featured Project' }),
     ).toBeInTheDocument();
-    expect(screen.getByText('Example Co')).toBeInTheDocument();
     expect(
-      screen.getByRole('heading', { level: 3, name: 'Featured Project' }),
+      screen.getByRole('heading', { name: 'Other Project' }),
     ).toBeInTheDocument();
-    expect(screen.queryByText('Other Project')).not.toBeInTheDocument();
   });
 });

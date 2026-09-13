@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { Link, Route, Routes, useParams } from 'react-router';
+import { ExperiencePage } from './components/ExperiencePage';
 import { HomePage } from './components/HomePage';
 import { ProjectDetail } from './components/ProjectDetail';
-import { ProjectList } from './components/ProjectList';
 import { SiteLayout } from './components/SiteLayout';
 import { fetchPortfolio } from './data/portfolio';
 import type {
@@ -32,24 +32,18 @@ export default function App() {
   );
 }
 
-type ProjectsProps = {
+type PortfolioRoutesProps = {
   projects: PortfolioProject[];
-};
-
-type PortfolioRoutesProps = ProjectsProps & {
   experience: ProfessionalExperience[];
 };
 
 function PortfolioRoutes({ projects, experience }: PortfolioRoutesProps) {
   return (
     <Routes>
+      <Route element={<HomePage projects={projects} />} path="/" />
       <Route
-        element={<HomePage experience={experience} projects={projects} />}
-        path="/"
-      />
-      <Route
-        element={<ProjectListing projects={projects} />}
-        path="/projects"
+        element={<ExperiencePage experience={experience} />}
+        path="/experience"
       />
       <Route
         element={<ProjectPage projects={projects} />}
@@ -60,34 +54,7 @@ function PortfolioRoutes({ projects, experience }: PortfolioRoutesProps) {
   );
 }
 
-function ProjectListing({ projects }: ProjectsProps) {
-  return (
-    <section aria-labelledby="projects-heading">
-      <header className="max-w-2xl">
-        <p className="text-sm font-medium text-indigo-700">Portfolio</p>
-        <h1
-          className="mt-3 text-4xl font-semibold tracking-tight text-slate-950"
-          id="projects-heading"
-        >
-          Selected work
-        </h1>
-        <p className="mt-4 text-base leading-7 text-slate-600">
-          A selection of product-focused projects, with the technical decisions
-          behind each one.
-        </p>
-      </header>
-      {projects.length > 0 ? (
-        <div className="mt-12">
-          <ProjectList projects={projects} />
-        </div>
-      ) : (
-        <p className="mt-12">No projects are available yet.</p>
-      )}
-    </section>
-  );
-}
-
-function ProjectPage({ projects }: ProjectsProps) {
+function ProjectPage({ projects }: Pick<PortfolioRoutesProps, 'projects'>) {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
 
