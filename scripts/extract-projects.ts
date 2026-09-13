@@ -19,56 +19,26 @@ type ConfigProject = {
 
 type ProjectsConfig = { projects: ConfigProject[] };
 
-type GithubRepository = {
-  name: string;
-  full_name: string;
-  html_url: string;
-  description: string | null;
-  homepage: string | null;
-  stargazers_count: number;
-  forks_count: number;
-  open_issues_count: number;
-  default_branch: string;
-  created_at: string;
-  updated_at: string;
+type GithubReadme = {
+  content: string;
+  encoding: string;
+  download_url: string | null;
 };
 
-type GithubRelease = {
-  name: string | null;
-  tag_name: string;
-  html_url: string;
-  published_at: string | null;
+export type ProjectScreenshot = {
+  alt: string;
+  url: string;
 };
 
-export type ProjectProfile = {
+export type CuratedProjectSource = {
   slug: string;
   featured: boolean;
-  curation?: Curation;
-  repository: {
-    name: string;
-    fullName: string;
-    url: string;
-    description: string | null;
-    homepage: string | null;
-    stars: number;
-    forks: number;
-    openIssues: number;
-    defaultBranch: string;
-    createdAt: string;
-    updatedAt: string;
-  };
-  languages: Array<{ name: string; bytes: number }>;
+  repositoryUrl: string;
   readme: string;
-  images: string[];
-  latestRelease: {
-    name: string | null;
-    tagName: string;
-    url: string;
-    publishedAt: string | null;
-  } | null;
+  screenshots: ProjectScreenshot[];
 };
 
-export type GeneratedProjects = { projects: ProjectProfile[] };
+export type GeneratedProjects = { projects: CuratedProjectSource[] };
 
 export type ExtractOptions = {
   configPath: string;
@@ -103,35 +73,35 @@ export function decodeReadme(content: string, encoding: string): string {
   return Buffer.from(content.replace(/\n/g, ''), 'base64').toString('utf8');
 }
 
-export function extractReadmeImages(
+export function extractReadmeScreenshots(
   readme: string,
-  owner: string,
-  repo: string,
-  branch: string,
-): string[] {
+  readmeUrl: string,
+): ProjectScreenshot[] {
   const imageUrls = readme.matchAll(
-    /!\[[^\]]*\]\((?:<)?([^\s)>]+)(?:>)?(?:\s+[^)]*)?\)/g,
+    /!\[([^\]]*)\]\((?:<)?([^\s)>]+)(?:>)?(?:\s+[^)]*)?\)/g,
   );
-  const baseUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/`;
-  const images = new Set<string>();
+  const screenshots = new Map<string, ProjectScreenshot>();
 
   for (const match of imageUrls) {
-    const imageUrl = match[1];
+    const [, alt, imageUrl] = match;
     if (imageUrl.startsWith('#')) {
       continue;
     }
 
-    const resolvedImageUrl = new URL(
+    const resolvedUrl = new URL(
       imageUrl.startsWith('//') ? `https:${imageUrl}` : imageUrl,
-      baseUrl,
+      readmeUrl,
     );
 
-    if (resolvedImageUrl.protocol === 'https:') {
-      images.add(resolvedImageUrl.toString());
+    if (resolvedUrl.protocol === 'https:') {
+      screenshots.set(resolvedUrl.toString(), {
+        alt,
+        url: resolvedUrl.toString(),
+      });
     }
   }
 
-  return [...images];
+  return [...screenshots.values()];
 }
 
 function githubHeaders(token?: string): HeadersInit {
@@ -139,73 +109,6 @@ function githubHeaders(token?: string): HeadersInit {
     Accept: 'application/vnd.github+json',
     'X-GitHub-Api-Version': '2022-11-28',
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
-  };
-}
-
-async function githubJson<T>(
-  fetchImpl: typeof fetch,
-  path: string,
-  token?: string,
-): Promise<{ status: number; data: T | null }> {
-  const response = await fetchImpl(`${githubBaseUrl}${path}`, {
-    headers: githubHeaders(token),
-  });
-
-  if (response.status === 404) {
-    return { status: response.status, data: null };
-  }
-
-  if (!response.ok) {
-    throw new Error(
-      `GitHub API request failed (${response.status}) for ${path}`,
-    );
-  }
-
-  return { status: response.status, data: (await response.json()) as T };
-}
-
-export function normalizeProject(
-  project: ConfigProject,
-  repository: GithubRepository,
-  languages: Record<string, number>,
-  readme: string,
-  release: GithubRelease | null,
-): ProjectProfile {
-  return {
-    slug: project.slug,
-    featured: project.featured,
-    ...(project.curation ? { curation: project.curation } : {}),
-    repository: {
-      name: repository.name,
-      fullName: repository.full_name,
-      url: repository.html_url,
-      description: repository.description,
-      homepage: repository.homepage,
-      stars: repository.stargazers_count,
-      forks: repository.forks_count,
-      openIssues: repository.open_issues_count,
-      defaultBranch: repository.default_branch,
-      createdAt: repository.created_at,
-      updatedAt: repository.updated_at,
-    },
-    languages: Object.entries(languages)
-      .map(([name, bytes]) => ({ name, bytes }))
-      .sort((a, b) => b.bytes - a.bytes || a.name.localeCompare(b.name)),
-    readme,
-    images: extractReadmeImages(
-      readme,
-      repository.full_name.split('/')[0],
-      repository.name,
-      repository.default_branch,
-    ),
-    latestRelease: release
-      ? {
-          name: release.name,
-          tagName: release.tag_name,
-          url: release.html_url,
-          publishedAt: release.published_at,
-        }
-      : null,
   };
 }
 
@@ -238,46 +141,38 @@ async function loadAndValidateConfig(
   return config as ProjectsConfig;
 }
 
-async function extractProfile(
+async function extractProjectSource(
   project: ConfigProject,
   fetchImpl: typeof fetch,
   token?: string,
-): Promise<ProjectProfile> {
+): Promise<CuratedProjectSource> {
   const { owner, repo } = parseRepositoryUrl(project.repositoryUrl);
-  const basePath = `/repos/${owner}/${repo}`;
-  const [repositoryResult, languagesResult, readmeResult, releaseResult] =
-    await Promise.all([
-      githubJson<GithubRepository>(fetchImpl, basePath, token),
-      githubJson<Record<string, number>>(
-        fetchImpl,
-        `${basePath}/languages`,
-        token,
-      ),
-      githubJson<{ content: string; encoding: string }>(
-        fetchImpl,
-        `${basePath}/readme`,
-        token,
-      ),
-      githubJson<GithubRelease>(
-        fetchImpl,
-        `${basePath}/releases/latest`,
-        token,
-      ),
-    ]);
+  const response = await fetchImpl(
+    `${githubBaseUrl}/repos/${owner}/${repo}/readme`,
+    { headers: githubHeaders(token) },
+  );
 
-  if (!repositoryResult.data || !languagesResult.data || !readmeResult.data) {
+  if (!response.ok) {
     throw new Error(
-      `Required repository data was not found for ${project.repositoryUrl}`,
+      `GitHub README request failed (${response.status}) for ${project.repositoryUrl}`,
     );
   }
 
-  return normalizeProject(
-    project,
-    repositoryResult.data,
-    languagesResult.data,
-    decodeReadme(readmeResult.data.content, readmeResult.data.encoding),
-    releaseResult.data,
-  );
+  const readme = (await response.json()) as GithubReadme;
+  if (!readme.download_url) {
+    throw new Error(
+      `README download URL was not found for ${project.repositoryUrl}`,
+    );
+  }
+
+  const content = decodeReadme(readme.content, readme.encoding);
+  return {
+    slug: project.slug,
+    featured: project.featured,
+    repositoryUrl: project.repositoryUrl,
+    readme: content,
+    screenshots: extractReadmeScreenshots(content, readme.download_url),
+  };
 }
 
 export async function runExtraction(
@@ -290,7 +185,7 @@ export async function runExtraction(
   const fetchImpl = options.fetchImpl ?? fetch;
   const projects = await Promise.all(
     config.projects.map((project) =>
-      extractProfile(project, fetchImpl, options.token),
+      extractProjectSource(project, fetchImpl, options.token),
     ),
   );
   const output = `${JSON.stringify({ projects }, null, 2)}\n`;
@@ -308,11 +203,11 @@ async function main(): Promise<void> {
   const result = await runExtraction({
     configPath: resolve(projectRoot, 'projects.config.json'),
     schemaPath: resolve(projectRoot, 'projects.config.schema.json'),
-    outputPath: resolve(projectRoot, 'public/data/projects.json'),
+    outputPath: resolve(projectRoot, 'data/curated-projects.json'),
     token: process.env.GITHUB_TOKEN,
   });
 
-  console.info(`Generated ${result.projects.length} project profiles.`);
+  console.info(`Generated ${result.projects.length} curated project sources.`);
 }
 
 if (

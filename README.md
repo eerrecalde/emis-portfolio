@@ -1,6 +1,7 @@
 # Portfolio project curation
 
-This repository starts with the source list for a senior React engineer portfolio. It is intentionally framework-agnostic while the selected project repositories are curated.
+This repository contains a senior React engineer portfolio and the build-time
+source list for its curated project content.
 
 ## Project list
 
@@ -16,6 +17,11 @@ The optional `curation` field records Phase 1 progress without tying the project
 
 `projects.config.schema.json` documents and validates that structure in editors that support JSON Schema.
 
-## Current phase
+## Curated content ingestion
 
-The next work is to curate each listed repository: verify its story and technical claims, improve its README, separate setup instructions into `HOW_TO_USE.md`, and add a focused screenshot set under `docs/screenshots/`. Only then should this repository gain a portfolio frontend and build-time content ingestion.
+`npm run extract:projects` fetches only the curated README from each configured
+repository and creates `data/curated-projects.json`. The output has the source
+Markdown and selected screenshot URLs, ready for a later domain-content step;
+it does not expose a runtime GitHub integration. See
+[the ingestion contract](./docs/INGESTION_FORMAT.md) for the exact format and
+the fields intentionally excluded.

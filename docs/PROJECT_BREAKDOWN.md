@@ -6,9 +6,8 @@ does not begin until every Phase 1 curation task is done. See
 
 ## Current next task
 
-**P2-01 — Reassess the curated repository output and finalize the smallest
-ingestion format.** The Phase 1 curation passes are complete; this decision
-defines how the portfolio will consume the final repository content.
+**P2-02 — Update the frontend foundation to the latest stable React with React
+Compiler; add React Router and ESLint.**
 
 ## Completed groundwork
 
@@ -30,8 +29,8 @@ defines how the portfolio will consume the final repository content.
 
 | ID    | Task                                                                                                                        | Status      | Depends on        |
 | ----- | --------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
-| P2-01 | Reassess curated repository output and finalize the smallest ingestion format.                                              | Next        | P1-04             |
-| P2-02 | Update the frontend foundation to the latest stable React with React Compiler; add React Router and ESLint.                 | Not started | P2-01             |
+| P2-01 | Reassess curated repository output and finalize the smallest ingestion format.                                              | Done        | P1-04             |
+| P2-02 | Update the frontend foundation to the latest stable React with React Compiler; add React Router and ESLint.                 | Next        | P2-01             |
 | P2-03 | Define project and professional-experience domain content; test ingestion with fixtures.                                    | Not started | P2-01             |
 | P2-04 | Build accessible shared layout, routing, project listing, and detail-page composition.                                      | Not started | P2-02, P2-03      |
 | P2-05 | Build the homepage with professional experience and featured projects.                                                      | Not started | P2-04             |
