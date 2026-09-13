@@ -1,11 +1,12 @@
-import type { PortfolioProject } from '../types/portfolio';
+import type { PortfolioProject, PortfolioSkill } from '../types/portfolio';
 import { ProjectList } from './ProjectList';
 
 type HomePageProps = {
   projects: PortfolioProject[];
+  skillsById: ReadonlyMap<string, PortfolioSkill>;
 };
 
-export function HomePage({ projects }: HomePageProps) {
+export function HomePage({ projects, skillsById }: HomePageProps) {
   return (
     <>
       <header className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/55 px-6 py-12 shadow-2xl shadow-black/20 sm:px-10 sm:py-16">
@@ -50,7 +51,7 @@ export function HomePage({ projects }: HomePageProps) {
 
         {projects.length > 0 ? (
           <div className="mt-8">
-            <ProjectList projects={projects} />
+            <ProjectList projects={projects} skillsById={skillsById} />
           </div>
         ) : (
           <p className="mt-8 text-slate-400">No projects are available yet.</p>

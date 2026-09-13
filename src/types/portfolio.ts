@@ -3,6 +3,13 @@ export type ProjectScreenshot = {
   url: string;
 };
 
+export type PortfolioSkill = {
+  id: string;
+  displayName: string;
+  yearsOfExperience: number;
+  aliases: string[];
+};
+
 export type PortfolioProject = {
   slug: string;
   title: string;
@@ -14,7 +21,7 @@ export type PortfolioProject = {
   capabilities: string[];
   technicalHighlights: string[];
   keyDecisions: string[];
-  techStack: string[];
+  skillIds: string[];
   status: string;
 };
 
@@ -30,4 +37,5 @@ export type ProfessionalExperience = {
 export type PortfolioContent = {
   projects: PortfolioProject[];
   experience: ProfessionalExperience[];
+  skills: PortfolioSkill[];
 };

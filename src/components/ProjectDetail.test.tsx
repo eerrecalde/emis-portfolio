@@ -24,9 +24,22 @@ describe('ProjectDetail', () => {
             capabilities: ['Shows a dashboard.'],
             technicalHighlights: ['Uses responsive images.'],
             keyDecisions: ['Defer below-the-fold media.'],
-            techStack: ['TypeScript'],
+            skillIds: ['typescript'],
             status: 'Ready',
           }}
+          skillsById={
+            new Map([
+              [
+                'typescript',
+                {
+                  id: 'typescript',
+                  displayName: 'TypeScript',
+                  yearsOfExperience: 6,
+                  aliases: ['ts'],
+                },
+              ],
+            ])
+          }
         />
       </MemoryRouter>,
     );
@@ -39,5 +52,6 @@ describe('ProjectDetail', () => {
       'sizes',
       '(min-width: 640px) 50vw, 100vw',
     );
+    expect(screen.getByText('TypeScript')).toBeInTheDocument();
   });
 });

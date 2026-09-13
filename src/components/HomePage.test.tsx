@@ -20,7 +20,7 @@ describe('HomePage', () => {
               capabilities: [],
               technicalHighlights: [],
               keyDecisions: [],
-              techStack: ['TypeScript'],
+              skillIds: ['typescript'],
               status: 'Ready',
             },
             {
@@ -34,10 +34,32 @@ describe('HomePage', () => {
               capabilities: [],
               technicalHighlights: [],
               keyDecisions: [],
-              techStack: ['React'],
+              skillIds: ['react'],
               status: 'Ready',
             },
           ]}
+          skillsById={
+            new Map([
+              [
+                'typescript',
+                {
+                  id: 'typescript',
+                  displayName: 'TypeScript',
+                  yearsOfExperience: 6,
+                  aliases: ['ts'],
+                },
+              ],
+              [
+                'react',
+                {
+                  id: 'react',
+                  displayName: 'React',
+                  yearsOfExperience: 8,
+                  aliases: ['reactjs'],
+                },
+              ],
+            ])
+          }
         />
       </MemoryRouter>,
     );

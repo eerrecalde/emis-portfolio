@@ -2,7 +2,11 @@ import { mkdtemp, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { normalizeProject, runIngestion } from './ingest-portfolio';
+import {
+  buildPortfolioContent,
+  normalizeProject,
+  runIngestion,
+} from './ingest-portfolio';
 
 const fixturePath = (...segments: string[]) =>
   resolve('scripts', 'fixtures', ...segments);
@@ -16,6 +20,7 @@ describe('portfolio ingestion', () => {
       runIngestion({
         curatedProjectsPath: fixturePath('curated-projects.json'),
         professionalExperiencePath: fixturePath('professional-experience.json'),
+        skillsPath: fixturePath('skills.json'),
         outputPath,
       }),
     ).resolves.toEqual({
@@ -42,8 +47,22 @@ describe('portfolio ingestion', () => {
             'Focused architecture. Keeps domain logic separate from page composition.',
           ],
           keyDecisions: ['Uses static data to keep builds repeatable.'],
-          techStack: ['React, TypeScript, and some_library'],
+          skillIds: ['react', 'typescript'],
           status: 'The prototype is ready for portfolio review.',
+        },
+      ],
+      skills: [
+        {
+          id: 'react',
+          displayName: 'React',
+          yearsOfExperience: 8,
+          aliases: ['reactjs'],
+        },
+        {
+          id: 'typescript',
+          displayName: 'TypeScript',
+          yearsOfExperience: 6,
+          aliases: ['ts'],
         },
       ],
       experience: [
@@ -71,7 +90,31 @@ describe('portfolio ingestion', () => {
         repositoryUrl: 'https://github.com/example/untitled',
         readme: 'A README without a Markdown title.',
         screenshots: [],
+        skillIds: [],
       }),
     ).toThrow('Curated README for untitled must start with a title.');
+  });
+
+  it('rejects a project that references a missing skill', () => {
+    expect(() =>
+      buildPortfolioContent(
+        {
+          projects: [
+            {
+              slug: 'missing-skill',
+              featured: false,
+              repositoryUrl: 'https://github.com/example/missing-skill',
+              readme: '# Missing Skill',
+              screenshots: [],
+              skillIds: ['missing-skill'],
+            },
+          ],
+        },
+        { experience: [] },
+        { skills: [] },
+      ),
+    ).toThrow(
+      'Project missing-skill references unknown skills: missing-skill.',
+    );
   });
 });

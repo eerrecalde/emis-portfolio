@@ -1,0 +1,16 @@
+{
+  "skills": [
+    {
+      "id": "react",
+      "displayName": "React",
+      "yearsOfExperience": 8,
+      "aliases": ["reactjs"]
+    },
+    {
+      "id": "typescript",
+      "displayName": "TypeScript",
+      "yearsOfExperience": 6,
+      "aliases": ["ts"]
+    }
+  ]
+}

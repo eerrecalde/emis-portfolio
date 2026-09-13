@@ -17,11 +17,19 @@ const portfolio = {
       capabilities: ['Shows a project detail page.'],
       technicalHighlights: ['Uses accessible routing.'],
       keyDecisions: ['Keep the composition focused.'],
-      techStack: ['TypeScript'],
+      skillIds: ['typescript'],
       status: 'Ready',
     },
   ],
   experience: [],
+  skills: [
+    {
+      id: 'typescript',
+      displayName: 'TypeScript',
+      yearsOfExperience: 6,
+      aliases: ['ts'],
+    },
+  ],
 };
 
 function renderApp(initialEntry = '/') {
