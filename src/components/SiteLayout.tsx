@@ -18,7 +18,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
             className="text-sm font-semibold tracking-tight text-slate-100 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 sm:text-base"
             to="/"
           >
-            Emiliano<span className="text-cyan-300">.</span>
+            Emi Errecalde<span className="text-cyan-300">.</span>
           </NavLink>
           <nav
             className="flex items-center gap-4 sm:gap-6"
