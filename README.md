@@ -19,9 +19,12 @@ The optional `curation` field records Phase 1 progress without tying the project
 
 ## Curated content ingestion
 
-`npm run extract:projects` fetches only the curated README from each configured
-repository and creates `data/curated-projects.json`. The output has the source
-Markdown and selected screenshot URLs, ready for a later domain-content step;
-it does not expose a runtime GitHub integration. See
+When a curated repository is added to `projects.config.json`, run
+`npm run extract:projects` once and commit the updated
+`data/curated-projects.json`. The command is deliberately separate from
+`npm run build`: ordinary builds use the last committed extraction and never
+fetch GitHub. The output has the source Markdown and selected screenshot URLs,
+ready for a later domain-content step; it does not expose a runtime GitHub
+integration. See
 [the ingestion contract](./docs/INGESTION_FORMAT.md) for the exact format and
 the fields intentionally excluded.

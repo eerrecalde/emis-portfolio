@@ -1,8 +1,15 @@
 # Curated project ingestion format
 
-P2-01 freezes the repository-derived input to the smallest useful build-time
-contract. The extractor requests only each repository's curated README and
-writes `data/curated-projects.json`.
+P2-01 freezes the repository-derived input to the smallest useful static
+contract. When a repository is added to `projects.config.json`, run the
+extractor once to request its curated README and write
+`data/curated-projects.json`. Commit the generated file with that project-list
+change so the latest extraction is preserved in the repository.
+
+Extraction is intentionally not part of `npm run build`. Normal builds use the
+last committed generated file and never contact GitHub; this keeps builds
+repeatable and avoids losing the last known curated output if GitHub is
+unavailable.
 
 ```json
 {
