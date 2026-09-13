@@ -1,13 +1,17 @@
-import type { PortfolioProject, PortfolioSkill } from '../types/portfolio';
 import { Link } from 'react-router';
-import { resolveSkills } from '../data/skills';
+import { DetailList } from '../../components/DetailList';
+import { resolveSkills } from '../../data/skills';
+import type { PortfolioProject, PortfolioSkill } from '../../types/portfolio';
 
-type ProjectDetailProps = {
+type ProjectDetailPageProps = {
   project: PortfolioProject;
   skillsById: ReadonlyMap<string, PortfolioSkill>;
 };
 
-export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
+export function ProjectDetailPage({
+  project,
+  skillsById,
+}: ProjectDetailPageProps) {
   return (
     <article className="max-w-4xl">
       <Link
@@ -20,7 +24,7 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
         <p className="text-xs font-semibold tracking-[0.24em] text-cyan-300 uppercase">
           Case study
         </p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-100 sm:text-5xl">
+        <h1 className="mt-4 text-3xl font-normal tracking-tight text-slate-100 sm:text-4xl">
           {project.title}
         </h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
@@ -62,8 +66,8 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
           Tech stack
         </h2>
         <ul
-          className="mt-4 flex flex-wrap gap-2"
           aria-label={`${project.title} tech stack`}
+          className="mt-4 flex flex-wrap gap-2"
         >
           {resolveSkills(project.skillIds, skillsById).map((skill) => (
             <li
@@ -77,7 +81,10 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
       </section>
 
       <section className="mt-10" aria-labelledby="project-status">
-        <h2 className="text-xl font-semibold text-slate-100" id="project-status">
+        <h2
+          className="text-xl font-semibold text-slate-100"
+          id="project-status"
+        >
           Status
         </h2>
         <p className="mt-3 leading-7 text-slate-300">{project.status}</p>
@@ -111,22 +118,5 @@ export function ProjectDetail({ project, skillsById }: ProjectDetailProps) {
         </section>
       ) : null}
     </article>
-  );
-}
-
-type DetailListProps = { heading: string; id: string; items: string[] };
-
-function DetailList({ heading, id, items }: DetailListProps) {
-  return (
-    <section className="mt-10" aria-labelledby={id}>
-      <h2 className="text-xl font-semibold text-slate-100" id={id}>
-        {heading}
-      </h2>
-      <ul className="mt-4 list-disc space-y-3 pl-5 leading-7 text-slate-300 marker:text-violet-400">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </section>
   );
 }

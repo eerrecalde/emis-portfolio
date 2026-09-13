@@ -1,5 +1,5 @@
-import type { PortfolioProject, PortfolioSkill } from '../types/portfolio';
-import { ProjectList } from './ProjectList';
+import { ProjectList } from '../../components/ProjectList';
+import type { PortfolioProject, PortfolioSkill } from '../../types/portfolio';
 
 type HomePageProps = {
   projects: PortfolioProject[];

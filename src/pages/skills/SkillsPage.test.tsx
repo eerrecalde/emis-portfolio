@@ -1,7 +1,7 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { BrowserRouter } from 'react-router';
-import type { PortfolioSkill } from '../types/portfolio';
+import type { PortfolioSkill } from '../../types/portfolio';
 import { SkillsPage } from './SkillsPage';
 
 const skills: PortfolioSkill[] = [
