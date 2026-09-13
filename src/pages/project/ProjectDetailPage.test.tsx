@@ -1,13 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { describe, expect, it } from 'vitest';
-import { ProjectDetail } from './ProjectDetail';
+import { ProjectDetailPage } from './ProjectDetailPage';
 
-describe('ProjectDetail', () => {
+describe('ProjectDetailPage', () => {
   it('defers and sizes repository screenshots', () => {
     render(
       <MemoryRouter>
-        <ProjectDetail
+        <ProjectDetailPage
           project={{
             slug: 'demo',
             featured: false,
@@ -46,6 +46,12 @@ describe('ProjectDetail', () => {
     );
 
     const screenshot = screen.getByRole('img', { name: 'Demo dashboard' });
+
+    expect(screen.getByRole('heading', { name: 'Demo' })).toHaveClass(
+      'text-3xl',
+      'font-normal',
+      'sm:text-4xl',
+    );
 
     expect(screenshot).toHaveAttribute('loading', 'lazy');
     expect(screenshot).toHaveAttribute('decoding', 'async');

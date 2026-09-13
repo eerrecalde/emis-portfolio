@@ -23,14 +23,14 @@
       "id": "typescript",
       "displayName": "TypeScript",
       "yearsOfExperience": 6,
-      "areas": ["frontend", "testing"],
+      "areas": ["frontend"],
       "aliases": ["ts"]
     },
     {
       "id": "javascript",
       "displayName": "JavaScript",
       "yearsOfExperience": 19,
-      "areas": ["frontend", "testing"],
+      "areas": ["frontend"],
       "aliases": ["js", "ecmascript", "es6", "es2015"]
     },
     {
@@ -49,7 +49,7 @@
       "id": "web-accessibility",
       "displayName": "Web accessibility",
       "yearsOfExperience": 8,
-      "areas": ["frontend", "testing"],
+      "areas": ["frontend"],
       "aliases": ["accessibility", "a11y", "wcag", "inclusive design"]
     },
     {
@@ -75,7 +75,7 @@
       "id": "component-libraries",
       "displayName": "Component libraries",
       "yearsOfExperience": 8,
-      "areas": ["frontend", "testing"],
+      "areas": ["frontend"],
       "aliases": [
         "component library",
         "ui library",
@@ -87,7 +87,7 @@
       "id": "performance-optimisation",
       "displayName": "Performance optimisation",
       "yearsOfExperience": 8,
-      "areas": ["frontend", "analytics"],
+      "areas": ["frontend"],
       "aliases": [
         "performance optimization",
         "frontend performance",
@@ -100,7 +100,7 @@
       "id": "testing",
       "displayName": "Testing",
       "yearsOfExperience": 8,
-      "areas": ["testing", "ci-cd"],
+      "areas": ["testing"],
       "aliases": [
         "unit testing",
         "component testing",
@@ -113,7 +113,7 @@
       "id": "vitest",
       "displayName": "Vitest",
       "yearsOfExperience": 1,
-      "areas": ["testing", "ci-cd"],
+      "areas": ["testing"],
       "aliases": ["vite test"]
     },
     {
@@ -183,14 +183,14 @@
       "id": "vite",
       "displayName": "Vite",
       "yearsOfExperience": 1,
-      "areas": ["frontend", "ci-cd"],
+      "areas": ["frontend"],
       "aliases": ["vitejs", "vite.js"]
     },
     {
       "id": "npm-tooling",
       "displayName": "npm tooling",
       "yearsOfExperience": 10,
-      "areas": ["devops", "ci-cd"],
+      "areas": [],
       "aliases": ["npm", "node package manager", "package scripts"]
     },
     {
@@ -224,8 +224,22 @@
       "id": "supabase",
       "displayName": "Supabase",
       "yearsOfExperience": 2,
-      "areas": ["backend", "analytics"],
+      "areas": ["backend", "devops"],
       "aliases": []
+    },
+    {
+      "id": "gcloud",
+      "displayName": "GCloud",
+      "yearsOfExperience": 1,
+      "areas": ["devops"],
+      "aliases": ["google cloud", "google cloud platform", "gcp"]
+    },
+    {
+      "id": "aws",
+      "displayName": "AWS",
+      "yearsOfExperience": 1,
+      "areas": ["devops"],
+      "aliases": ["amazon web services"]
     },
     {
       "id": "internationalisation-localisation",
@@ -244,14 +258,14 @@
       "id": "seo",
       "displayName": "SEO",
       "yearsOfExperience": 6,
-      "areas": ["frontend", "analytics"],
+      "areas": ["frontend"],
       "aliases": ["search engine optimization", "search engine optimisation"]
     },
     {
       "id": "ai-assisted-engineering-workflows",
       "displayName": "AI-assisted engineering workflows",
       "yearsOfExperience": 3,
-      "areas": ["devops", "ci-cd"],
+      "areas": [],
       "aliases": [
         "ai-assisted development",
         "ai assisted development",
@@ -270,27 +284,48 @@
       "id": "technical-leadership",
       "displayName": "Technical leadership",
       "yearsOfExperience": 6,
-      "areas": ["ci-cd"],
+      "areas": [],
       "aliases": ["tech leadership", "engineering leadership", "technical lead"]
     },
     {
       "id": "agile-delivery",
       "displayName": "Agile delivery",
       "yearsOfExperience": 12,
-      "areas": ["ci-cd"],
+      "areas": [],
       "aliases": ["agile", "scrum", "kanban", "agile software development"]
     },
     {
       "id": "feature-flags",
       "displayName": "Feature flags",
       "yearsOfExperience": 5,
-      "areas": ["frontend", "analytics", "ci-cd"],
+      "areas": ["frontend"],
       "aliases": [
         "feature flag",
         "feature toggles",
         "feature toggle",
         "release toggles"
       ]
+    },
+    {
+      "id": "bitbucket",
+      "displayName": "Bitbucket",
+      "yearsOfExperience": 5,
+      "areas": ["ci-cd"],
+      "aliases": ["atlassian bitbucket"]
+    },
+    {
+      "id": "github",
+      "displayName": "GitHub",
+      "yearsOfExperience": 5,
+      "areas": ["ci-cd"],
+      "aliases": ["github.com"]
+    },
+    {
+      "id": "gitlab",
+      "displayName": "GitLab",
+      "yearsOfExperience": 4,
+      "areas": ["ci-cd"],
+      "aliases": ["gitlab.com"]
     },
     {
       "id": "technical-design-docs",
@@ -311,7 +346,7 @@
       "id": "telemetry",
       "displayName": "Telemetry",
       "yearsOfExperience": 6,
-      "areas": ["frontend", "analytics"],
+      "areas": ["frontend"],
       "aliases": [
         "observability",
         "analytics instrumentation",
@@ -339,7 +374,7 @@
       "id": "ab-testing",
       "displayName": "A/B testing",
       "yearsOfExperience": 4,
-      "areas": ["analytics", "frontend"],
+      "areas": ["frontend"],
       "aliases": [
         "a/b test",
         "a/b testing",

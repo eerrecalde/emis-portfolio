@@ -71,7 +71,7 @@ describe('HomePage', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole('heading', {
-        name: 'Complex products.Thoughtful interfaces.',
+        name: 'Frontend | Product | Full-stack Engineer',
       }),
     ).toBeInTheDocument();
     expect(

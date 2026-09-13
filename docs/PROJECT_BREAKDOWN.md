@@ -15,6 +15,13 @@ does not begin until every Phase 1 curation task is done. See
 | G-01 | Foundation and repository-data pipeline | Done   |
 | G-02 | Extend extraction with project images   | Done   |
 
+## Maintenance
+
+| ID   | Task                                                                                 | Status |
+| ---- | ------------------------------------------------------------------------------------ | ------ |
+| M-01 | Organise route-specific UI in `src/pages` and split reusable JSX components by file. | Done   |
+| M-02 | Align the project-detail title treatment with the experience and skills pages.         | Done   |
+
 ## Phase 1 — repository curation
 
 | ID    | Task                                                                                                            | Status | Depends on  |

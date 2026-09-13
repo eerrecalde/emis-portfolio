@@ -15,7 +15,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
       <header className="border-b border-slate-800/80 bg-[#080d0f]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-10 sm:py-5">
           <NavLink
-            className="text-sm font-semibold tracking-tight text-slate-100 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 sm:text-base"
+            className="text-lg font-semibold tracking-tight text-slate-100 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 sm:text-lg"
             to="/"
           >
             Emi Errecalde<span className="text-cyan-300">.</span>

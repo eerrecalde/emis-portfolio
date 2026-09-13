@@ -51,6 +51,7 @@ describe('ProjectList', () => {
     expect(
       screen.getByRole('link', { name: 'View project: Demo' }),
     ).toHaveAttribute('href', '/projects/demo');
+    expect(screen.getAllByRole('link')).toHaveLength(1);
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
     expect(screen.getByRole('img', { name: 'Demo dashboard' })).toHaveAttribute(
       'loading',
