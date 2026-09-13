@@ -137,7 +137,7 @@ describe('App', () => {
     renderApp();
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
-      'Portfolio data could not be loaded (500).',
+      'Home content could not be loaded (500).',
     );
   });
 });

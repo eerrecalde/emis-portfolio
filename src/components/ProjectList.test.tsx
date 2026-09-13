@@ -4,7 +4,7 @@ import { MemoryRouter } from 'react-router';
 import { ProjectList } from './ProjectList';
 
 describe('ProjectList', () => {
-  it('renders project details and the canonical repository link', () => {
+  it('renders project previews with a route to each detail page', () => {
     render(
       <MemoryRouter>
         <ProjectList
@@ -14,17 +14,12 @@ describe('ProjectList', () => {
               featured: false,
               title: 'Demo',
               summary: 'A short description',
-              whyBuilt: 'To prove the project detail route.',
-              repositoryUrl: 'https://github.com/owner/demo',
               screenshots: [
                 {
                   alt: 'Demo dashboard',
                   url: 'https://example.com/dashboard.webp',
                 },
               ],
-              capabilities: [],
-              technicalHighlights: [],
-              keyDecisions: [],
               skillIds: ['typescript'],
               status: 'Ready',
             },

@@ -1,9 +1,12 @@
 import { ProjectList } from '../../components/ProjectList';
-import type { PortfolioProject, PortfolioSkill } from '../../types/portfolio';
+import type {
+  PortfolioProjectPreview,
+  PortfolioSkillPreview,
+} from '../../types/portfolio';
 
 type HomePageProps = {
-  projects: PortfolioProject[];
-  skillsById: ReadonlyMap<string, PortfolioSkill>;
+  projects: PortfolioProjectPreview[];
+  skillsById: ReadonlyMap<string, PortfolioSkillPreview>;
 };
 
 export function HomePage({ projects, skillsById }: HomePageProps) {

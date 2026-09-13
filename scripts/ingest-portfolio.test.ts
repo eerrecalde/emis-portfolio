@@ -83,6 +83,12 @@ describe('portfolio ingestion', () => {
     await expect(readFile(outputPath, 'utf8')).resolves.toContain(
       '"Demo Project"',
     );
+    await expect(
+      readFile(join(outputDirectory, 'home.json'), 'utf8'),
+    ).resolves.toContain('"summary"');
+    await expect(
+      readFile(join(outputDirectory, 'project-details.json'), 'utf8'),
+    ).resolves.toContain('"technicalHighlights"');
   });
 
   it('rejects a curated project without a title', () => {

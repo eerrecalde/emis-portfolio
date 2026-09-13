@@ -1,13 +1,34 @@
-import type { PortfolioContent } from '../types/portfolio';
+import type {
+  HomePortfolioContent,
+  PortfolioSkill,
+  ProfessionalExperience,
+  ProjectDetailsContent,
+} from '../types/portfolio';
 
-export async function fetchPortfolio(): Promise<PortfolioContent> {
-  const response = await fetch(
-    `${import.meta.env.BASE_URL}data/portfolio.json`,
-  );
+async function fetchContent<T>(path: string, label: string): Promise<T> {
+  const response = await fetch(`${import.meta.env.BASE_URL}data/${path}`);
 
   if (!response.ok) {
-    throw new Error(`Portfolio data could not be loaded (${response.status}).`);
+    throw new Error(`${label} could not be loaded (${response.status}).`);
   }
 
-  return (await response.json()) as PortfolioContent;
+  return (await response.json()) as T;
+}
+
+export function fetchHomePortfolio(): Promise<HomePortfolioContent> {
+  return fetchContent('home.json', 'Home content');
+}
+
+export function fetchProjectDetails(): Promise<ProjectDetailsContent> {
+  return fetchContent('project-details.json', 'Project details');
+}
+
+export function fetchExperience(): Promise<{
+  experience: ProfessionalExperience[];
+}> {
+  return fetchContent('experience.json', 'Professional experience');
+}
+
+export function fetchSkills(): Promise<{ skills: PortfolioSkill[] }> {
+  return fetchContent('skills.json', 'Skills');
 }
