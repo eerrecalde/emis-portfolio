@@ -1,37 +1,103 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { MemoryRouter } from 'react-router';
 import App from './App';
 
-function renderApp() {
+const portfolio = {
+  projects: [
+    {
+      slug: 'demo',
+      title: 'Demo project',
+      summary: 'A project used to verify application routes.',
+      whyBuilt: 'To verify project detail composition.',
+      featured: false,
+      repositoryUrl: 'https://github.com/owner/demo',
+      screenshots: [],
+      capabilities: ['Shows a project detail page.'],
+      technicalHighlights: ['Uses accessible routing.'],
+      keyDecisions: ['Keep the composition focused.'],
+      techStack: ['TypeScript'],
+      status: 'Ready',
+    },
+  ],
+  experience: [],
+};
+
+function renderApp(initialEntry = '/') {
   const queryClient = new QueryClient({
     defaultOptions: { queries: { retry: false } },
   });
   return render(
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>,
+    <MemoryRouter initialEntries={[initialEntry]}>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </MemoryRouter>,
   );
 }
+
+afterEach(() => {
+  cleanup();
+  vi.unstubAllGlobals();
+});
 
 describe('App', () => {
   it('loads and displays generated projects', async () => {
     vi.stubGlobal(
       'fetch',
       vi.fn(
-        async () =>
-          new Response(JSON.stringify({ projects: [] }), { status: 200 }),
+        async () => new Response(JSON.stringify(portfolio), { status: 200 }),
       ),
     );
 
     renderApp();
 
-    expect(await screen.findByRole('main')).toHaveTextContent(
-      'Selected projects',
-    );
+    expect(
+      await screen.findByRole('heading', { name: 'Selected work' }),
+    ).toBeInTheDocument();
     await waitFor(() =>
-      expect(screen.queryByText('Loading projects…')).not.toBeInTheDocument(),
+      expect(screen.queryByText('Loading portfolio…')).not.toBeInTheDocument(),
     );
+    expect(
+      screen.getByRole('link', { name: 'View project: Demo project' }),
+    ).toHaveAttribute('href', '/projects/demo');
+  });
+
+  it('composes a project detail page from the matching route', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(
+        async () => new Response(JSON.stringify(portfolio), { status: 200 }),
+      ),
+    );
+
+    renderApp('/projects/demo');
+
+    expect(
+      await screen.findByRole('heading', { name: 'Demo project' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Technical highlights' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'View repository' }),
+    ).toHaveAttribute('href', 'https://github.com/owner/demo');
+  });
+
+  it('shows a useful not-found page for an unknown route', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(
+        async () => new Response(JSON.stringify(portfolio), { status: 200 }),
+      ),
+    );
+
+    renderApp('/projects/missing');
+
+    expect(
+      await screen.findByRole('heading', { name: 'Page not found' }),
+    ).toBeInTheDocument();
   });
 
   it('shows a useful error when the data request fails', async () => {
@@ -43,7 +109,7 @@ describe('App', () => {
     renderApp();
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
-      'Project data could not be loaded (500).',
+      'Portfolio data could not be loaded (500).',
     );
   });
 });
