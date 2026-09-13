@@ -1,6 +1,7 @@
-import type { ProjectProfile } from '../types/projects';
+import { Link } from 'react-router';
+import type { PortfolioProject } from '../types/portfolio';
 
-type ProjectListProps = { projects: ProjectProfile[] };
+type ProjectListProps = { projects: PortfolioProject[] };
 
 export function ProjectList({ projects }: ProjectListProps) {
   return (
@@ -11,24 +12,25 @@ export function ProjectList({ projects }: ProjectListProps) {
           key={project.slug}
         >
           <h2 className="text-lg font-semibold text-slate-950">
-            {project.repository.name}
+            <Link
+              className="focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700"
+              to={`/projects/${project.slug}`}
+            >
+              {project.title}
+            </Link>
           </h2>
           <p className="mt-2 min-h-12 text-sm leading-6 text-slate-600">
-            {project.repository.description ??
-              'Project details are being prepared.'}
+            {project.summary}
           </p>
           <p className="mt-4 text-sm text-slate-500">
-            {project.languages
-              .slice(0, 2)
-              .map((language) => language.name)
-              .join(' · ')}
+            {project.techStack.slice(0, 2).join(' · ')}
           </p>
-          <a
-            className="mt-4 inline-flex text-sm font-medium text-indigo-700 hover:text-indigo-900"
-            href={project.repository.url}
+          <Link
+            className="mt-4 inline-flex text-sm font-medium text-indigo-700 hover:text-indigo-900 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-indigo-700"
+            to={`/projects/${project.slug}`}
           >
-            View repository
-          </a>
+            View project<span className="sr-only">: {project.title}</span>
+          </Link>
         </li>
       ))}
     </ul>
