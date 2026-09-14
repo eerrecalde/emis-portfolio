@@ -11,7 +11,7 @@
       "id": "typescript",
       "displayName": "TypeScript",
       "yearsOfExperience": 6,
-      "areas": ["frontend", "react"],
+      "areas": ["frontend", "react", "angular"],
       "aliases": ["ts"]
     },
     {
@@ -234,7 +234,7 @@
       "id": "rest-api-integration",
       "displayName": "REST API integration",
       "yearsOfExperience": 15,
-      "areas": ["frontend", "backend"],
+      "areas": ["frontend"],
       "aliases": [
         "rest api",
         "restful api",
