@@ -28,3 +28,16 @@ ready for a later domain-content step; it does not expose a runtime GitHub
 integration. See
 [the ingestion contract](./docs/INGESTION_FORMAT.md) for the exact format and
 the fields intentionally excluded.
+
+## Manually authored projects
+
+Add projects that cannot be fetched from a public repository to
+[`data/manual-projects.json`](./data/manual-projects.json). Each record is a
+complete portfolio case study, so its title, summary, rationale, capabilities,
+technical highlights, decisions, skills, status, and optional screenshots are
+written directly. A `repositoryUrl` is optional; omit it for private work and
+the case study will not show a repository link.
+
+Run `npm run ingest:portfolio` after changing this file. The generated
+portfolio merges manually authored projects after repository-derived projects,
+and rejects duplicate project slugs or unknown skill IDs.

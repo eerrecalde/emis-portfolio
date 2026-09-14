@@ -30,12 +30,14 @@ export function ProjectDetailPage({
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">
           {project.summary}
         </p>
-        <a
-          className="mt-7 inline-flex rounded-md bg-linear-to-r from-violet-500 to-cyan-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
-          href={project.repositoryUrl}
-        >
-          View repository
-        </a>
+        {project.repositoryUrl ? (
+          <a
+            className="mt-7 inline-flex rounded-md bg-linear-to-r from-violet-500 to-cyan-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+            href={project.repositoryUrl}
+          >
+            View repository
+          </a>
+        ) : null}
       </header>
 
       <section className="mt-10" aria-labelledby="why-built">

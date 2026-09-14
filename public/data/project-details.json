@@ -150,6 +150,136 @@
         "frontend-architecture"
       ],
       "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
+    },
+    {
+      "slug": "luno-buy-sell-flow-renovation",
+      "title": "Luno Buy & Sell Flow Renovation",
+      "summary": "A frontend-driven renovation of the buy and sell journeys for Luno, a crypto fintech product, making high-stakes transactions clearer and more focused.",
+      "whyBuilt": "The existing purchase journey had accumulated screens and separated card payment into another browser tab. As the sole web engineer, I rebuilt the experience around a clearer flow that kept customers in context from entering an amount through to confirmation.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Guides customers through clearer crypto purchase and sale journeys built from a shared component library.",
+        "Reduces the buy journey by two screens by condensing information without removing the context customers need to complete a purchase.",
+        "Replaces a four-screen, separate-tab card-payment journey with an in-context modal that closes after confirmed payment and returns the customer to the end-of-flow screen.",
+        "Applies the established buy-flow pattern to a sell-flow MVP delivered in about three weeks."
+      ],
+      "technicalHighlights": [
+        "Built frontend-driven Angular flows with TypeScript and RxJS, after contributing the required shared components to the company library.",
+        "Used an AI-first delivery approach: the buy flow established a reusable example, while the sell MVP was accelerated with Claude Code.",
+        "Added analytics, feature flags, and automated coverage with Playwright, Karma, and Jasmine."
+      ],
+      "keyDecisions": [
+        "Ran the buy-flow release as an A/B test to validate whether a shorter journey improved the purchase experience; the sell flow reused the proven pattern without a separate experiment.",
+        "Kept card payment inside the flow so confirmation returns customers to the right screen instead of losing their context in a separate tab.",
+        "Invested in shared components first so the two flows could be assembled consistently and delivered faster."
+      ],
+      "skillIds": [
+        "angular",
+        "typescript",
+        "rxjs",
+        "amplitude",
+        "playwright",
+        "karma",
+        "jasmine",
+        "feature-flags"
+      ],
+      "status": "Shipped at Luno. The buy-flow A/B test validated the shorter purchase journey."
+    },
+    {
+      "slug": "luno-dynamic-send-receive-flows",
+      "title": "Luno Dynamic Send & Receive Flows",
+      "summary": "Backend-driven, country-specific regulatory journeys for sending and receiving crypto, designed to keep Luno compliant with local requirements.",
+      "whyBuilt": "Send and receive journeys needed to adapt to different local regulations without creating a separate frontend flow for every country. As the sole web engineer, I built a flexible presentation layer that could safely assemble the appropriate journey from backend-provided definitions.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Presents compliant send and receive journeys that adapt to country-specific rules.",
+        "Builds a Dynamic Flow from backend-provided JSON that identifies the screen type and supplies its content.",
+        "Renders either a predefined screen or a generic composition of shared components, depending on the backend definition."
+      ],
+      "technicalHighlights": [
+        "Implemented an Angular and TypeScript presentation layer for backend-driven screen definitions, using RxJS to coordinate dynamic state.",
+        "Used the company component library to keep dynamically assembled flows consistent with the wider product.",
+        "Added analytics, feature flags, and automated coverage with Playwright, Karma, and Jasmine."
+      ],
+      "keyDecisions": [
+        "Kept regulatory decision-making in backend definitions so country rules could vary without duplicating frontend journeys.",
+        "Used a small set of predefined and generic screen patterns to handle variation while keeping the customer experience consistent.",
+        "Made experimentation and observability part of the flow architecture through feature flags and analytics."
+      ],
+      "skillIds": [
+        "angular",
+        "typescript",
+        "rxjs",
+        "amplitude",
+        "playwright",
+        "karma",
+        "jasmine",
+        "feature-flags"
+      ],
+      "status": "Shipped at Luno."
+    },
+    {
+      "slug": "techsoup-angularjs-react-modernisation",
+      "title": "TechSoup AngularJS to React Modernisation",
+      "summary": "A staged modernisation of internal applications at TechSoup, a nonprofit technology provider serving organisations worldwide, moving legacy AngularJS experiences to React.",
+      "whyBuilt": "Internal applications needed a more maintainable frontend foundation and a practical migration path away from AngularJS. As JavaScript lead engineer, I established that foundation before migrating applications one by one, so teams could modernise without a disruptive rewrite programme.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Provides a repeatable path for moving internal applications from AngularJS to React.",
+        "Modernises styling from plain CSS to Bootstrap and SCSS, making implementation easier to extend and maintain.",
+        "Improves and simplifies legacy AngularJS code while applications wait to be migrated.",
+        "Supports a gradual, application-by-application migration instead of a high-risk platform rewrite."
+      ],
+      "technicalHighlights": [
+        "Led the JavaScript foundation work across React and AngularJS applications.",
+        "Introduced Bootstrap, SCSS, and Tailwind CSS tooling to make styling more consistent and practical to develop.",
+        "Used Jest to support a safer migration path as individual applications moved to React."
+      ],
+      "keyDecisions": [
+        "Established shared styling and code-quality foundations before migrating applications, so each migration built on a more maintainable base.",
+        "Improved legacy AngularJS code rather than treating it as untouchable, reducing friction during the transition.",
+        "Migrated incrementally to limit delivery risk for internal teams."
+      ],
+      "skillIds": [
+        "react",
+        "angularjs",
+        "tailwind-css",
+        "testing"
+      ],
+      "status": "Shipped at TechSoup."
+    },
+    {
+      "slug": "techsoup-typescript-endpoint-library",
+      "title": "TechSoup TypeScript Endpoint Library",
+      "summary": "An internal TypeScript library that gives applications only the endpoint data they need, reducing repeated data trimming and making API consumption easier for development teams.",
+      "whyBuilt": "Endpoints often returned more data than individual applications needed, leaving teams to repeatedly trim responses and making correct usage harder for junior developers. As JavaScript lead engineer, I created a shared library that made the intended data shape the default.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Reduces endpoint responses to the fields requested through the endpoint parameters.",
+        "Removes repeated response-trimming work from consuming applications.",
+        "Gives developers a simpler, safer way to consume shared endpoint data."
+      ],
+      "technicalHighlights": [
+        "Built the internal library in TypeScript with Jest coverage.",
+        "Used Rollup to publish CommonJS output for AngularJS applications and ESM output for React applications.",
+        "Created one shared endpoint-consumption layer for applications at different stages of the frontend modernisation."
+      ],
+      "keyDecisions": [
+        "Applied response selection inside the shared library so consumers received only the data their endpoint parameters requested.",
+        "Published both CommonJS and ESM builds to support the existing AngularJS estate alongside newer React applications.",
+        "Optimised the library for clear defaults so less-experienced developers could use endpoints without manual response shaping."
+      ],
+      "skillIds": [
+        "typescript",
+        "testing",
+        "angularjs",
+        "react"
+      ],
+      "status": "Shipped at TechSoup."
     }
   ]
 }

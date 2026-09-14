@@ -46,7 +46,7 @@ professional-experience content.
 ## Normalized portfolio content
 
 P2-03 adds a second, local-only ingestion step. Run `npm run ingest:portfolio`
-after changing either `data/curated-projects.json` or
+after changing `data/curated-projects.json`, `data/manual-projects.json`, or
 `data/professional-experience.json`, then commit the resulting files in
 `public/data/`.
 
@@ -62,3 +62,35 @@ previews and skill names needed for the home page, while project details,
 experience, and the complete skill catalogue are emitted separately. This
 keeps the first request focused on the home page and lets the application warm
 the other routes after it is visible.
+
+### Manually authored projects
+
+`data/manual-projects.json` gives private repositories and non-repository work
+an editorial path into that same browser-safe model. Its projects are already
+normalized instead of being derived from a README:
+
+```json
+{
+  "projects": [
+    {
+      "slug": "private-client-platform",
+      "title": "Private Client Platform",
+      "summary": "A concise, public-safe description of the outcome.",
+      "whyBuilt": "The problem this work was intended to solve.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": ["A concrete capability."],
+      "technicalHighlights": ["A public-safe technical detail."],
+      "keyDecisions": ["A relevant trade-off."],
+      "skillIds": ["react"],
+      "status": "Delivered privately."
+    }
+  ]
+}
+```
+
+`repositoryUrl` is optional. Omit it when the work should not link to a
+repository; the project will still appear in the listing and have a case-study
+page. Manual projects are merged after repository-derived projects. Every
+project slug must be unique across both files, and every `skillId` must exist
+in `data/skills.json`.

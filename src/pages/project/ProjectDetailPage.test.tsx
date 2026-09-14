@@ -1,7 +1,9 @@
-import { render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import { ProjectDetailPage } from './ProjectDetailPage';
+
+afterEach(cleanup);
 
 describe('ProjectDetailPage', () => {
   it('defers and sizes repository screenshots', () => {
@@ -60,5 +62,32 @@ describe('ProjectDetailPage', () => {
       '(min-width: 640px) 50vw, 100vw',
     );
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
+  });
+
+  it('does not show a repository link for a private project', () => {
+    render(
+      <MemoryRouter>
+        <ProjectDetailPage
+          project={{
+            slug: 'private-project',
+            featured: false,
+            title: 'Private Project',
+            summary: 'A private case study.',
+            whyBuilt: 'To show work that cannot be linked publicly.',
+            screenshots: [],
+            capabilities: ['Shows the project story.'],
+            technicalHighlights: ['Keeps the repository private.'],
+            keyDecisions: ['Omits an external link.'],
+            skillIds: [],
+            status: 'Delivered privately.',
+          }}
+          skillsById={new Map()}
+        />
+      </MemoryRouter>,
+    );
+
+    expect(
+      screen.queryByRole('link', { name: 'View repository' }),
+    ).not.toBeInTheDocument();
   });
 });

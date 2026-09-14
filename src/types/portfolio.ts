@@ -33,7 +33,7 @@ export type PortfolioProject = {
   summary: string;
   whyBuilt: string;
   featured: boolean;
-  repositoryUrl: string;
+  repositoryUrl?: string;
   screenshots: ProjectScreenshot[];
   capabilities: string[];
   technicalHighlights: string[];
