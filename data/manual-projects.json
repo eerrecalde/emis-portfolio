@@ -1,6 +1,61 @@
 {
   "projects": [
     {
+      "slug": "ver-analisis",
+      "title": "Ver Análisis",
+      "summary": "A Spanish-only proof of concept that gives clinics a straightforward way to publish diagnostic reports and lets patients securely open, share, and print them from a unique link.",
+      "whyBuilt": "Diagnostic reports are often delivered through disconnected channels that make it harder for clinics to keep a consistent identity and for patients to access their results. I built Ver Análisis to explore a small, direct reporting flow: clinicians create a branded clinic, publish a report with its scans, and immediately receive a patient-ready URL and QR code.",
+      "featured": false,
+      "screenshots": [
+        {
+          "alt": "Patient-facing report with clinic branding, scan thumbnails, sharing, and printing actions",
+          "url": "/images/ver-analisis/patient-report-orono.jpg"
+        },
+        {
+          "alt": "Patient-facing report using a second clinic's logo and colour",
+          "url": "/images/ver-analisis/patient-report-ito.jpg"
+        },
+        {
+          "alt": "Full-screen diagnostic scan viewer with previous and next controls",
+          "url": "/images/ver-analisis/image-viewer.jpg"
+        },
+        {
+          "alt": "Doctor workflow for adding a new report",
+          "url": "/images/ver-analisis/report-form.jpg"
+        },
+        {
+          "alt": "Published report dialog with a QR code and patient-ready URL",
+          "url": "/images/ver-analisis/qr-share.jpg"
+        },
+        {
+          "alt": "Print preview of the patient report",
+          "url": "/images/ver-analisis/print-report.jpg"
+        },
+        {
+          "alt": "Print preview of the scan image page",
+          "url": "/images/ver-analisis/print-images.jpg"
+        }
+      ],
+      "capabilities": [
+        "Lets doctors create clinics with their own logo and brand colour before preparing reports.",
+        "Captures the patient details, report content, date, clinician, and scan images in one reporting workflow.",
+        "Publishes each completed report with a unique patient URL and a QR code that can be shared through WhatsApp.",
+        "Gives patients a Spanish-only report page where they can review scan thumbnails, inspect individual images, share the link, and print a two-page report."
+      ],
+      "technicalHighlights": [
+        "Built the proof of concept with React and Tailwind CSS, keeping the doctor workflow and patient-facing report experience in the same web application.",
+        "Uses Firebase Firestore for clinic and report data, with Firebase Storage for uploaded diagnostic scan images.",
+        "Uses Jest to cover the application behaviour as the reporting workflow evolves."
+      ],
+      "keyDecisions": [
+        "Used a unique report code and direct URL so a patient can open a result without navigating a clinic portal.",
+        "Made clinic branding configurable at the clinic level, allowing one product to support distinct practices without duplicating the reporting flow.",
+        "Kept the patient experience focused on reviewing, sharing, and printing the completed report rather than exposing administrative controls."
+      ],
+      "skillIds": ["react", "tailwind-css", "firebase", "jest"],
+      "status": "Proof of concept. The clinician reporting, branded clinic, patient report, image viewing, QR sharing, and print flows are implemented."
+    },
+    {
       "slug": "luno-buy-sell-flow-renovation",
       "title": "Luno Buy & Sell Flow Renovation",
       "summary": "A frontend-driven renovation of the buy and sell journeys for Luno, a crypto fintech product, making high-stakes transactions clearer and more focused.",
