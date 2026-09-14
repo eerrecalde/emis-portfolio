@@ -25,6 +25,9 @@ does not begin until every Phase 1 curation task is done. See
 | M-04 | Reset the scroll position when visitors navigate between portfolio routes.           | Done   |
 | M-05 | Add a Surge SPA fallback so direct portfolio routes load after static deployment.    | Done   |
 | M-06 | Add React and Angular technology-area skill filters and update the skill catalogue.  | Done   |
+| M-07 | Merge manually authored projects with repository-derived portfolio content.          | Done   |
+| M-08 | Add public-safe Luno case studies for transaction and regulatory flows.              | Done   |
+| M-09 | Add public-safe TechSoup case studies for modernisation and endpoint tooling.        | Done   |
 
 ## Phase 1 — repository curation
 

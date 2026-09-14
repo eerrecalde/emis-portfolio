@@ -79,6 +79,70 @@
         "frontend-architecture"
       ],
       "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
+    },
+    {
+      "slug": "luno-buy-sell-flow-renovation",
+      "title": "Luno Buy & Sell Flow Renovation",
+      "summary": "A frontend-driven renovation of the buy and sell journeys for Luno, a crypto fintech product, making high-stakes transactions clearer and more focused.",
+      "featured": false,
+      "screenshots": [],
+      "skillIds": [
+        "angular",
+        "typescript",
+        "rxjs",
+        "amplitude",
+        "playwright",
+        "karma",
+        "jasmine",
+        "feature-flags"
+      ],
+      "status": "Shipped at Luno. The buy-flow A/B test validated the shorter purchase journey."
+    },
+    {
+      "slug": "luno-dynamic-send-receive-flows",
+      "title": "Luno Dynamic Send & Receive Flows",
+      "summary": "Backend-driven, country-specific regulatory journeys for sending and receiving crypto, designed to keep Luno compliant with local requirements.",
+      "featured": false,
+      "screenshots": [],
+      "skillIds": [
+        "angular",
+        "typescript",
+        "rxjs",
+        "amplitude",
+        "playwright",
+        "karma",
+        "jasmine",
+        "feature-flags"
+      ],
+      "status": "Shipped at Luno."
+    },
+    {
+      "slug": "techsoup-angularjs-react-modernisation",
+      "title": "TechSoup AngularJS to React Modernisation",
+      "summary": "A staged modernisation of internal applications at TechSoup, a nonprofit technology provider serving organisations worldwide, moving legacy AngularJS experiences to React.",
+      "featured": false,
+      "screenshots": [],
+      "skillIds": [
+        "react",
+        "angularjs",
+        "tailwind-css",
+        "testing"
+      ],
+      "status": "Shipped at TechSoup."
+    },
+    {
+      "slug": "techsoup-typescript-endpoint-library",
+      "title": "TechSoup TypeScript Endpoint Library",
+      "summary": "An internal TypeScript library that gives applications only the endpoint data they need, reducing repeated data trimming and making API consumption easier for development teams.",
+      "featured": false,
+      "screenshots": [],
+      "skillIds": [
+        "typescript",
+        "testing",
+        "angularjs",
+        "react"
+      ],
+      "status": "Shipped at TechSoup."
     }
   ],
   "skills": [

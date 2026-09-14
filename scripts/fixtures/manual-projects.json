@@ -1,0 +1,17 @@
+{
+  "projects": [
+    {
+      "slug": "private-project",
+      "title": "Private Project",
+      "summary": "Private Project demonstrates a private client workflow.",
+      "whyBuilt": "To solve a delivery problem that cannot be shared publicly.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": ["Supports a private client workflow."],
+      "technicalHighlights": ["Keeps sensitive implementation details private."],
+      "keyDecisions": ["Excludes the repository from the portfolio."],
+      "skillIds": ["typescript"],
+      "status": "Delivered privately."
+    }
+  ]
+}

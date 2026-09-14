@@ -19,6 +19,7 @@ describe('portfolio ingestion', () => {
     await expect(
       runIngestion({
         curatedProjectsPath: fixturePath('curated-projects.json'),
+        manualProjectsPath: fixturePath('manual-projects.json'),
         professionalExperiencePath: fixturePath('professional-experience.json'),
         skillsPath: fixturePath('skills.json'),
         outputPath,
@@ -49,6 +50,19 @@ describe('portfolio ingestion', () => {
           keyDecisions: ['Uses static data to keep builds repeatable.'],
           skillIds: ['react', 'typescript'],
           status: 'The prototype is ready for portfolio review.',
+        },
+        {
+          slug: 'private-project',
+          title: 'Private Project',
+          summary: 'Private Project demonstrates a private client workflow.',
+          whyBuilt: 'To solve a delivery problem that cannot be shared publicly.',
+          featured: false,
+          screenshots: [],
+          capabilities: ['Supports a private client workflow.'],
+          technicalHighlights: ['Keeps sensitive implementation details private.'],
+          keyDecisions: ['Excludes the repository from the portfolio.'],
+          skillIds: ['typescript'],
+          status: 'Delivered privately.',
         },
       ],
       skills: [
@@ -119,11 +133,50 @@ describe('portfolio ingestion', () => {
             },
           ],
         },
+        { projects: [] },
         { experience: [] },
         { skills: [] },
       ),
     ).toThrow(
       'Project missing-skill references unknown skills: missing-skill.',
     );
+  });
+
+  it('rejects duplicate slugs across repository and manual projects', () => {
+    expect(() =>
+      buildPortfolioContent(
+        {
+          projects: [
+            {
+              slug: 'shared-project',
+              featured: false,
+              repositoryUrl: 'https://github.com/example/shared-project',
+              readme: '# Shared Project',
+              screenshots: [],
+              skillIds: [],
+            },
+          ],
+        },
+        {
+          projects: [
+            {
+              slug: 'shared-project',
+              title: 'Private Project',
+              summary: 'A private project.',
+              whyBuilt: 'To test duplication protection.',
+              featured: false,
+              screenshots: [],
+              capabilities: [],
+              technicalHighlights: [],
+              keyDecisions: [],
+              skillIds: [],
+              status: 'Complete.',
+            },
+          ],
+        },
+        { experience: [] },
+        { skills: [] },
+      ),
+    ).toThrow('Duplicate project slug: shared-project.');
   });
 });

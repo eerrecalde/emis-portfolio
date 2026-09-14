@@ -18,11 +18,17 @@ export type CuratedProjectSource = {
 };
 
 type CuratedProjects = { projects: CuratedProjectSource[] };
+export type ManualProjectSource = Omit<PortfolioProject, 'repositoryUrl'> & {
+  repositoryUrl?: string;
+};
+
+type ManualProjects = { projects: ManualProjectSource[] };
 type ProfessionalExperienceSource = { experience: ProfessionalExperience[] };
 type SkillCatalogueSource = { skills: PortfolioSkill[] };
 
 export type IngestionOptions = {
   curatedProjectsPath: string;
+  manualProjectsPath: string;
   professionalExperiencePath: string;
   skillsPath: string;
   outputPath: string;
@@ -96,12 +102,23 @@ export function normalizeProject(
 
 export function buildPortfolioContent(
   curatedProjects: CuratedProjects,
+  manualProjects: ManualProjects,
   professionalExperience: ProfessionalExperienceSource,
   skillCatalogue: SkillCatalogueSource,
 ): PortfolioContent {
   const knownSkillIds = new Set(skillCatalogue.skills.map((skill) => skill.id));
+  const projects = [
+    ...curatedProjects.projects.map(normalizeProject),
+    ...manualProjects.projects,
+  ];
+  const projectSlugs = new Set<string>();
 
-  for (const project of curatedProjects.projects) {
+  for (const project of projects) {
+    if (projectSlugs.has(project.slug)) {
+      throw new Error(`Duplicate project slug: ${project.slug}.`);
+    }
+    projectSlugs.add(project.slug);
+
     const unknownSkillIds = project.skillIds.filter(
       (skillId) => !knownSkillIds.has(skillId),
     );
@@ -114,7 +131,7 @@ export function buildPortfolioContent(
   }
 
   return {
-    projects: curatedProjects.projects.map(normalizeProject),
+    projects,
     experience: professionalExperience.experience,
     skills: skillCatalogue.skills,
   };
@@ -123,14 +140,21 @@ export function buildPortfolioContent(
 export async function runIngestion(
   options: IngestionOptions,
 ): Promise<PortfolioContent> {
-  const [curatedProjectsSource, professionalExperienceSource, skillsSource] =
+  const [
+    curatedProjectsSource,
+    manualProjectsSource,
+    professionalExperienceSource,
+    skillsSource,
+  ] =
     await Promise.all([
       readFile(options.curatedProjectsPath, 'utf8'),
+      readFile(options.manualProjectsPath, 'utf8'),
       readFile(options.professionalExperiencePath, 'utf8'),
       readFile(options.skillsPath, 'utf8'),
     ]);
   const content = buildPortfolioContent(
     JSON.parse(curatedProjectsSource) as CuratedProjects,
+    JSON.parse(manualProjectsSource) as ManualProjects,
     JSON.parse(professionalExperienceSource) as ProfessionalExperienceSource,
     JSON.parse(skillsSource) as SkillCatalogueSource,
   );
@@ -188,6 +212,7 @@ async function main(): Promise<void> {
   const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
   const result = await runIngestion({
     curatedProjectsPath: resolve(projectRoot, 'data/curated-projects.json'),
+    manualProjectsPath: resolve(projectRoot, 'data/manual-projects.json'),
     professionalExperiencePath: resolve(
       projectRoot,
       'data/professional-experience.json',

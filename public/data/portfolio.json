@@ -150,6 +150,136 @@
         "frontend-architecture"
       ],
       "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
+    },
+    {
+      "slug": "luno-buy-sell-flow-renovation",
+      "title": "Luno Buy & Sell Flow Renovation",
+      "summary": "A frontend-driven renovation of the buy and sell journeys for Luno, a crypto fintech product, making high-stakes transactions clearer and more focused.",
+      "whyBuilt": "The existing purchase journey had accumulated screens and separated card payment into another browser tab. As the sole web engineer, I rebuilt the experience around a clearer flow that kept customers in context from entering an amount through to confirmation.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Guides customers through clearer crypto purchase and sale journeys built from a shared component library.",
+        "Reduces the buy journey by two screens by condensing information without removing the context customers need to complete a purchase.",
+        "Replaces a four-screen, separate-tab card-payment journey with an in-context modal that closes after confirmed payment and returns the customer to the end-of-flow screen.",
+        "Applies the established buy-flow pattern to a sell-flow MVP delivered in about three weeks."
+      ],
+      "technicalHighlights": [
+        "Built frontend-driven Angular flows with TypeScript and RxJS, after contributing the required shared components to the company library.",
+        "Used an AI-first delivery approach: the buy flow established a reusable example, while the sell MVP was accelerated with Claude Code.",
+        "Added analytics, feature flags, and automated coverage with Playwright, Karma, and Jasmine."
+      ],
+      "keyDecisions": [
+        "Ran the buy-flow release as an A/B test to validate whether a shorter journey improved the purchase experience; the sell flow reused the proven pattern without a separate experiment.",
+        "Kept card payment inside the flow so confirmation returns customers to the right screen instead of losing their context in a separate tab.",
+        "Invested in shared components first so the two flows could be assembled consistently and delivered faster."
+      ],
+      "skillIds": [
+        "angular",
+        "typescript",
+        "rxjs",
+        "amplitude",
+        "playwright",
+        "karma",
+        "jasmine",
+        "feature-flags"
+      ],
+      "status": "Shipped at Luno. The buy-flow A/B test validated the shorter purchase journey."
+    },
+    {
+      "slug": "luno-dynamic-send-receive-flows",
+      "title": "Luno Dynamic Send & Receive Flows",
+      "summary": "Backend-driven, country-specific regulatory journeys for sending and receiving crypto, designed to keep Luno compliant with local requirements.",
+      "whyBuilt": "Send and receive journeys needed to adapt to different local regulations without creating a separate frontend flow for every country. As the sole web engineer, I built a flexible presentation layer that could safely assemble the appropriate journey from backend-provided definitions.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Presents compliant send and receive journeys that adapt to country-specific rules.",
+        "Builds a Dynamic Flow from backend-provided JSON that identifies the screen type and supplies its content.",
+        "Renders either a predefined screen or a generic composition of shared components, depending on the backend definition."
+      ],
+      "technicalHighlights": [
+        "Implemented an Angular and TypeScript presentation layer for backend-driven screen definitions, using RxJS to coordinate dynamic state.",
+        "Used the company component library to keep dynamically assembled flows consistent with the wider product.",
+        "Added analytics, feature flags, and automated coverage with Playwright, Karma, and Jasmine."
+      ],
+      "keyDecisions": [
+        "Kept regulatory decision-making in backend definitions so country rules could vary without duplicating frontend journeys.",
+        "Used a small set of predefined and generic screen patterns to handle variation while keeping the customer experience consistent.",
+        "Made experimentation and observability part of the flow architecture through feature flags and analytics."
+      ],
+      "skillIds": [
+        "angular",
+        "typescript",
+        "rxjs",
+        "amplitude",
+        "playwright",
+        "karma",
+        "jasmine",
+        "feature-flags"
+      ],
+      "status": "Shipped at Luno."
+    },
+    {
+      "slug": "techsoup-angularjs-react-modernisation",
+      "title": "TechSoup AngularJS to React Modernisation",
+      "summary": "A staged modernisation of internal applications at TechSoup, a nonprofit technology provider serving organisations worldwide, moving legacy AngularJS experiences to React.",
+      "whyBuilt": "Internal applications needed a more maintainable frontend foundation and a practical migration path away from AngularJS. As JavaScript lead engineer, I established that foundation before migrating applications one by one, so teams could modernise without a disruptive rewrite programme.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Provides a repeatable path for moving internal applications from AngularJS to React.",
+        "Modernises styling from plain CSS to Bootstrap and SCSS, making implementation easier to extend and maintain.",
+        "Improves and simplifies legacy AngularJS code while applications wait to be migrated.",
+        "Supports a gradual, application-by-application migration instead of a high-risk platform rewrite."
+      ],
+      "technicalHighlights": [
+        "Led the JavaScript foundation work across React and AngularJS applications.",
+        "Introduced Bootstrap, SCSS, and Tailwind CSS tooling to make styling more consistent and practical to develop.",
+        "Used Jest to support a safer migration path as individual applications moved to React."
+      ],
+      "keyDecisions": [
+        "Established shared styling and code-quality foundations before migrating applications, so each migration built on a more maintainable base.",
+        "Improved legacy AngularJS code rather than treating it as untouchable, reducing friction during the transition.",
+        "Migrated incrementally to limit delivery risk for internal teams."
+      ],
+      "skillIds": [
+        "react",
+        "angularjs",
+        "tailwind-css",
+        "testing"
+      ],
+      "status": "Shipped at TechSoup."
+    },
+    {
+      "slug": "techsoup-typescript-endpoint-library",
+      "title": "TechSoup TypeScript Endpoint Library",
+      "summary": "An internal TypeScript library that gives applications only the endpoint data they need, reducing repeated data trimming and making API consumption easier for development teams.",
+      "whyBuilt": "Endpoints often returned more data than individual applications needed, leaving teams to repeatedly trim responses and making correct usage harder for junior developers. As JavaScript lead engineer, I created a shared library that made the intended data shape the default.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Reduces endpoint responses to the fields requested through the endpoint parameters.",
+        "Removes repeated response-trimming work from consuming applications.",
+        "Gives developers a simpler, safer way to consume shared endpoint data."
+      ],
+      "technicalHighlights": [
+        "Built the internal library in TypeScript with Jest coverage.",
+        "Used Rollup to publish CommonJS output for AngularJS applications and ESM output for React applications.",
+        "Created one shared endpoint-consumption layer for applications at different stages of the frontend modernisation."
+      ],
+      "keyDecisions": [
+        "Applied response selection inside the shared library so consumers received only the data their endpoint parameters requested.",
+        "Published both CommonJS and ESM builds to support the existing AngularJS estate alongside newer React applications.",
+        "Optimised the library for clear defaults so less-experienced developers could use endpoints without manual response shaping."
+      ],
+      "skillIds": [
+        "typescript",
+        "testing",
+        "angularjs",
+        "react"
+      ],
+      "status": "Shipped at TechSoup."
     }
   ],
   "experience": [
@@ -248,49 +378,81 @@
       "id": "react",
       "displayName": "React",
       "yearsOfExperience": 8,
-      "areas": ["frontend", "react"],
-      "aliases": ["reactjs", "react.js", "react js"]
+      "areas": [
+        "frontend",
+        "react"
+      ],
+      "aliases": [
+        "reactjs",
+        "react.js",
+        "react js"
+      ]
     },
     {
       "id": "typescript",
       "displayName": "TypeScript",
       "yearsOfExperience": 6,
-      "areas": ["frontend", "react", "angular"],
-      "aliases": ["ts"]
+      "areas": [
+        "frontend",
+        "react",
+        "angular"
+      ],
+      "aliases": [
+        "ts"
+      ]
     },
     {
       "id": "javascript",
       "displayName": "JavaScript",
       "yearsOfExperience": 19,
-      "areas": ["frontend"],
-      "aliases": ["js", "ecmascript", "es6", "es2015"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "js",
+        "ecmascript",
+        "es6",
+        "es2015"
+      ]
     },
     {
       "id": "tanstack-query",
       "displayName": "TanStack Query",
       "yearsOfExperience": 1,
-      "areas": ["react"],
-      "aliases": ["react query"]
+      "areas": [
+        "react"
+      ],
+      "aliases": [
+        "react query"
+      ]
     },
     {
       "id": "redux",
       "displayName": "Redux",
       "yearsOfExperience": 2,
-      "areas": ["react"],
+      "areas": [
+        "react"
+      ],
       "aliases": []
     },
     {
       "id": "react-hooks",
       "displayName": "Hooks",
       "yearsOfExperience": 5,
-      "areas": ["react"],
-      "aliases": ["react hooks"]
+      "areas": [
+        "react"
+      ],
+      "aliases": [
+        "react hooks"
+      ]
     },
     {
       "id": "responsive-web-design",
       "displayName": "Responsive web design",
       "yearsOfExperience": 15,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "responsive design",
         "responsive web development",
@@ -302,21 +464,36 @@
       "id": "web-accessibility",
       "displayName": "Web accessibility",
       "yearsOfExperience": 8,
-      "areas": ["frontend"],
-      "aliases": ["accessibility", "a11y", "wcag", "inclusive design"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "accessibility",
+        "a11y",
+        "wcag",
+        "inclusive design"
+      ]
     },
     {
       "id": "design-systems",
       "displayName": "Design systems",
       "yearsOfExperience": 5,
-      "areas": ["frontend"],
-      "aliases": ["design system", "ui systems", "component system"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "design system",
+        "ui systems",
+        "component system"
+      ]
     },
     {
       "id": "frontend-architecture",
       "displayName": "Frontend architecture",
       "yearsOfExperience": 10,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "front-end architecture",
         "front end architecture",
@@ -328,7 +505,9 @@
       "id": "component-libraries",
       "displayName": "Component libraries",
       "yearsOfExperience": 8,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "component library",
         "ui library",
@@ -340,7 +519,9 @@
       "id": "performance-optimisation",
       "displayName": "Performance optimisation",
       "yearsOfExperience": 8,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "performance optimization",
         "frontend performance",
@@ -353,7 +534,9 @@
       "id": "testing",
       "displayName": "Testing",
       "yearsOfExperience": 8,
-      "areas": ["testing"],
+      "areas": [
+        "testing"
+      ],
       "aliases": [
         "unit testing",
         "component testing",
@@ -366,119 +549,190 @@
       "id": "vitest",
       "displayName": "Vitest",
       "yearsOfExperience": 1,
-      "areas": ["testing"],
-      "aliases": ["vite test"]
+      "areas": [
+        "testing"
+      ],
+      "aliases": [
+        "vite test"
+      ]
     },
     {
       "id": "karma",
       "displayName": "Karma",
       "yearsOfExperience": 4,
-      "areas": ["testing"],
+      "areas": [
+        "testing"
+      ],
       "aliases": []
     },
     {
       "id": "jasmine",
       "displayName": "Jasmine",
       "yearsOfExperience": 4,
-      "areas": ["testing"],
+      "areas": [
+        "testing"
+      ],
       "aliases": []
     },
     {
       "id": "cypress",
       "displayName": "Cypress",
       "yearsOfExperience": 2,
-      "areas": ["testing"],
+      "areas": [
+        "testing"
+      ],
       "aliases": []
     },
     {
       "id": "playwright",
       "displayName": "Playwright",
       "yearsOfExperience": 3,
-      "areas": ["testing"],
+      "areas": [
+        "testing"
+      ],
       "aliases": []
     },
     {
       "id": "tailwind-css",
       "displayName": "Tailwind CSS",
       "yearsOfExperience": 8,
-      "areas": ["frontend", "react"],
-      "aliases": ["tailwind", "tailwindcss"]
+      "areas": [
+        "frontend",
+        "react"
+      ],
+      "aliases": [
+        "tailwind",
+        "tailwindcss"
+      ]
     },
     {
       "id": "sass-less",
       "displayName": "Sass / Less",
       "yearsOfExperience": 6,
-      "areas": ["frontend"],
-      "aliases": ["sass", "scss", "less", "css preprocessors"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "sass",
+        "scss",
+        "less",
+        "css preprocessors"
+      ]
     },
     {
       "id": "angular",
       "displayName": "Angular",
       "yearsOfExperience": 4,
-      "areas": ["frontend", "angular"],
-      "aliases": ["angular 2", "angular 2+", "ng"]
+      "areas": [
+        "frontend",
+        "angular"
+      ],
+      "aliases": [
+        "angular 2",
+        "angular 2+",
+        "ng"
+      ]
     },
     {
       "id": "rxjs",
       "displayName": "RxJS",
       "yearsOfExperience": 4,
-      "areas": ["angular"],
+      "areas": [
+        "angular"
+      ],
       "aliases": []
     },
     {
       "id": "signals",
       "displayName": "Signals",
       "yearsOfExperience": 2,
-      "areas": ["angular"],
-      "aliases": ["angular signals"]
+      "areas": [
+        "angular"
+      ],
+      "aliases": [
+        "angular signals"
+      ]
     },
     {
       "id": "material-ui",
       "displayName": "Material UI",
       "yearsOfExperience": 2,
-      "areas": ["angular"],
-      "aliases": ["angular material"]
+      "areas": [
+        "angular"
+      ],
+      "aliases": [
+        "angular material"
+      ]
     },
     {
       "id": "angularjs",
       "displayName": "AngularJS",
       "yearsOfExperience": 4,
-      "areas": ["frontend"],
-      "aliases": ["angular.js", "angular 1", "angular 1.x", "ng1"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "angular.js",
+        "angular 1",
+        "angular 1.x",
+        "ng1"
+      ]
     },
     {
       "id": "vuejs",
       "displayName": "VueJS",
       "yearsOfExperience": 2,
-      "areas": ["frontend"],
-      "aliases": ["vue", "vue.js"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "vue",
+        "vue.js"
+      ]
     },
     {
       "id": "next-js",
       "displayName": "Next.js",
       "yearsOfExperience": 1,
-      "areas": ["frontend", "backend"],
-      "aliases": ["nextjs", "next js"]
+      "areas": [
+        "frontend",
+        "backend"
+      ],
+      "aliases": [
+        "nextjs",
+        "next js"
+      ]
     },
     {
       "id": "vite",
       "displayName": "Vite",
       "yearsOfExperience": 1,
-      "areas": ["frontend"],
-      "aliases": ["vitejs", "vite.js"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "vitejs",
+        "vite.js"
+      ]
     },
     {
       "id": "npm-tooling",
       "displayName": "npm tooling",
       "yearsOfExperience": 10,
       "areas": [],
-      "aliases": ["npm", "node package manager", "package scripts"]
+      "aliases": [
+        "npm",
+        "node package manager",
+        "package scripts"
+      ]
     },
     {
       "id": "rest-api-integration",
       "displayName": "REST API integration",
       "yearsOfExperience": 15,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "rest api",
         "restful api",
@@ -491,42 +745,65 @@
       "id": "golang",
       "displayName": "Golang",
       "yearsOfExperience": 1,
-      "areas": ["backend"],
-      "aliases": ["Go"]
+      "areas": [
+        "backend"
+      ],
+      "aliases": [
+        "Go"
+      ]
     },
     {
       "id": "node",
       "displayName": "Node",
       "yearsOfExperience": 2,
-      "areas": ["backend"],
-      "aliases": ["NodeJS"]
+      "areas": [
+        "backend"
+      ],
+      "aliases": [
+        "NodeJS"
+      ]
     },
     {
       "id": "supabase",
       "displayName": "Supabase",
       "yearsOfExperience": 2,
-      "areas": ["backend", "devops"],
+      "areas": [
+        "backend",
+        "devops"
+      ],
       "aliases": []
     },
     {
       "id": "gcloud",
       "displayName": "GCloud",
       "yearsOfExperience": 1,
-      "areas": ["devops"],
-      "aliases": ["google cloud", "google cloud platform", "gcp"]
+      "areas": [
+        "devops"
+      ],
+      "aliases": [
+        "google cloud",
+        "google cloud platform",
+        "gcp"
+      ]
     },
     {
       "id": "aws",
       "displayName": "AWS",
       "yearsOfExperience": 1,
-      "areas": ["devops"],
-      "aliases": ["amazon web services"]
+      "areas": [
+        "devops"
+      ],
+      "aliases": [
+        "amazon web services"
+      ]
     },
     {
       "id": "internationalisation-localisation",
       "displayName": "Internationalisation and localisation",
       "yearsOfExperience": 8,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "i18n",
         "internationalization",
@@ -539,8 +816,13 @@
       "id": "seo",
       "displayName": "SEO",
       "yearsOfExperience": 6,
-      "areas": ["frontend"],
-      "aliases": ["search engine optimization", "search engine optimisation"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "search engine optimization",
+        "search engine optimisation"
+      ]
     },
     {
       "id": "ai-assisted-engineering-workflows",
@@ -558,28 +840,44 @@
       "id": "flutter-dart",
       "displayName": "Flutter / Dart",
       "yearsOfExperience": 0.2,
-      "areas": ["frontend"],
-      "aliases": ["flutter", "dart"]
+      "areas": [
+        "frontend"
+      ],
+      "aliases": [
+        "flutter",
+        "dart"
+      ]
     },
     {
       "id": "technical-leadership",
       "displayName": "Technical leadership",
       "yearsOfExperience": 6,
       "areas": [],
-      "aliases": ["tech leadership", "engineering leadership", "technical lead"]
+      "aliases": [
+        "tech leadership",
+        "engineering leadership",
+        "technical lead"
+      ]
     },
     {
       "id": "agile-delivery",
       "displayName": "Agile delivery",
       "yearsOfExperience": 12,
       "areas": [],
-      "aliases": ["agile", "scrum", "kanban", "agile software development"]
+      "aliases": [
+        "agile",
+        "scrum",
+        "kanban",
+        "agile software development"
+      ]
     },
     {
       "id": "feature-flags",
       "displayName": "Feature flags",
       "yearsOfExperience": 5,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "feature flag",
         "feature toggles",
@@ -591,28 +889,43 @@
       "id": "bitbucket",
       "displayName": "Bitbucket",
       "yearsOfExperience": 5,
-      "areas": ["ci-cd"],
-      "aliases": ["atlassian bitbucket"]
+      "areas": [
+        "ci-cd"
+      ],
+      "aliases": [
+        "atlassian bitbucket"
+      ]
     },
     {
       "id": "github",
       "displayName": "GitHub",
       "yearsOfExperience": 5,
-      "areas": ["ci-cd"],
-      "aliases": ["github.com"]
+      "areas": [
+        "ci-cd"
+      ],
+      "aliases": [
+        "github.com"
+      ]
     },
     {
       "id": "gitlab",
       "displayName": "GitLab",
       "yearsOfExperience": 4,
-      "areas": ["ci-cd"],
-      "aliases": ["gitlab.com"]
+      "areas": [
+        "ci-cd"
+      ],
+      "aliases": [
+        "gitlab.com"
+      ]
     },
     {
       "id": "technical-design-docs",
       "displayName": "Technical design docs",
       "yearsOfExperience": 4,
-      "areas": ["frontend", "backend"],
+      "areas": [
+        "frontend",
+        "backend"
+      ],
       "aliases": [
         "technical design documents",
         "technical documentation",
@@ -627,7 +940,9 @@
       "id": "telemetry",
       "displayName": "Telemetry",
       "yearsOfExperience": 6,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "observability",
         "analytics instrumentation",
@@ -641,21 +956,27 @@
       "id": "amplitude",
       "displayName": "Amplitude",
       "yearsOfExperience": 4,
-      "areas": ["analytics"],
+      "areas": [
+        "analytics"
+      ],
       "aliases": []
     },
     {
       "id": "gtag",
       "displayName": "gtag",
       "yearsOfExperience": 4,
-      "areas": ["analytics"],
+      "areas": [
+        "analytics"
+      ],
       "aliases": []
     },
     {
       "id": "ab-testing",
       "displayName": "A/B testing",
       "yearsOfExperience": 4,
-      "areas": ["frontend"],
+      "areas": [
+        "frontend"
+      ],
       "aliases": [
         "a/b test",
         "a/b testing",
