@@ -140,6 +140,13 @@
       "aliases": []
     },
     {
+      "id": "jest",
+      "displayName": "Jest",
+      "yearsOfExperience": 8,
+      "areas": ["testing"],
+      "aliases": ["jestjs"]
+    },
+    {
       "id": "cypress",
       "displayName": "Cypress",
       "yearsOfExperience": 2,
@@ -265,6 +272,13 @@
       "aliases": []
     },
     {
+      "id": "firebase",
+      "displayName": "Firebase",
+      "yearsOfExperience": 1,
+      "areas": ["backend", "devops"],
+      "aliases": ["firestore", "firebase storage"]
+    },
+    {
       "id": "gcloud",
       "displayName": "GCloud",
       "yearsOfExperience": 1,
@@ -346,14 +360,14 @@
     {
       "id": "bitbucket",
       "displayName": "Bitbucket",
-      "yearsOfExperience": 5,
+      "yearsOfExperience": 6,
       "areas": ["ci-cd"],
       "aliases": ["atlassian bitbucket"]
     },
     {
       "id": "github",
       "displayName": "GitHub",
-      "yearsOfExperience": 5,
+      "yearsOfExperience": 7,
       "areas": ["ci-cd"],
       "aliases": ["github.com"]
     },

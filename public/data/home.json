@@ -81,6 +81,49 @@
       "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
     },
     {
+      "slug": "ver-analisis",
+      "title": "Ver Análisis",
+      "summary": "A Spanish-only proof of concept that gives clinics a straightforward way to publish diagnostic reports and lets patients securely open, share, and print them from a unique link.",
+      "featured": false,
+      "screenshots": [
+        {
+          "alt": "Patient-facing report with clinic branding, scan thumbnails, sharing, and printing actions",
+          "url": "/images/ver-analisis/patient-report-orono.jpg"
+        },
+        {
+          "alt": "Patient-facing report using a second clinic's logo and colour",
+          "url": "/images/ver-analisis/patient-report-ito.jpg"
+        },
+        {
+          "alt": "Full-screen diagnostic scan viewer with previous and next controls",
+          "url": "/images/ver-analisis/image-viewer.jpg"
+        },
+        {
+          "alt": "Doctor workflow for adding a new report",
+          "url": "/images/ver-analisis/report-form.jpg"
+        },
+        {
+          "alt": "Published report dialog with a QR code and patient-ready URL",
+          "url": "/images/ver-analisis/qr-share.jpg"
+        },
+        {
+          "alt": "Print preview of the patient report",
+          "url": "/images/ver-analisis/print-report.jpg"
+        },
+        {
+          "alt": "Print preview of the scan image page",
+          "url": "/images/ver-analisis/print-images.jpg"
+        }
+      ],
+      "skillIds": [
+        "react",
+        "tailwind-css",
+        "firebase",
+        "jest"
+      ],
+      "status": "Proof of concept. The clinician reporting, branded clinic, patient report, image viewing, QR sharing, and print flows are implemented."
+    },
+    {
       "slug": "luno-buy-sell-flow-renovation",
       "title": "Luno Buy & Sell Flow Renovation",
       "summary": "A frontend-driven renovation of the buy and sell journeys for Luno, a crypto fintech product, making high-stakes transactions clearer and more focused.",
@@ -211,6 +254,10 @@
       "displayName": "Jasmine"
     },
     {
+      "id": "jest",
+      "displayName": "Jest"
+    },
+    {
       "id": "cypress",
       "displayName": "Cypress"
     },
@@ -277,6 +324,10 @@
     {
       "id": "supabase",
       "displayName": "Supabase"
+    },
+    {
+      "id": "firebase",
+      "displayName": "Firebase"
     },
     {
       "id": "gcloud",
