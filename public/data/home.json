@@ -81,6 +81,20 @@
       "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
     },
     {
+      "slug": "citizen-shareholders-content-platform",
+      "title": "CitizenShareholders Content Platform",
+      "summary": "Two content-rich websites for CitizenShareholders: one for the general public and one for investors, both designed to be updated quickly by the client team.",
+      "featured": false,
+      "screenshots": [],
+      "skillIds": [
+        "react",
+        "gatsby",
+        "wordpress",
+        "graphql"
+      ],
+      "status": "Delivered for CitizenShareholders. The client could manage content independently through WordPress."
+    },
+    {
       "slug": "ver-analisis",
       "title": "Ver Análisis",
       "summary": "A Spanish-only proof of concept that gives clinics a straightforward way to publish diagnostic reports and lets patients securely open, share, and print them from a unique link.",
@@ -194,6 +208,10 @@
       "displayName": "React"
     },
     {
+      "id": "gatsby",
+      "displayName": "Gatsby"
+    },
+    {
       "id": "typescript",
       "displayName": "TypeScript"
     },
@@ -300,6 +318,14 @@
     {
       "id": "next-js",
       "displayName": "Next.js"
+    },
+    {
+      "id": "wordpress",
+      "displayName": "WordPress"
+    },
+    {
+      "id": "graphql",
+      "displayName": "GraphQL"
     },
     {
       "id": "vite",

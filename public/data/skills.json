@@ -15,6 +15,19 @@
       ]
     },
     {
+      "id": "gatsby",
+      "displayName": "Gatsby",
+      "yearsOfExperience": 2,
+      "areas": [
+        "frontend",
+        "react"
+      ],
+      "aliases": [
+        "gatsbyjs",
+        "gatsby.js"
+      ]
+    },
+    {
       "id": "typescript",
       "displayName": "TypeScript",
       "yearsOfExperience": 6,
@@ -338,6 +351,31 @@
       "aliases": [
         "nextjs",
         "next js"
+      ]
+    },
+    {
+      "id": "wordpress",
+      "displayName": "WordPress",
+      "yearsOfExperience": 3,
+      "areas": [
+        "frontend",
+        "backend"
+      ],
+      "aliases": [
+        "wp",
+        "headless wordpress"
+      ]
+    },
+    {
+      "id": "graphql",
+      "displayName": "GraphQL",
+      "yearsOfExperience": 1,
+      "areas": [
+        "frontend",
+        "backend"
+      ],
+      "aliases": [
+        "graph ql"
       ]
     },
     {

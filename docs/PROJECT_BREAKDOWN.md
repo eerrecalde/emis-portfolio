@@ -29,6 +29,7 @@ does not begin until every Phase 1 curation task is done. See
 | M-08 | Add public-safe Luno case studies for transaction and regulatory flows.              | Done   |
 | M-09 | Add public-safe TechSoup case studies for modernisation and endpoint tooling.        | Done   |
 | M-10 | Add the public-safe Ver Análisis proof-of-concept case study.                         | Done   |
+| M-11 | Add the text-only CitizenShareholders headless WordPress case study.                 | Done   |
 
 ## Phase 1 — repository curation
 
