@@ -33,7 +33,7 @@ export function SkillsChart({ skills, visibleSkills }: SkillsChartProps) {
     Math.max(visibleSkills.length, 1) * ROW_HEIGHT +
     BOTTOM_PADDING;
   const leftMargin = chartWidth < 560 ? 170 : 250;
-  const rightMargin = 72;
+  const rightMargin = chartWidth < 560 ? 36 : 72;
   const maximumExperience = Math.max(
     ...skills.map((skill) => skill.yearsOfExperience),
   );
@@ -188,6 +188,12 @@ export function SkillsChart({ skills, visibleSkills }: SkillsChartProps) {
           {skills.map((skill) => {
             const visible = visibleIndex.has(skill.id);
             const endpoint = x(skill.yearsOfExperience);
+            const valueLabel =
+              chartWidth < 560
+                ? `${skill.yearsOfExperience}y`
+                : formatYears(skill.yearsOfExperience);
+            const valueFitsToRight =
+              endpoint + 12 + valueLabel.length * 7 <= chartWidth;
             return (
               <g
                 aria-hidden={!visible}
@@ -240,10 +246,11 @@ export function SkillsChart({ skills, visibleSkills }: SkillsChartProps) {
                   data-skill-value=""
                   fill="rgb(165 243 252)"
                   fontSize="12"
-                  x={endpoint + 12}
+                  textAnchor={valueFitsToRight ? 'start' : 'end'}
+                  x={valueFitsToRight ? endpoint + 12 : endpoint - 10}
                   y="5"
                 >
-                  {formatYears(skill.yearsOfExperience)}
+                  {valueLabel}
                 </text>
               </g>
             );
