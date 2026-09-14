@@ -42,6 +42,6 @@ describe('SkillsChart', () => {
         name: 'Dot plot showing years of experience for selected skills',
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText('8 years')).toBeInTheDocument();
+    expect(screen.getByText('8y')).toBeInTheDocument();
   });
 });
