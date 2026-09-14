@@ -9,7 +9,14 @@ const skills: PortfolioSkill[] = [
     id: 'react',
     displayName: 'React',
     yearsOfExperience: 8,
-    areas: ['frontend'],
+    areas: ['frontend', 'react'],
+    aliases: [],
+  },
+  {
+    id: 'tanstack-query',
+    displayName: 'TanStack Query',
+    yearsOfExperience: 1,
+    areas: ['react'],
     aliases: [],
   },
   {
@@ -33,40 +40,44 @@ describe('SkillsPage', () => {
     );
 
     const frontend = screen.getByRole('button', { name: 'Frontend' });
+    const react = screen.getByRole('button', { name: 'React' });
     const testing = screen.getByRole('button', { name: 'Testing' });
 
     expect(frontend).toHaveAttribute('aria-pressed', 'false');
+    expect(react).toHaveAttribute('aria-pressed', 'false');
     expect(testing).toHaveAttribute('aria-pressed', 'false');
-    expect(screen.getByText('2 of 2 skills shown')).toBeInTheDocument();
+    expect(screen.getByText('3 of 3 skills shown')).toBeInTheDocument();
 
     fireEvent.click(testing);
     expect(testing).toHaveAttribute('aria-pressed', 'true');
     expect(window.location.search).toBe('?filter=testing');
-    expect(screen.getByText('1 of 2 skills shown')).toBeInTheDocument();
+    expect(screen.getByText('1 of 3 skills shown')).toBeInTheDocument();
     expect(screen.getByText('Vitest: 1 year')).toBeInTheDocument();
 
-    fireEvent.click(frontend);
-    expect(frontend).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(react);
+    expect(react).toHaveAttribute('aria-pressed', 'true');
     expect(testing).toHaveAttribute('aria-pressed', 'false');
     expect(screen.getByText('React: 8 years')).toBeInTheDocument();
+    expect(screen.getByText('TanStack Query: 1 year')).toBeInTheDocument();
+    expect(screen.getByText('2 of 3 skills shown')).toBeInTheDocument();
 
-    fireEvent.click(frontend);
-    expect(frontend).toHaveAttribute('aria-pressed', 'false');
-    expect(screen.getByText('2 of 2 skills shown')).toBeInTheDocument();
+    fireEvent.click(react);
+    expect(react).toHaveAttribute('aria-pressed', 'false');
+    expect(screen.getByText('3 of 3 skills shown')).toBeInTheDocument();
   });
 
   it('restores a selected filter from the URL', () => {
-    window.history.pushState({}, '', '/skills?filter=ci-cd');
+    window.history.pushState({}, '', '/skills?filter=react');
     render(
       <BrowserRouter>
         <SkillsPage skills={skills} />
       </BrowserRouter>,
     );
 
-    expect(screen.getByRole('button', { name: 'CI/CD' })).toHaveAttribute(
+    expect(screen.getByRole('button', { name: 'React' })).toHaveAttribute(
       'aria-pressed',
       'true',
     );
-    expect(screen.getByText('1 of 2 skills shown')).toBeInTheDocument();
+    expect(screen.getByText('2 of 3 skills shown')).toBeInTheDocument();
   });
 });

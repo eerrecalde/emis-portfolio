@@ -95,6 +95,18 @@
       "displayName": "JavaScript"
     },
     {
+      "id": "tanstack-query",
+      "displayName": "TanStack Query"
+    },
+    {
+      "id": "redux",
+      "displayName": "Redux"
+    },
+    {
+      "id": "react-hooks",
+      "displayName": "Hooks"
+    },
+    {
       "id": "responsive-web-design",
       "displayName": "Responsive web design"
     },
@@ -155,8 +167,24 @@
       "displayName": "Angular"
     },
     {
+      "id": "rxjs",
+      "displayName": "RxJS"
+    },
+    {
+      "id": "signals",
+      "displayName": "Signals"
+    },
+    {
+      "id": "material-ui",
+      "displayName": "Material UI"
+    },
+    {
       "id": "angularjs",
       "displayName": "AngularJS"
+    },
+    {
+      "id": "vuejs",
+      "displayName": "VueJS"
     },
     {
       "id": "next-js",
@@ -247,8 +275,8 @@
       "displayName": "Amplitude"
     },
     {
-      "id": "gtags",
-      "displayName": "gtags"
+      "id": "gtag",
+      "displayName": "gtag"
     },
     {
       "id": "ab-testing",

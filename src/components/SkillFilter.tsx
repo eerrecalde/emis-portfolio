@@ -1,6 +1,8 @@
 import type { SkillArea } from '../types/portfolio';
 
 const AREA_LABELS: Record<SkillArea, string> = {
+  react: 'React',
+  angular: 'Angular',
   frontend: 'Frontend',
   backend: 'Backend',
   analytics: 'Analytics',

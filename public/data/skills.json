@@ -4,14 +4,14 @@
       "id": "react",
       "displayName": "React",
       "yearsOfExperience": 8,
-      "areas": ["frontend"],
+      "areas": ["frontend", "react"],
       "aliases": ["reactjs", "react.js", "react js"]
     },
     {
       "id": "typescript",
       "displayName": "TypeScript",
       "yearsOfExperience": 6,
-      "areas": ["frontend"],
+      "areas": ["frontend", "react", "angular"],
       "aliases": ["ts"]
     },
     {
@@ -20,6 +20,27 @@
       "yearsOfExperience": 19,
       "areas": ["frontend"],
       "aliases": ["js", "ecmascript", "es6", "es2015"]
+    },
+    {
+      "id": "tanstack-query",
+      "displayName": "TanStack Query",
+      "yearsOfExperience": 1,
+      "areas": ["react"],
+      "aliases": ["react query"]
+    },
+    {
+      "id": "redux",
+      "displayName": "Redux",
+      "yearsOfExperience": 2,
+      "areas": ["react"],
+      "aliases": []
+    },
+    {
+      "id": "react-hooks",
+      "displayName": "Hooks",
+      "yearsOfExperience": 5,
+      "areas": ["react"],
+      "aliases": ["react hooks"]
     },
     {
       "id": "responsive-web-design",
@@ -136,7 +157,7 @@
       "id": "tailwind-css",
       "displayName": "Tailwind CSS",
       "yearsOfExperience": 8,
-      "areas": ["frontend"],
+      "areas": ["frontend", "react"],
       "aliases": ["tailwind", "tailwindcss"]
     },
     {
@@ -150,8 +171,29 @@
       "id": "angular",
       "displayName": "Angular",
       "yearsOfExperience": 4,
-      "areas": ["frontend"],
+      "areas": ["frontend", "angular"],
       "aliases": ["angular 2", "angular 2+", "ng"]
+    },
+    {
+      "id": "rxjs",
+      "displayName": "RxJS",
+      "yearsOfExperience": 4,
+      "areas": ["angular"],
+      "aliases": []
+    },
+    {
+      "id": "signals",
+      "displayName": "Signals",
+      "yearsOfExperience": 2,
+      "areas": ["angular"],
+      "aliases": ["angular signals"]
+    },
+    {
+      "id": "material-ui",
+      "displayName": "Material UI",
+      "yearsOfExperience": 2,
+      "areas": ["angular"],
+      "aliases": ["angular material"]
     },
     {
       "id": "angularjs",
@@ -159,6 +201,13 @@
       "yearsOfExperience": 4,
       "areas": ["frontend"],
       "aliases": ["angular.js", "angular 1", "angular 1.x", "ng1"]
+    },
+    {
+      "id": "vuejs",
+      "displayName": "VueJS",
+      "yearsOfExperience": 2,
+      "areas": ["frontend"],
+      "aliases": ["vue", "vue.js"]
     },
     {
       "id": "next-js",
@@ -185,7 +234,7 @@
       "id": "rest-api-integration",
       "displayName": "REST API integration",
       "yearsOfExperience": 15,
-      "areas": ["frontend", "backend"],
+      "areas": ["frontend"],
       "aliases": [
         "rest api",
         "restful api",
@@ -352,8 +401,8 @@
       "aliases": []
     },
     {
-      "id": "gtags",
-      "displayName": "gtags",
+      "id": "gtag",
+      "displayName": "gtag",
       "yearsOfExperience": 4,
       "areas": ["analytics"],
       "aliases": []
