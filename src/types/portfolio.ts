@@ -4,6 +4,8 @@ export type ProjectScreenshot = {
 };
 
 export const skillAreas = [
+  'react',
+  'angular',
   'frontend',
   'backend',
   'analytics',

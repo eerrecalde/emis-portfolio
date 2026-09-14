@@ -23,7 +23,8 @@ does not begin until every Phase 1 curation task is done. See
 | M-02 | Align the project-detail title treatment with the experience and skills pages.       | Done   |
 | M-03 | Defer non-home route code and content, then warm it after the home page is visible.  | Done   |
 | M-04 | Reset the scroll position when visitors navigate between portfolio routes.           | Done   |
-| M-05 | Add a Surge SPA fallback so direct portfolio routes load after static deployment.   | Done   |
+| M-05 | Add a Surge SPA fallback so direct portfolio routes load after static deployment.    | Done   |
+| M-06 | Add React and Angular technology-area skill filters and update the skill catalogue.  | Done   |
 
 ## Phase 1 — repository curation
 
