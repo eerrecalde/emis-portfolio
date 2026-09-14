@@ -152,36 +152,6 @@
       "status": "The controlled-beta product is in active development. The delivery plan documents the implemented alpha and beta paths alongside the remaining distribution and follow-up work in docs/PROJECT_BREAKDOWN.md."
     },
     {
-      "slug": "citizen-shareholders-content-platform",
-      "title": "CitizenShareholders Content Platform",
-      "summary": "Two content-rich websites for CitizenShareholders: one for the general public and one for investors, both designed to be updated quickly by the client team.",
-      "whyBuilt": "CitizenShareholders needed two related sites with different audiences, content, imagery, and colour palettes. They needed editorial control quickly, without the time or budget for a bespoke admin panel. As the sole developer, I used WordPress as a familiar content-management layer and built each site as a separate Gatsby frontend.",
-      "featured": false,
-      "screenshots": [],
-      "capabilities": [
-        "Provides separate public and investor websites, each with its own content, imagery, and publishing workflow.",
-        "Lets the client team update website content through the WordPress admin interface instead of depending on a custom-built admin panel.",
-        "Applies a shared visual approach across both sites while giving each one distinct primary and accent colours."
-      ],
-      "technicalHighlights": [
-        "Built both frontend applications in React with Gatsby.",
-        "Configured each WordPress installation as a headless content source, exposing content through JSON endpoints for the corresponding frontend.",
-        "Added a WordPress GraphQL extension so each Gatsby site could request only the content it needed instead of retrieving entire endpoint responses."
-      ],
-      "keyDecisions": [
-        "Used WordPress rather than a bespoke admin interface to give the client immediate, familiar control over a large volume of editorial content.",
-        "Kept the public and investor sites separate because their content and images differed, while using consistent theming techniques to make them clearly part of the same product family.",
-        "Exposed GraphQL alongside JSON endpoints to make frontend data queries more focused and efficient."
-      ],
-      "skillIds": [
-        "react",
-        "gatsby",
-        "wordpress",
-        "graphql"
-      ],
-      "status": "Delivered for CitizenShareholders. The client could manage content independently through WordPress."
-    },
-    {
       "slug": "ver-analisis",
       "title": "Ver Análisis",
       "summary": "A Spanish-only proof of concept that gives clinics a straightforward way to publish diagnostic reports and lets patients securely open, share, and print them from a unique link.",
@@ -370,6 +340,36 @@
         "react"
       ],
       "status": "Shipped at TechSoup."
+    },
+    {
+      "slug": "citizen-shareholders-content-platform",
+      "title": "CitizenShareholders Content Platform",
+      "summary": "Two content-rich websites for CitizenShareholders: one for the general public and one for investors, both designed to be updated quickly by the client team.",
+      "whyBuilt": "CitizenShareholders needed two related sites with different audiences, content, imagery, and colour palettes. They needed editorial control quickly, without the time or budget for a bespoke admin panel. As the sole developer, I used WordPress as a familiar content-management layer and built each site as a separate Gatsby frontend.",
+      "featured": false,
+      "screenshots": [],
+      "capabilities": [
+        "Provides separate public and investor websites, each with its own content, imagery, and publishing workflow.",
+        "Lets the client team update website content through the WordPress admin interface instead of depending on a custom-built admin panel.",
+        "Applies a shared visual approach across both sites while giving each one distinct primary and accent colours."
+      ],
+      "technicalHighlights": [
+        "Built both frontend applications in React with Gatsby.",
+        "Configured each WordPress installation as a headless content source, exposing content through JSON endpoints for the corresponding frontend.",
+        "Added a WordPress GraphQL extension so each Gatsby site could request only the content it needed instead of retrieving entire endpoint responses."
+      ],
+      "keyDecisions": [
+        "Used WordPress rather than a bespoke admin interface to give the client immediate, familiar control over a large volume of editorial content.",
+        "Kept the public and investor sites separate because their content and images differed, while using consistent theming techniques to make them clearly part of the same product family.",
+        "Exposed GraphQL alongside JSON endpoints to make frontend data queries more focused and efficient."
+      ],
+      "skillIds": [
+        "react",
+        "gatsby",
+        "wordpress",
+        "graphql"
+      ],
+      "status": "Delivered for CitizenShareholders. The client could manage content independently through WordPress."
     }
   ],
   "experience": [
