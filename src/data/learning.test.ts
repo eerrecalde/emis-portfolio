@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { LearningItem } from '../types/portfolio';
-import { orderLearningItems } from './learning';
+import { currentLearningItems, orderLearningItems } from './learning';
 
 const items: LearningItem[] = [
   {
@@ -41,5 +41,38 @@ describe('orderLearningItems', () => {
       'node',
       'go',
     ]);
+  });
+});
+
+describe('currentLearningItems', () => {
+  it('selects the newest two in-progress courses in their deliberate order', () => {
+    expect(
+      currentLearningItems([
+        ...items,
+        {
+          id: 'current-older',
+          displayName: 'Older course',
+          status: 'in-progress',
+          startDate: '2026-08',
+          platform: { name: 'Example' },
+        },
+        {
+          id: 'current-newer-second',
+          displayName: 'Second newer course',
+          status: 'in-progress',
+          startDate: '2026-09',
+          sequence: 1,
+          platform: { name: 'Example' },
+        },
+        {
+          id: 'current-newer-first',
+          displayName: 'First newer course',
+          status: 'in-progress',
+          startDate: '2026-09',
+          sequence: 2,
+          platform: { name: 'Example' },
+        },
+      ]).map((item) => item.id),
+    ).toEqual(['node', 'current-newer-second']);
   });
 });
