@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   fetchExperience,
   fetchHomePortfolio,
+  fetchLearning,
   fetchProjectDetails,
   fetchSkills,
 } from './portfolio';
@@ -34,12 +35,14 @@ describe('portfolio content requests', () => {
     await Promise.all([
       fetchProjectDetails(),
       fetchExperience(),
+      fetchLearning(),
       fetchSkills(),
     ]);
 
     expect(fetch).toHaveBeenNthCalledWith(1, '/data/project-details.json');
     expect(fetch).toHaveBeenNthCalledWith(2, '/data/experience.json');
-    expect(fetch).toHaveBeenNthCalledWith(3, '/data/skills.json');
+    expect(fetch).toHaveBeenNthCalledWith(3, '/data/learning.json');
+    expect(fetch).toHaveBeenNthCalledWith(4, '/data/skills.json');
   });
 
   it('reports unsuccessful responses', async () => {
