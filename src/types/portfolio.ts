@@ -83,9 +83,8 @@ export type LearningItem = {
   startDate: string;
   completedDate?: string;
   sequence?: number;
-  platform: { name: string; url?: string };
-  institution?: { name: string; url?: string };
-  sourceUrl: string;
+  platform: { name: string };
+  institution?: { name: string };
   diploma?: { label: string; url: string };
   summary?: string;
   topics?: string[];

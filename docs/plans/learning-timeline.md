@@ -19,9 +19,8 @@ type LearningItem = {
   startDate: 'YYYY-MM';
   completedDate?: 'YYYY-MM';
   sequence?: number;
-  platform: { name: string; url?: string };
-  institution?: { name: string; url?: string };
-  sourceUrl: string;
+  platform: { name: string };
+  institution?: { name: string };
   diploma?: { label: string; url: string };
   summary?: string;
   topics?: string[];
@@ -56,17 +55,16 @@ compress the curve into a narrow viewport.
 Use one course-detail component with responsive presentation.
 
 - On desktop, it is an animated popover positioned beside the selected node.
-  Hover or focus opens a preview. The preview closes 175ms after the pointer
-  leaves both the node and the popover, avoiding accidental dismissal while a
-  visitor moves into it.
+  Hover, focus, or click opens the same full detail panel. A non-persistent
+  hover panel closes 175ms after the pointer leaves both the node and the
+  popover, avoiding accidental dismissal while a visitor moves into it.
 - Click, Enter, or Space opens a persistent interactive detail panel. It stays
   open until the close control, Escape, or an outside click closes it.
 - On mobile, the same component is a centred modal covering about 90% of the
   viewport, with a dimmed backdrop and an internally scrollable content area.
   Dismissal returns focus to the course node.
 - Detail content includes status, date, platform, optional institution,
-  summary/topics when present, the external source link, and the diploma link
-  only when supplied.
+  summary/topics when present, and the diploma link only when supplied.
 - Use a subtle fade-and-scale transition. Respect `prefers-reduced-motion` by
   showing and hiding the panel without motion.
 

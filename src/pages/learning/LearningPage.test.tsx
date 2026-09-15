@@ -27,7 +27,6 @@ describe('LearningPage', () => {
             startDate: '2026-07',
             completedDate: '2026-07',
             platform: { name: 'Provider' },
-            sourceUrl: 'https://example.com/course',
           },
         ]}
       />,

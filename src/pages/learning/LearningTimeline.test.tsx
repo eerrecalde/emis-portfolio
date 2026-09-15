@@ -18,7 +18,6 @@ const items: LearningItem[] = [
     startDate: '2026-07',
     completedDate: '2026-08',
     platform: { name: 'Provider' },
-    sourceUrl: 'https://example.com/completed',
     diploma: { label: 'Certificate', url: 'https://example.com/certificate' },
   },
   {
@@ -27,7 +26,6 @@ const items: LearningItem[] = [
     status: 'in-progress',
     startDate: '2026-09',
     platform: { name: 'Provider' },
-    sourceUrl: 'https://example.com/current',
   },
 ];
 
@@ -97,10 +95,6 @@ describe('LearningTimeline', () => {
 
     expect(screen.getByRole('dialog')).toHaveTextContent('Completed course');
     expect(screen.getByRole('dialog')).not.toHaveAttribute('aria-modal');
-    expect(screen.getByRole('link', { name: 'View course' })).toHaveAttribute(
-      'href',
-      'https://example.com/completed',
-    );
     expect(screen.getByRole('link', { name: 'Certificate' })).toHaveAttribute(
       'href',
       'https://example.com/certificate',
@@ -125,17 +119,44 @@ describe('LearningTimeline', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('opens a hover preview and delays dismissal while the pointer can move to it', () => {
+  it('dismisses non-persistent hover details with the close control', () => {
+    render(<LearningTimeline items={items} />);
+
+    fireEvent.pointerEnter(
+      screen.getByRole('button', {
+        name: 'View details for Completed course',
+      }),
+    );
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Close details for Completed course',
+      }),
+    );
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
+  it('opens the same certificate details on hover and delays dismissal while the pointer can move to it', () => {
     vi.useFakeTimers();
     render(<LearningTimeline items={items} />);
 
     const course = screen.getByRole('button', {
-      name: 'View details for Current course',
+      name: 'View details for Completed course',
     });
     fireEvent.pointerEnter(course);
 
     const preview = screen.getByRole('dialog');
-    expect(preview).toHaveTextContent('Current course');
+    expect(preview).toHaveTextContent('Completed course');
+    expect(
+      screen.getByRole('button', {
+        name: 'Close details for Completed course',
+      }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Certificate' })).toHaveAttribute(
+      'href',
+      'https://example.com/certificate',
+    );
+    expect(screen.queryByRole('link', { name: 'View course' })).toBeNull();
 
     fireEvent.pointerLeave(course);
     act(() => vi.advanceTimersByTime(174));

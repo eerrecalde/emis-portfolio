@@ -81,9 +81,11 @@ test('published course certificates open from their details', async ({
     },
   ]) {
     await page.getByRole('button', { name: course.name }).click();
+    const details = page.getByRole('dialog');
     await expect(
-      page.getByRole('link', { name: 'View course certificate' }),
+      details.getByRole('link', { name: 'View course certificate' }),
     ).toHaveAttribute('href', course.certificate);
+    await expect(details.getByRole('link')).toHaveCount(1);
     await page.keyboard.press('Escape');
   }
 });

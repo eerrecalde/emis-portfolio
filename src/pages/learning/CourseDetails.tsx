@@ -52,17 +52,15 @@ export function CourseDetails({
             {item.status === 'in-progress' ? 'In progress' : 'Completed'} ·{' '}
             {formatLearningDate(date)}
           </p>
-          {persistent ? (
-            <button
-              aria-label={`Close details for ${item.displayName}`}
-              className="course-details__close"
-              onClick={onClose}
-              ref={closeButton}
-              type="button"
-            >
-              ×
-            </button>
-          ) : null}
+          <button
+            aria-label={`Close details for ${item.displayName}`}
+            className="course-details__close"
+            onClick={onClose}
+            ref={closeButton}
+            type="button"
+          >
+            ×
+          </button>
         </div>
         <h3 className="course-details__title" id={`course-details-${item.id}`}>
           {item.displayName}
@@ -81,19 +79,14 @@ export function CourseDetails({
             ))}
           </ul>
         ) : null}
-        {persistent ? (
+        {item.diploma ? (
           <p className="course-details__links">
-            <a href={item.sourceUrl} rel="noreferrer" target="_blank">
-              View course
+            <a href={item.diploma.url} rel="noreferrer" target="_blank">
+              {item.diploma.label}
             </a>
-            {item.diploma ? (
-              <a href={item.diploma.url} rel="noreferrer" target="_blank">
-                {item.diploma.label}
-              </a>
-            ) : null}
           </p>
         ) : (
-          <p className="course-details__hint">Select for course details</p>
+          <p className="course-details__hint">No certificate available</p>
         )}
       </div>
     </div>

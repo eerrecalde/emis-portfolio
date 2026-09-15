@@ -22,10 +22,10 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
     setActiveCourseId(undefined);
     setIsPersistent(false);
 
-    if (closingCourseId) {
+    if (closingCourseId && isPersistent) {
       courseButtons.current.get(closingCourseId)?.focus();
     }
-  }, [activeCourseId, clearCloseTimer]);
+  }, [activeCourseId, clearCloseTimer, isPersistent]);
 
   useEffect(() => {
     return () => window.clearTimeout(closeTimer.current);

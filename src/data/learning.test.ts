@@ -11,7 +11,6 @@ const items: LearningItem[] = [
     startDate: '2026-09',
     sequence: 2,
     platform: { name: 'Example platform' },
-    sourceUrl: 'https://example.com/go',
   },
   {
     id: 'node',
@@ -20,7 +19,6 @@ const items: LearningItem[] = [
     startDate: '2026-09',
     sequence: 1,
     platform: { name: 'Example platform' },
-    sourceUrl: 'https://example.com/node',
   },
   {
     id: 'typescript',
@@ -29,7 +27,6 @@ const items: LearningItem[] = [
     startDate: '2026-01',
     completedDate: '2026-08',
     platform: { name: 'Example platform' },
-    sourceUrl: 'https://example.com/typescript',
     diploma: {
       label: 'View credential',
       url: 'https://example.com/typescript/diploma',

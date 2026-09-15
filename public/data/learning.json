@@ -7,11 +7,7 @@
       "status": "completed",
       "startDate": "2019-07",
       "completedDate": "2019-07",
-      "platform": {
-        "name": "Udacity",
-        "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011?v=fe1"
-      },
-      "sourceUrl": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011?v=fe1"
+      "platform": { "name": "Udacity" }
     },
     {
       "id": "zero-to-mastery-advanced-javascript",
@@ -20,11 +16,7 @@
       "status": "completed",
       "startDate": "2022-03",
       "completedDate": "2022-03",
-      "platform": {
-        "name": "Zero To Mastery Academy",
-        "url": "https://zerotomastery.io/courses/advanced-javascript-concepts/"
-      },
-      "sourceUrl": "https://zerotomastery.io/courses/advanced-javascript-concepts/",
+      "platform": { "name": "Zero To Mastery Academy" },
       "summary": "Advanced JavaScript concepts."
     },
     {
@@ -34,14 +26,10 @@
       "status": "completed",
       "startDate": "2025-03",
       "completedDate": "2025-04",
-      "platform": {
-        "name": "Coursera",
-        "url": "https://www.coursera.org/specializations/google-golang"
-      },
+      "platform": { "name": "Coursera" },
       "institution": {
         "name": "University of California, Irvine"
       },
-      "sourceUrl": "https://www.coursera.org/specializations/google-golang",
       "summary": "Completed 7 April 2025. A three-course specialisation from the University of California, Irvine.",
       "topics": ["Go"],
       "diploma": {
@@ -56,14 +44,10 @@
       "status": "completed",
       "startDate": "2026-07",
       "completedDate": "2026-07",
-      "platform": {
-        "name": "Coursera",
-        "url": "https://www.coursera.org/learn/advanced-react"
-      },
+      "platform": { "name": "Coursera" },
       "institution": {
         "name": "Meta"
       },
-      "sourceUrl": "https://www.coursera.org/learn/advanced-react",
       "summary": "Completed 22 July 2026. A course authorised and taught by Meta.",
       "topics": ["React"],
       "diploma": {
@@ -78,11 +62,7 @@
       "status": "completed",
       "startDate": "2026-08",
       "completedDate": "2026-08",
-      "platform": {
-        "name": "Zero To Mastery Academy",
-        "url": "https://zerotomastery.io/courses/typescript-bootcamp/"
-      },
-      "sourceUrl": "https://zerotomastery.io/courses/typescript-bootcamp/",
+      "platform": { "name": "Zero To Mastery Academy" },
       "summary": "Completed 7 August 2026. A practical TypeScript course covering real-world applications.",
       "topics": ["TypeScript", "Type systems", "Application development"],
       "diploma": {
@@ -97,11 +77,7 @@
       "status": "completed",
       "startDate": "2026-09",
       "completedDate": "2026-09",
-      "platform": {
-        "name": "Zero To Mastery Academy",
-        "url": "https://zerotomastery.io/courses/system-design/"
-      },
-      "sourceUrl": "https://zerotomastery.io/courses/system-design/",
+      "platform": { "name": "Zero To Mastery Academy" },
       "summary": "Completed 7 September 2026. A course on system design and architecture for technical interviews.",
       "topics": ["System design", "Architecture", "Technical interviews"],
       "diploma": {
