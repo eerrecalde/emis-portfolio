@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import type { LearningItem } from '../../types/portfolio';
 import { LearningTimeline } from './LearningTimeline';
@@ -33,14 +33,50 @@ describe('LearningTimeline', () => {
     expect(
       screen.getByRole('list', { name: 'Courses in chronological order' }),
     ).toHaveTextContent('Aug 2026');
-    expect(screen.getByRole('heading', { name: 'Completed course' })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: 'Current course' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Completed course' }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Current course' }),
+    ).toBeInTheDocument();
   });
 
   it('communicates credentials and active study without relying on colour', () => {
     render(<LearningTimeline items={items} />);
 
-    expect(screen.getByText('Completed · Provider · Credential')).toBeInTheDocument();
+    expect(
+      screen.getByText('Completed · Provider · Credential'),
+    ).toBeInTheDocument();
     expect(screen.getByText('In progress · Provider')).toBeInTheDocument();
+  });
+
+  it('keeps the DOM chronological while placing the oldest course at bottom-right', () => {
+    const { container } = render(
+      <LearningTimeline
+        items={[
+          ...items,
+          { ...items[0], id: 'third-course', displayName: 'Third course' },
+          { ...items[1], id: 'newest-course', displayName: 'Newest course' },
+        ]}
+      />,
+    );
+    const courses = within(
+      screen.getByRole('list', { name: 'Courses in chronological order' }),
+    ).getAllByRole('listitem');
+
+    expect(courses.map((course) => course.textContent)).toEqual([
+      expect.stringContaining('Completed course'),
+      expect.stringContaining('Current course'),
+      expect.stringContaining('Third course'),
+      expect.stringContaining('Newest course'),
+    ]);
+    expect(courses[0]).toHaveClass('learning-timeline__item--right');
+    expect(courses[0]).toHaveStyle({ gridRow: '2' });
+    expect(courses[3]).toHaveClass('learning-timeline__item--right');
+    expect(courses[3]).toHaveStyle({ gridRow: '1' });
+    expect(container.querySelector('path')).toHaveAttribute(
+      'd',
+      'M 92 75 L 8 75 L 8 25 L 92 25',
+    );
   });
 });
