@@ -26,3 +26,145 @@ body {
   background: rgb(34 211 238 / 0.35);
   color: #f8fafc;
 }
+
+.learning-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 4.5rem 1.5rem;
+  margin-top: 2.5rem;
+  padding: 1.5rem 0;
+}
+
+.learning-timeline__path {
+  position: absolute;
+  inset: 1.5rem 0;
+  width: 100%;
+  height: calc(100% - 3rem);
+  overflow: visible;
+}
+
+.learning-timeline__path path {
+  stroke: rgb(71 85 105 / 0.8);
+  stroke-dasharray: 0.02 0.02;
+  stroke-width: 0.35;
+}
+
+.learning-timeline__item {
+  position: relative;
+  grid-column: 1 / span 6;
+}
+
+.learning-timeline__item--end {
+  grid-column: 7 / span 6;
+}
+
+.learning-timeline__node {
+  position: relative;
+  max-width: 20rem;
+  padding: 1.25rem 1.25rem 1.2rem;
+  border: 1px solid rgb(51 65 85 / 0.9);
+  border-radius: 1rem;
+  background: rgb(8 13 15 / 0.88);
+  box-shadow: 0 18px 42px rgb(0 0 0 / 0.16);
+}
+
+.learning-timeline__item--end .learning-timeline__node {
+  margin-left: auto;
+}
+
+.learning-timeline__marker {
+  position: absolute;
+  top: -0.5rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 3px solid #080d0f;
+  border-radius: 999px;
+}
+
+.learning-timeline__item--start .learning-timeline__marker {
+  left: 1.35rem;
+}
+
+.learning-timeline__item--end .learning-timeline__marker {
+  right: 1.35rem;
+}
+
+.learning-timeline__node--completed .learning-timeline__marker {
+  background: #8b5cf6;
+  box-shadow: 0 0 0 1px rgb(139 92 246 / 0.4);
+}
+
+.learning-timeline__node--in-progress .learning-timeline__marker {
+  background: #22d3ee;
+  box-shadow: 0 0 0 1px rgb(34 211 238 / 0.4);
+}
+
+.learning-timeline__date {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.learning-timeline__title {
+  margin: 0.65rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: #f1f5f9;
+}
+
+.learning-timeline__meta {
+  margin: 0.8rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+}
+
+.learning-timeline__node--completed .learning-timeline__meta {
+  color: #c4b5fd;
+}
+
+.learning-timeline__node--in-progress .learning-timeline__meta {
+  color: #a5f3fc;
+}
+
+@media (max-width: 639px) {
+  .learning-timeline {
+    display: block;
+    margin-top: 2rem;
+    padding: 0 0 0 1.5rem;
+    border-left: 1px solid rgb(71 85 105 / 0.8);
+  }
+
+  .learning-timeline__path {
+    display: none;
+  }
+
+  .learning-timeline__item,
+  .learning-timeline__item--end {
+    margin: 0 0 1.5rem;
+  }
+
+  .learning-timeline__item:last-child {
+    margin-bottom: 0;
+  }
+
+  .learning-timeline__node,
+  .learning-timeline__item--end .learning-timeline__node {
+    max-width: none;
+    margin: 0;
+  }
+
+  .learning-timeline__marker,
+  .learning-timeline__item--start .learning-timeline__marker,
+  .learning-timeline__item--end .learning-timeline__marker {
+    top: 1.4rem;
+    right: auto;
+    left: -2rem;
+  }
+}
