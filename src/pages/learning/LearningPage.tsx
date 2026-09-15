@@ -1,5 +1,6 @@
 import { orderLearningItems } from '../../data/learning';
 import type { LearningItem } from '../../types/portfolio';
+import { LearningTimeline } from './LearningTimeline';
 
 type LearningPageProps = { items: LearningItem[] };
 
@@ -23,12 +24,15 @@ export function LearningPage({ items }: LearningPageProps) {
         </p>
       </header>
 
-      <section className="mt-12 border-t border-slate-800 pt-8" aria-live="polite">
+      <section className="mt-12 border-t border-slate-800 pt-8">
         {orderedItems.length > 0 ? (
-          <p className="text-sm text-slate-400">
-            {orderedItems.length} course{orderedItems.length === 1 ? '' : 's'},{' '}
-            {completedCount} completed
-          </p>
+          <>
+            <p className="text-sm text-slate-400">
+              {orderedItems.length} course{orderedItems.length === 1 ? '' : 's'},{' '}
+              {completedCount} completed
+            </p>
+            <LearningTimeline items={orderedItems} />
+          </>
         ) : (
           <p className="text-slate-400">
             Course entries will appear here as they are published.
