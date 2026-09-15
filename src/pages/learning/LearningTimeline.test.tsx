@@ -96,6 +96,7 @@ describe('LearningTimeline', () => {
     fireEvent.click(course);
 
     expect(screen.getByRole('dialog')).toHaveTextContent('Completed course');
+    expect(screen.getByRole('dialog')).not.toHaveAttribute('aria-modal');
     expect(screen.getByRole('link', { name: 'View course' })).toHaveAttribute(
       'href',
       'https://example.com/completed',

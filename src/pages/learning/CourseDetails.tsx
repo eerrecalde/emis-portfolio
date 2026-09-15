@@ -4,6 +4,7 @@ import type { LearningItem } from '../../types/portfolio';
 type CourseDetailsProps = {
   item: LearningItem;
   persistent: boolean;
+  modal: boolean;
   onClose: () => void;
   onPointerEnter: () => void;
   onPointerLeave: () => void;
@@ -12,6 +13,7 @@ type CourseDetailsProps = {
 export function CourseDetails({
   item,
   persistent,
+  modal,
   onClose,
   onPointerEnter,
   onPointerLeave,
@@ -31,7 +33,7 @@ export function CourseDetails({
   return (
     <div
       aria-labelledby={`course-details-${item.id}`}
-      aria-modal={persistent || undefined}
+      aria-modal={persistent && modal ? true : undefined}
       className={`course-details ${
         persistent ? 'course-details--persistent' : 'course-details--preview'
       }`}

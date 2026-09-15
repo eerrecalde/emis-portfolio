@@ -175,6 +175,7 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
                   onPointerEnter={clearCloseTimer}
                   onPointerLeave={schedulePreviewClose}
                   persistent={isPersistent}
+                  modal={isMobile}
                 />
               ) : null}
             </article>

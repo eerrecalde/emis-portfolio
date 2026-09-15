@@ -70,6 +70,44 @@
         "label": "View course certificate",
         "url": "https://coursera.org/verify/XRQX9DBLD9M5"
       }
+    },
+    {
+      "id": "zero-to-mastery-typescript-bootcamp",
+      "displayName": "TypeScript Bootcamp: Zero to Mastery",
+      "shortDisplayName": "TypeScript",
+      "status": "completed",
+      "startDate": "2026-08",
+      "completedDate": "2026-08",
+      "platform": {
+        "name": "Zero To Mastery Academy",
+        "url": "https://zerotomastery.io/courses/typescript-bootcamp/"
+      },
+      "sourceUrl": "https://zerotomastery.io/courses/typescript-bootcamp/",
+      "summary": "Completed 7 August 2026. A practical TypeScript course covering real-world applications.",
+      "topics": ["TypeScript", "Type systems", "Application development"],
+      "diploma": {
+        "label": "View course certificate",
+        "url": "/diplomas/typescript-bootcamp-zero-to-mastery.pdf"
+      }
+    },
+    {
+      "id": "zero-to-mastery-system-design-architecture",
+      "displayName": "Master the Coding Interview: System Design + Architecture",
+      "shortDisplayName": "System Design",
+      "status": "completed",
+      "startDate": "2026-09",
+      "completedDate": "2026-09",
+      "platform": {
+        "name": "Zero To Mastery Academy",
+        "url": "https://zerotomastery.io/courses/system-design/"
+      },
+      "sourceUrl": "https://zerotomastery.io/courses/system-design/",
+      "summary": "Completed 7 September 2026. A course on system design and architecture for technical interviews.",
+      "topics": ["System design", "Architecture", "Technical interviews"],
+      "diploma": {
+        "label": "View course certificate",
+        "url": "/diplomas/master-the-coding-interview-system-design-architecture.pdf"
+      }
     }
   ]
 }
