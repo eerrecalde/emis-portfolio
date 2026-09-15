@@ -25,6 +25,10 @@ describe('SiteLayout', () => {
     expect(
       screen.getByRole('link', { name: 'Emi Errecalde.' }),
     ).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: 'Learning' })).toHaveAttribute(
+      'href',
+      '/learning',
+    );
   });
 
   it('returns visitors to the top when the route changes', () => {

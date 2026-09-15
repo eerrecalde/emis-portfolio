@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router';
 import {
   fetchExperience,
   fetchHomePortfolio,
+  fetchLearning,
   fetchProjectDetails,
   fetchSkills,
 } from '../data/portfolio';
@@ -19,6 +20,11 @@ const ExperiencePage = lazy(() =>
 const SkillsPage = lazy(() =>
   import('./skills/SkillsPage').then((module) => ({
     default: module.SkillsPage,
+  })),
+);
+const LearningPage = lazy(() =>
+  import('./learning/LearningPage').then((module) => ({
+    default: module.LearningPage,
   })),
 );
 const ProjectPage = lazy(() =>
@@ -66,7 +72,13 @@ function HomeRoute() {
         queryFn: fetchSkills,
         staleTime: STATIC_CONTENT_STALE_TIME,
       });
+      void queryClient.prefetchQuery({
+        queryKey: ['learning'],
+        queryFn: fetchLearning,
+        staleTime: STATIC_CONTENT_STALE_TIME,
+      });
       void import('./experience/ExperiencePage');
+      void import('./learning/LearningPage');
       void import('./skills/SkillsPage');
       void import('./project/ProjectPage');
     };
@@ -132,6 +144,24 @@ function SkillsRoute() {
   return <SkillsPage skills={query.data.skills} />;
 }
 
+function LearningRoute() {
+  const query = useQuery({
+    queryKey: ['learning'],
+    queryFn: fetchLearning,
+    staleTime: STATIC_CONTENT_STALE_TIME,
+  });
+
+  if (query.isPending) {
+    return <PageLoading />;
+  }
+
+  if (query.isError) {
+    return <p role="alert">{query.error.message}</p>;
+  }
+
+  return <LearningPage items={query.data.items} />;
+}
+
 function ProjectRoute() {
   const projectsQuery = useQuery({
     queryKey: ['project-details'],
@@ -175,6 +205,7 @@ export function PortfolioRoutes() {
         <Route element={<HomeRoute />} path="/" />
         <Route element={<ExperienceRoute />} path="/experience" />
         <Route element={<SkillsRoute />} path="/skills" />
+        <Route element={<LearningRoute />} path="/learning" />
         <Route element={<ProjectRoute />} path="/projects/:slug" />
         <Route element={<NotFoundPage />} path="*" />
       </Routes>
