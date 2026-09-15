@@ -78,5 +78,8 @@ describe('SiteLayout', () => {
     expect(screen.getByText('Currently learning:')).toBeInTheDocument();
     expect(screen.getByText('Node.js fundamentals')).toBeInTheDocument();
     expect(screen.getByText('Go')).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: 'View learning record' }),
+    ).toHaveAttribute('href', '/learning');
   });
 });
