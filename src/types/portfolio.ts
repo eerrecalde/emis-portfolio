@@ -74,3 +74,21 @@ export type HomePortfolioContent = {
 };
 
 export type ProjectDetailsContent = { projects: PortfolioProject[] };
+
+export type LearningItem = {
+  id: string;
+  displayName: string;
+  shortDisplayName?: string;
+  status: 'in-progress' | 'completed';
+  startDate: string;
+  completedDate?: string;
+  sequence?: number;
+  platform: { name: string; url?: string };
+  institution?: { name: string; url?: string };
+  sourceUrl: string;
+  diploma?: { label: string; url: string };
+  summary?: string;
+  topics?: string[];
+};
+
+export type LearningContent = { items: LearningItem[] };

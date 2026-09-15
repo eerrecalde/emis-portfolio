@@ -1,0 +1,65 @@
+{
+  "items": [
+    {
+      "id": "udacity-front-end-web-developer-nanodegree",
+      "displayName": "Nanodegree, Front-End Web Development",
+      "shortDisplayName": "Front-End Nanodegree",
+      "status": "completed",
+      "startDate": "2019-07",
+      "completedDate": "2019-07",
+      "platform": {
+        "name": "Udacity",
+        "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011?v=fe1"
+      },
+      "sourceUrl": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011?v=fe1"
+    },
+    {
+      "id": "zero-to-mastery-advanced-javascript",
+      "displayName": "JavaScript: The Advanced Concepts",
+      "shortDisplayName": "Advanced JavaScript",
+      "status": "completed",
+      "startDate": "2022-03",
+      "completedDate": "2022-03",
+      "platform": {
+        "name": "Zero To Mastery Academy",
+        "url": "https://zerotomastery.io/courses/advanced-javascript-concepts/"
+      },
+      "sourceUrl": "https://zerotomastery.io/courses/advanced-javascript-concepts/",
+      "summary": "Advanced JavaScript concepts."
+    },
+    {
+      "id": "uci-programming-with-google-go",
+      "displayName": "Programming with Google Go Specialization",
+      "shortDisplayName": "Go",
+      "status": "completed",
+      "startDate": "2025-03",
+      "completedDate": "2025-04",
+      "platform": {
+        "name": "Coursera",
+        "url": "https://www.coursera.org/specializations/google-golang"
+      },
+      "institution": {
+        "name": "University of California, Irvine"
+      },
+      "sourceUrl": "https://www.coursera.org/specializations/google-golang",
+      "topics": ["Go"]
+    },
+    {
+      "id": "meta-advanced-react",
+      "displayName": "Advanced React",
+      "shortDisplayName": "Advanced React",
+      "status": "completed",
+      "startDate": "2026-07",
+      "completedDate": "2026-07",
+      "platform": {
+        "name": "Coursera",
+        "url": "https://www.coursera.org/learn/advanced-react"
+      },
+      "institution": {
+        "name": "Meta"
+      },
+      "sourceUrl": "https://www.coursera.org/learn/advanced-react",
+      "topics": ["React"]
+    }
+  ]
+}

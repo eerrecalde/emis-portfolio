@@ -24,7 +24,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
         Skip to content
       </a>
       <header className="border-b border-slate-800/80 bg-[#080d0f]/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 sm:px-10 sm:py-5">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-10 sm:py-5">
           <NavLink
             className="text-lg font-semibold tracking-tight text-slate-100 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 sm:text-lg"
             to="/"
@@ -70,6 +70,18 @@ export function SiteLayout({ children }: SiteLayoutProps) {
               to="/skills"
             >
               Skills
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 ${
+                  isActive
+                    ? 'text-cyan-300'
+                    : 'text-slate-400 hover:text-slate-100'
+                }`
+              }
+              to="/learning"
+            >
+              Learning
             </NavLink>
           </nav>
         </div>

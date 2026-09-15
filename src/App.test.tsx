@@ -22,6 +22,7 @@ const portfolio = {
     },
   ],
   experience: [],
+  items: [],
   skills: [
     {
       id: 'typescript',
@@ -110,6 +111,25 @@ describe('App', () => {
     expect(screen.getByRole('link', { name: 'Portfolio' })).toHaveAttribute(
       'href',
       '/',
+    );
+  });
+
+  it('shows the learning-record foundation at its dedicated route', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(
+        async () => new Response(JSON.stringify(portfolio), { status: 200 }),
+      ),
+    );
+
+    renderApp('/learning');
+
+    expect(
+      await screen.findByRole('heading', { name: 'Learning record' }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Learning' })).toHaveAttribute(
+      'href',
+      '/learning',
     );
   });
 

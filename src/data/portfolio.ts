@@ -1,5 +1,6 @@
 import type {
   HomePortfolioContent,
+  LearningContent,
   PortfolioSkill,
   ProfessionalExperience,
   ProjectDetailsContent,
@@ -31,4 +32,8 @@ export function fetchExperience(): Promise<{
 
 export function fetchSkills(): Promise<{ skills: PortfolioSkill[] }> {
   return fetchContent('skills.json', 'Skills');
+}
+
+export function fetchLearning(): Promise<LearningContent> {
+  return fetchContent('learning.json', 'Learning content');
 }
