@@ -6,7 +6,7 @@ does not begin until every Phase 1 curation task is done. See
 
 ## Current next task
 
-**All planned tasks complete.**
+**P3-01 — Define the learning-timeline content model and page foundation.**
 
 ## Completed groundwork
 
@@ -53,3 +53,13 @@ does not begin until every Phase 1 curation task is done. See
 | P2-07 | Define the skill list and years of experience; use that shared data to replace the current combined skill pills wherever skills appear.         | Done   | P2-05, P2-06        |
 | P2-08 | Build an accessible `/skills` page that visualises the individual skills by years of experience using D3 or a similarly suitable chart library. | Done   | P2-07               |
 | P2-09 | Complete component/page tests, a small E2E suite if warranted, accessibility and performance review, and static deployment.                     | Done   | P2-05, P2-06, P2-08 |
+
+## Phase 3 — learning timeline
+
+| ID    | Task                                                                                                                                                                          | Status  | Depends on |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------- |
+| P3-01 | Define extendable learning-course content, including status, dates, deterministic same-month sequencing, platform, optional university, source link, and optional diploma. Add the `/learning` route and navigation entry. Follow the [learning timeline plan](./plans/learning-timeline.md). | Planned | —          |
+| P3-02 | Build the responsive learning timeline: an inverted-S desktop path with ordered course nodes and a readable chronological mobile layout.                                      | Planned | P3-01      |
+| P3-03 | Add an accessible animated course-details popover: hover preview and delayed pointer-leave dismissal on desktop, persistent click/keyboard interaction, and a 90%-viewport mobile modal. | Planned | P3-02      |
+| P3-04 | Complete learning-timeline tests, keyboard and reduced-motion checks, desktop/mobile visual verification, and content polish.                                                | Planned | P3-01–P3-03 |
+| P3-05 | Surface the short names of current courses in the shared header as a restrained cyan “Currently learning” display, responsive to available space and derived from the learning content. | Planned | P3-01, P3-04 |
