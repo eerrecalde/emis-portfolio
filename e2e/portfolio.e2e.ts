@@ -89,3 +89,17 @@ test('published course certificates open from their details', async ({
     await page.keyboard.press('Escape');
   }
 });
+
+test('in-progress courses do not offer a certificate', async ({ page }) => {
+  await page.goto('/learning');
+
+  const course = page.getByRole('button', {
+    name: 'View details for Complete Node.js Developer Bootcamp: Zero to Mastery',
+  });
+  await expect(course).toContainText('In progress');
+  await course.click();
+
+  const details = page.getByRole('dialog');
+  await expect(details).toContainText('No certificate available');
+  await expect(details.getByRole('link')).toHaveCount(0);
+});

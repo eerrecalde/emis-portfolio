@@ -84,6 +84,17 @@
         "label": "View course certificate",
         "url": "/diplomas/master-the-coding-interview-system-design-architecture.pdf"
       }
+    },
+    {
+      "id": "zero-to-mastery-nodejs-developer-bootcamp",
+      "displayName": "Complete Node.js Developer Bootcamp: Zero to Mastery",
+      "shortDisplayName": "Node.js",
+      "status": "in-progress",
+      "startDate": "2026-09",
+      "sequence": 1,
+      "platform": { "name": "Zero To Mastery Academy" },
+      "summary": "In progress. A practical Node.js development bootcamp.",
+      "topics": ["Node.js"]
     }
   ]
 }
