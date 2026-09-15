@@ -3,8 +3,13 @@ import type { LearningItem } from '../../types/portfolio';
 type LearningTimelineProps = { items: LearningItem[] };
 
 export function LearningTimeline({ items }: LearningTimelineProps) {
+  const totalRows = Math.ceil(items.length / 2);
+
   return (
-    <ol className="learning-timeline" aria-label="Courses in chronological order">
+    <ol
+      className="learning-timeline"
+      aria-label="Courses in chronological order"
+    >
       <svg
         aria-hidden="true"
         className="learning-timeline__path"
@@ -12,23 +17,25 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
         preserveAspectRatio="none"
         viewBox="0 0 100 100"
       >
-        <path
-          d={createTimelinePath(items.length)}
-          pathLength="1"
-        />
+        <path d={createTimelinePath(items.length)} pathLength="1" />
       </svg>
 
       {items.map((item, index) => {
         const isInProgress = item.status === 'in-progress';
+        const position = timelinePosition(index, totalRows);
 
         return (
           <li
             className={`learning-timeline__item ${
-              index % 2 === 0
-                ? 'learning-timeline__item--start'
-                : 'learning-timeline__item--end'
+              position.isRight
+                ? 'learning-timeline__item--right'
+                : 'learning-timeline__item--left'
             }`}
             key={item.id}
+            style={{
+              gridColumn: position.isRight ? '7 / span 6' : '1 / span 6',
+              gridRow: position.row,
+            }}
           >
             <article
               className={`learning-timeline__node ${
@@ -43,7 +50,8 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
               </p>
               <h2 className="learning-timeline__title">{item.displayName}</h2>
               <p className="learning-timeline__meta">
-                {isInProgress ? 'In progress' : 'Completed'} · {item.platform.name}
+                {isInProgress ? 'In progress' : 'Completed'} ·{' '}
+                {item.platform.name}
                 {item.diploma ? ' · Credential' : ''}
               </p>
             </article>
@@ -72,19 +80,32 @@ function formatLearningDate(value: string) {
 }
 
 function createTimelinePath(itemCount: number) {
-  if (itemCount < 2) {
-    return 'M 8 0 L 8 100';
+  if (itemCount === 0) {
+    return '';
   }
 
-  const points = Array.from({ length: itemCount }, (_, index) => ({
-    x: index % 2 === 0 ? 8 : 92,
-    y: (index / (itemCount - 1)) * 100,
-  }));
+  const totalRows = Math.ceil(itemCount / 2);
+  const points = Array.from({ length: itemCount }, (_, index) => {
+    const position = timelinePosition(index, totalRows);
 
-  return points.slice(1).reduce((path, point, index) => {
-    const previous = points[index];
-    const controlY = (previous.y + point.y) / 2;
+    return {
+      x: position.isRight ? 92 : 8,
+      y: ((position.row - 0.5) / totalRows) * 100,
+    };
+  });
 
-    return `${path} C ${previous.x} ${controlY}, ${point.x} ${controlY}, ${point.x} ${point.y}`;
+  return points.slice(1).reduce((path, point) => {
+    return `${path} L ${point.x} ${point.y}`;
   }, `M ${points[0].x} ${points[0].y}`);
+}
+
+function timelinePosition(index: number, totalRows: number) {
+  const rowFromBottom = Math.floor(index / 2);
+  const isMovingLeft = rowFromBottom % 2 === 0;
+  const isFirstInRow = index % 2 === 0;
+
+  return {
+    isRight: isMovingLeft === isFirstInRow,
+    row: totalRows - rowFromBottom,
+  };
 }
