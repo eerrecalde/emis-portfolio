@@ -1,5 +1,12 @@
-import { cleanup, render, screen, within } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  act,
+  within,
+} from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { LearningItem } from '../../types/portfolio';
 import { LearningTimeline } from './LearningTimeline';
 
@@ -78,5 +85,68 @@ describe('LearningTimeline', () => {
       'd',
       'M 92 75 L 8 75 L 8 25 L 92 25',
     );
+  });
+
+  it('opens persistent course details by click and closes them with Escape', () => {
+    render(<LearningTimeline items={items} />);
+
+    const course = screen.getByRole('button', {
+      name: 'View details for Completed course',
+    });
+    fireEvent.click(course);
+
+    expect(screen.getByRole('dialog')).toHaveTextContent('Completed course');
+    expect(screen.getByRole('link', { name: 'View course' })).toHaveAttribute(
+      'href',
+      'https://example.com/completed',
+    );
+    expect(screen.getByRole('link', { name: 'Certificate' })).toHaveAttribute(
+      'href',
+      'https://example.com/certificate',
+    );
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    expect(course).toHaveFocus();
+  });
+
+  it('dismisses persistent course details when the backdrop is clicked', () => {
+    render(<LearningTimeline items={items} />);
+
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'View details for Completed course',
+      }),
+    );
+    fireEvent.click(screen.getByRole('dialog'));
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
+  it('opens a hover preview and delays dismissal while the pointer can move to it', () => {
+    vi.useFakeTimers();
+    render(<LearningTimeline items={items} />);
+
+    const course = screen.getByRole('button', {
+      name: 'View details for Current course',
+    });
+    fireEvent.pointerEnter(course);
+
+    const preview = screen.getByRole('dialog');
+    expect(preview).toHaveTextContent('Current course');
+
+    fireEvent.pointerLeave(course);
+    act(() => vi.advanceTimersByTime(174));
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+
+    fireEvent.pointerEnter(preview);
+    act(() => vi.advanceTimersByTime(175));
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+
+    fireEvent.pointerLeave(preview);
+    act(() => vi.advanceTimersByTime(175));
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    vi.useRealTimers();
   });
 });

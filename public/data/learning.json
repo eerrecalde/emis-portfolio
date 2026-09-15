@@ -29,7 +29,7 @@
     },
     {
       "id": "uci-programming-with-google-go",
-      "displayName": "Programming with Google Go Specialization",
+      "displayName": "Programming with Google Go",
       "shortDisplayName": "Go",
       "status": "completed",
       "startDate": "2025-03",
@@ -42,7 +42,12 @@
         "name": "University of California, Irvine"
       },
       "sourceUrl": "https://www.coursera.org/specializations/google-golang",
-      "topics": ["Go"]
+      "summary": "Completed 7 April 2025. A three-course specialisation from the University of California, Irvine.",
+      "topics": ["Go"],
+      "diploma": {
+        "label": "View specialisation certificate",
+        "url": "https://coursera.org/verify/specialization/18FC1JYCLHHB"
+      }
     },
     {
       "id": "meta-advanced-react",
@@ -59,7 +64,12 @@
         "name": "Meta"
       },
       "sourceUrl": "https://www.coursera.org/learn/advanced-react",
-      "topics": ["React"]
+      "summary": "Completed 22 July 2026. A course authorised and taught by Meta.",
+      "topics": ["React"],
+      "diploma": {
+        "label": "View course certificate",
+        "url": "https://coursera.org/verify/XRQX9DBLD9M5"
+      }
     }
   ]
 }
