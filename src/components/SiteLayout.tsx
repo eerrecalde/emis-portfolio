@@ -1,7 +1,11 @@
 import { useEffect, type ReactNode } from 'react';
 import { NavLink, useLocation } from 'react-router';
+import type { LearningItem } from '../types/portfolio';
 
-type SiteLayoutProps = { children: ReactNode };
+type SiteLayoutProps = {
+  children: ReactNode;
+  currentLearning?: LearningItem[];
+};
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -13,7 +17,10 @@ function ScrollToTop() {
   return null;
 }
 
-export function SiteLayout({ children }: SiteLayoutProps) {
+export function SiteLayout({
+  children,
+  currentLearning = [],
+}: SiteLayoutProps) {
   return (
     <div className="min-h-screen text-slate-100">
       <ScrollToTop />
@@ -31,6 +38,26 @@ export function SiteLayout({ children }: SiteLayoutProps) {
           >
             Emi Errecalde<span className="text-cyan-300">.</span>
           </NavLink>
+          {currentLearning.length > 0 ? (
+            <p className="hidden items-center gap-2 lg:flex">
+              <span className="text-[11px] font-normal text-slate-400">
+                Currently learning:
+              </span>
+              {currentLearning.map((item, index) => (
+                <span
+                  className="text-sm font-normal text-cyan-300"
+                  key={item.id}
+                >
+                  {index > 0 ? (
+                    <span aria-hidden="true" className="mr-2 text-cyan-300/60">
+                      ·
+                    </span>
+                  ) : null}
+                  {item.shortDisplayName ?? item.displayName}
+                </span>
+              ))}
+            </p>
+          ) : null}
           <nav
             className="flex items-center gap-4 sm:gap-6"
             aria-label="Primary navigation"
