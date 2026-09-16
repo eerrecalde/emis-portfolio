@@ -1,7 +1,11 @@
 import { useEffect, type ReactNode } from 'react';
-import { NavLink, useLocation } from 'react-router';
+import { Link, NavLink, useLocation } from 'react-router';
+import type { LearningItem } from '../types/portfolio';
 
-type SiteLayoutProps = { children: ReactNode };
+type SiteLayoutProps = {
+  children: ReactNode;
+  currentLearning?: LearningItem[];
+};
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -13,7 +17,10 @@ function ScrollToTop() {
   return null;
 }
 
-export function SiteLayout({ children }: SiteLayoutProps) {
+export function SiteLayout({
+  children,
+  currentLearning = [],
+}: SiteLayoutProps) {
   return (
     <div className="min-h-screen text-slate-100">
       <ScrollToTop />
@@ -23,7 +30,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
       >
         Skip to content
       </a>
-      <header className="border-b border-slate-800/80 bg-[#080d0f]/80 backdrop-blur">
+      <header className="relative border-b border-slate-800/80 bg-[#080d0f]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-col items-start gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-10 sm:py-5">
           <NavLink
             className="text-lg font-semibold tracking-tight text-slate-100 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 sm:text-lg"
@@ -85,6 +92,27 @@ export function SiteLayout({ children }: SiteLayoutProps) {
             </NavLink>
           </nav>
         </div>
+        {currentLearning.length > 0 ? (
+          <Link
+            aria-label="View learning record"
+            className="absolute left-1/2 top-full z-10 hidden -translate-x-1/2 translate-y-3 items-center gap-2 rounded-xl bg-slate-900/50 px-4 py-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 lg:flex"
+            to="/learning"
+          >
+            <span className="text-[11px] font-normal text-slate-400">
+              Currently learning:
+            </span>
+            {currentLearning.map((item, index) => (
+              <span className="text-sm font-normal text-cyan-300" key={item.id}>
+                {index > 0 ? (
+                  <span aria-hidden="true" className="mr-2 text-cyan-300/60">
+                    ·
+                  </span>
+                ) : null}
+                {item.shortDisplayName ?? item.displayName}
+              </span>
+            ))}
+          </Link>
+        ) : null}
       </header>
       <main
         className="mx-auto max-w-6xl px-5 py-12 sm:px-10 sm:py-16 lg:py-20"

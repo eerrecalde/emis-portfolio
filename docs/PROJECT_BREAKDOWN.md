@@ -6,7 +6,7 @@ does not begin until every Phase 1 curation task is done. See
 
 ## Current next task
 
-**P3-04 — Complete learning-timeline verification and content polish.**
+**No planned task.**
 
 ## Completed groundwork
 
@@ -62,4 +62,4 @@ does not begin until every Phase 1 curation task is done. See
 | P3-02 | Build the responsive learning timeline: an inverted-S desktop path with ordered course nodes and a readable chronological mobile layout.                                                                                                                                                      | Done    | P3-01        |
 | P3-03 | Add an accessible animated course-details popover: hover preview and delayed pointer-leave dismissal on desktop, persistent click/keyboard interaction, and a 90%-viewport mobile modal.                                                                                                      | Done    | P3-02        |
 | P3-04 | Complete learning-timeline tests, keyboard and reduced-motion checks, desktop/mobile visual verification, and content polish.                                                                                                                                                                 | Done    | P3-01–P3-03  |
-| P3-05 | Surface the short names of current courses in the shared header as a restrained cyan “Currently learning” display, responsive to available space and derived from the learning content.                                                                                                       | Planned | P3-01, P3-04 |
+| P3-05 | Surface the short names of current courses in the shared header as a restrained cyan “Currently learning” display, responsive to available space and derived from the learning content.                                                                                                       | Done    | P3-01, P3-04 |

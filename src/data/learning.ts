@@ -14,3 +14,15 @@ export function orderLearningItems(items: LearningItem[]) {
       first.displayName.localeCompare(second.displayName),
   );
 }
+
+export function currentLearningItems(items: LearningItem[]) {
+  return items
+    .filter((item) => item.status === 'in-progress')
+    .sort(
+      (first, second) =>
+        second.startDate.localeCompare(first.startDate) ||
+        (first.sequence ?? 0) - (second.sequence ?? 0) ||
+        first.displayName.localeCompare(second.displayName),
+    )
+    .slice(0, 2);
+}
