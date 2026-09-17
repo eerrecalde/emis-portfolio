@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import type { LearningItem } from '../../types/portfolio';
 import { CourseDetails } from './CourseDetails';
 
@@ -10,7 +16,12 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
   const [isPersistent, setIsPersistent] = useState(false);
   const isMobile = useIsMobile();
   const closeTimer = useRef<number | undefined>(undefined);
+  const isPersistentRef = useRef(isPersistent);
   const courseButtons = useRef(new Map<string, HTMLButtonElement>());
+
+  useLayoutEffect(() => {
+    isPersistentRef.current = isPersistent;
+  }, [isPersistent]);
 
   const clearCloseTimer = useCallback(() => {
     window.clearTimeout(closeTimer.current);
@@ -31,40 +42,8 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
     return () => window.clearTimeout(closeTimer.current);
   }, []);
 
-  useEffect(() => {
-    if (!isPersistent) {
-      return;
-    }
-
-    function closeOnEscape(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
-        closeDetails();
-      }
-    }
-
-    function closeOnOutsidePointer(event: PointerEvent) {
-      const activeButton = activeCourseId
-        ? courseButtons.current.get(activeCourseId)
-        : undefined;
-
-      if (
-        activeButton &&
-        !activeButton.closest('li')?.contains(event.target as Node)
-      ) {
-        closeDetails();
-      }
-    }
-
-    document.addEventListener('keydown', closeOnEscape);
-    document.addEventListener('pointerdown', closeOnOutsidePointer);
-    return () => {
-      document.removeEventListener('keydown', closeOnEscape);
-      document.removeEventListener('pointerdown', closeOnOutsidePointer);
-    };
-  }, [activeCourseId, closeDetails, isPersistent]);
-
   function schedulePreviewClose() {
-    if (isPersistent) {
+    if (isPersistentRef.current) {
       return;
     }
 
@@ -76,7 +55,7 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
   }
 
   function openPreview(itemId: string) {
-    if (isPersistent) {
+    if (isPersistentRef.current) {
       return;
     }
 
