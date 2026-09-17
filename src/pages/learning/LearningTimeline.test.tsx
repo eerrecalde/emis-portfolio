@@ -95,15 +95,65 @@ describe('LearningTimeline', () => {
 
     expect(screen.getByRole('dialog')).toHaveTextContent('Completed course');
     expect(screen.getByRole('dialog')).not.toHaveAttribute('aria-modal');
-    expect(screen.getByRole('link', { name: 'Certificate' })).toHaveAttribute(
-      'href',
-      'https://example.com/certificate',
-    );
+    expect(screen.queryByRole('link', { name: 'Certificate' })).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Certificate' })).toBeNull();
 
     fireEvent.keyDown(document, { key: 'Escape' });
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     expect(course).toHaveFocus();
+  });
+
+  it('opens PDF certificates in a modal and returns focus to the trigger', () => {
+    render(
+      <LearningTimeline
+        items={[
+          {
+            ...items[0],
+            diploma: { label: 'PDF certificate', url: '/diplomas/example.pdf' },
+          },
+        ]}
+      />,
+    );
+
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'View details for Completed course',
+      }),
+    );
+    const trigger = screen.getByRole('button', { name: 'PDF certificate' });
+    fireEvent.click(trigger);
+
+    const diploma = screen
+      .getAllByRole('dialog', { name: 'Completed course' })
+      .find((dialog) => dialog.getAttribute('aria-modal') === 'true');
+    if (!diploma) {
+      throw new Error('Diploma modal was not found');
+    }
+    expect(diploma).toHaveAttribute('aria-modal', 'true');
+    expect(
+      within(diploma).getByRole('img', { name: 'Completed course' }),
+    ).toHaveAttribute('src', '/diplomas/example-1.jpg');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Close diploma' }));
+    expect(document.querySelector('.diploma-modal')).toBeNull();
+    expect(trigger).toHaveFocus();
+  });
+
+  it('keeps clicked details open after a hover dismissal was scheduled', () => {
+    vi.useFakeTimers();
+    render(<LearningTimeline items={items} />);
+
+    const course = screen.getByRole('button', {
+      name: 'View details for Completed course',
+    });
+    fireEvent.pointerEnter(course);
+    fireEvent.click(course);
+    fireEvent.pointerLeave(course);
+    act(() => vi.advanceTimersByTime(175));
+
+    expect(screen.getByRole('dialog')).toHaveTextContent('Completed course');
+    vi.useRealTimers();
   });
 
   it('dismisses persistent course details when the backdrop is clicked', () => {
@@ -152,10 +202,8 @@ describe('LearningTimeline', () => {
         name: 'Close details for Completed course',
       }),
     ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Certificate' })).toHaveAttribute(
-      'href',
-      'https://example.com/certificate',
-    );
+    expect(screen.queryByRole('link', { name: 'Certificate' })).toBeNull();
+    expect(screen.queryByRole('button', { name: 'Certificate' })).toBeNull();
     expect(screen.queryByRole('link', { name: 'View course' })).toBeNull();
 
     fireEvent.pointerLeave(course);

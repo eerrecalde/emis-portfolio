@@ -84,7 +84,9 @@ body {
 
 .learning-timeline__node:focus-visible,
 .course-details__close:focus-visible,
-.course-details__links a:focus-visible {
+.course-details__links a:focus-visible,
+.course-details__diploma-button:focus-visible,
+.diploma-modal__close:focus-visible {
   outline: 2px solid #67e8f9;
   outline-offset: 4px;
 }
@@ -259,8 +261,82 @@ body {
   font-weight: 600;
 }
 
-.course-details__links a:hover {
+.course-details__diploma-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #67e8f9;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.course-details__links a:hover,
+.course-details__diploma-button:hover {
   color: #cffafe;
+}
+
+.diploma-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 5vh 5vw;
+  background: rgb(2 6 23 / 0.8);
+}
+
+.diploma-modal__surface {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: min(100%, 70rem);
+  height: min(90vh, 52rem);
+  overflow: hidden;
+  border: 1px solid rgb(71 85 105 / 0.95);
+  border-radius: 1rem;
+  background: #0c1519;
+  box-shadow: 0 22px 50px rgb(0 0 0 / 0.5);
+}
+
+.diploma-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgb(71 85 105 / 0.75);
+}
+
+.diploma-modal__header h3 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 0.875rem;
+}
+
+.diploma-modal__close {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #e2e8f0;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.diploma-modal__close:hover {
+  background: rgb(51 65 85 / 0.65);
+}
+
+.diploma-modal__document {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #101719;
 }
 
 .course-details__hint {

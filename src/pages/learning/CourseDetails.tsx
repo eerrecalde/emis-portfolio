@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import type { LearningItem } from '../../types/portfolio';
 
 type CourseDetailsProps = {
@@ -19,6 +20,8 @@ export function CourseDetails({
   onPointerLeave,
 }: CourseDetailsProps) {
   const closeButton = useRef<HTMLButtonElement>(null);
+  const diplomaButton = useRef<HTMLButtonElement>(null);
+  const [isDiplomaOpen, setIsDiplomaOpen] = useState(false);
   const date =
     item.status === 'completed'
       ? (item.completedDate ?? item.startDate)
@@ -29,6 +32,21 @@ export function CourseDetails({
       closeButton.current?.focus();
     }
   }, [persistent]);
+
+  useEffect(() => {
+    if (!persistent) {
+      return;
+    }
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    }
+
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [onClose, persistent]);
 
   return (
     <div
@@ -44,6 +62,11 @@ export function CourseDetails({
       }}
       onPointerEnter={onPointerEnter}
       onPointerLeave={onPointerLeave}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape') {
+          onClose();
+        }
+      }}
       role="dialog"
     >
       <div className="course-details__surface">
@@ -79,18 +102,98 @@ export function CourseDetails({
             ))}
           </ul>
         ) : null}
-        {item.diploma ? (
+        {item.diploma && isPdf(item.diploma.url) ? (
           <p className="course-details__links">
-            <a href={item.diploma.url} rel="noreferrer" target="_blank">
+            <button
+              className="course-details__diploma-button"
+              onClick={() => setIsDiplomaOpen(true)}
+              ref={diplomaButton}
+              type="button"
+            >
               {item.diploma.label}
-            </a>
+            </button>
           </p>
-        ) : (
+        ) : !item.diploma ? (
           <p className="course-details__hint">No certificate available</p>
-        )}
+        ) : null}
       </div>
+      {item.diploma && isPdf(item.diploma.url) && isDiplomaOpen ? (
+        <DiplomaModal
+          diploma={item.diploma}
+          title={item.displayName}
+          onClose={() => {
+            setIsDiplomaOpen(false);
+            diplomaButton.current?.focus();
+          }}
+        />
+      ) : null}
     </div>
   );
+}
+
+function DiplomaModal({
+  diploma,
+  title,
+  onClose,
+}: {
+  diploma: NonNullable<LearningItem['diploma']>;
+  title: string;
+  onClose: () => void;
+}) {
+  const closeButton = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    closeButton.current?.focus();
+  }, []);
+
+  return createPortal(
+    <div
+      aria-labelledby="diploma-modal-title"
+      aria-modal="true"
+      className="diploma-modal"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) {
+          onClose();
+        }
+      }}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape') {
+          event.stopPropagation();
+          onClose();
+        }
+      }}
+      role="dialog"
+    >
+      <div className="diploma-modal__surface">
+        <div className="diploma-modal__header">
+          <h3 id="diploma-modal-title">{title}</h3>
+          <button
+            aria-label="Close diploma"
+            className="diploma-modal__close"
+            onClick={onClose}
+            ref={closeButton}
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+        <img
+          alt={title}
+          className="diploma-modal__document"
+          src={diplomaPreviewUrl(diploma.url)}
+        />
+      </div>
+    </div>,
+    document.body,
+  );
+}
+
+function isPdf(url: string) {
+  return /\.pdf(?:$|[?#])/i.test(url);
+}
+
+function diplomaPreviewUrl(url: string) {
+  return url.replace(/\.pdf(?=$|[?#])/i, '-1.jpg');
 }
 
 function formatLearningDate(value: string) {

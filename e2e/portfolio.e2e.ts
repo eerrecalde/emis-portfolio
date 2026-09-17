@@ -26,7 +26,7 @@ test('visitors can explore the portfolio on every supported viewport', async ({
     page.getByRole('heading', { name: 'Professional experience' }),
   ).toBeVisible();
 
-  await page.getByRole('link', { name: 'Learning' }).click();
+  await page.getByRole('link', { name: 'Learning', exact: true }).click();
   await expect(
     page.getByRole('heading', { name: 'Learning record' }),
   ).toBeVisible();
@@ -64,7 +64,7 @@ test('the learning timeline supports keyboard details and reduced motion', async
   await expect(course).toBeFocused();
 });
 
-test('published course certificates open from their details', async ({
+test('published course certificates open in a modal from their details', async ({
   page,
 }) => {
   await page.goto('/learning');
@@ -72,20 +72,29 @@ test('published course certificates open from their details', async ({
   for (const course of [
     {
       name: 'View details for TypeScript Bootcamp: Zero to Mastery',
+      title: 'TypeScript Bootcamp: Zero to Mastery',
       certificate: '/diplomas/typescript-bootcamp-zero-to-mastery.pdf',
     },
     {
       name: 'View details for Master the Coding Interview: System Design + Architecture',
+      title: 'Master the Coding Interview: System Design + Architecture',
       certificate:
         '/diplomas/master-the-coding-interview-system-design-architecture.pdf',
     },
   ]) {
     await page.getByRole('button', { name: course.name }).click();
     const details = page.getByRole('dialog');
+    await details
+      .getByRole('button', { name: 'View course certificate' })
+      .click();
+    const diploma = page.locator('.diploma-modal');
+    await expect(diploma).toBeVisible();
+    await expect(diploma).toHaveAttribute('aria-modal', 'true');
     await expect(
-      details.getByRole('link', { name: 'View course certificate' }),
-    ).toHaveAttribute('href', course.certificate);
-    await expect(details.getByRole('link')).toHaveCount(1);
+      diploma.getByRole('img', { name: course.title }),
+    ).toHaveAttribute('src', course.certificate.replace('.pdf', '-1.jpg'));
+    await page.keyboard.press('Escape');
+    await expect(diploma).toBeHidden();
     await page.keyboard.press('Escape');
   }
 });
