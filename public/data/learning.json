@@ -89,12 +89,17 @@
       "id": "zero-to-mastery-nodejs-developer-bootcamp",
       "displayName": "Complete Node.js Developer Bootcamp: Zero to Mastery",
       "shortDisplayName": "Node.js",
-      "status": "in-progress",
+      "status": "completed",
       "startDate": "2026-09",
+      "completedDate": "2026-09",
       "sequence": 1,
       "platform": { "name": "Zero To Mastery Academy" },
-      "summary": "In progress. A practical Node.js development bootcamp.",
-      "topics": ["Node.js"]
+      "summary": "Completed 22 September 2026. A practical Node.js development bootcamp.",
+      "topics": ["Node.js"],
+      "diploma": {
+        "label": "View course certificate",
+        "url": "/diplomas/complete-node-js-developer-bootcamp-zero-to-mastery.pdf"
+      }
     }
   ]
 }
