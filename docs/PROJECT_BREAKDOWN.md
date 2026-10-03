@@ -30,6 +30,8 @@ does not begin until every Phase 1 curation task is done. See
 | M-09 | Add public-safe TechSoup case studies for modernisation and endpoint tooling.        | Done   |
 | M-10 | Add the public-safe Ver Análisis proof-of-concept case study.                        | Done   |
 | M-11 | Add the text-only CitizenShareholders headless WordPress case study.                 | Done   |
+| M-12 | Mark the Udemy TypeScript course as complete and add its supplied certificate.       | Done   |
+| M-13 | Add the Master.dev React and TypeScript, v3 course and supplied certificate.         | Done   |
 
 ## Phase 1 — repository curation
 
