@@ -132,6 +132,22 @@
         "label": "View course certificate",
         "url": "/diplomas/typescript-for-developers-udemy.jpg"
       }
+    },
+    {
+      "id": "udemy-typescript-interview-questions",
+      "displayName": "TypeScript Interview Questions - Coding Interview 2026",
+      "shortDisplayName": "TS Interviews",
+      "status": "completed",
+      "startDate": "2026-10",
+      "completedDate": "2026-10",
+      "sequence": 1,
+      "platform": { "name": "Udemy" },
+      "summary": "Completed 3 October 2026. A three-hour TypeScript coding interview practice course.",
+      "topics": ["TypeScript", "Coding interviews"],
+      "diploma": {
+        "label": "View course certificate",
+        "url": "/diplomas/typescript-interview-questions-coding-interview-udemy.jpg"
+      }
     }
   ]
 }

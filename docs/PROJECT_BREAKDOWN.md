@@ -32,6 +32,7 @@ does not begin until every Phase 1 curation task is done. See
 | M-11 | Add the text-only CitizenShareholders headless WordPress case study.                 | Done   |
 | M-12 | Mark the Udemy TypeScript course as complete and add its supplied certificate.       | Done   |
 | M-13 | Add the Master.dev React and TypeScript, v3 course and supplied certificate.         | Done   |
+| M-14 | Add the Udemy TypeScript coding-interview course and supplied certificate.           | Done   |
 
 ## Phase 1 — repository curation
 
