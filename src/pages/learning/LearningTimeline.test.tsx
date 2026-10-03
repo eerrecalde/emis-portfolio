@@ -140,6 +140,35 @@ describe('LearningTimeline', () => {
     expect(trigger).toHaveFocus();
   });
 
+  it('opens image certificates in the same modal', () => {
+    render(
+      <LearningTimeline
+        items={[
+          {
+            ...items[0],
+            diploma: {
+              label: 'Image certificate',
+              url: '/diplomas/example.jpg',
+            },
+          },
+        ]}
+      />,
+    );
+
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'View details for Completed course',
+      }),
+    );
+    fireEvent.click(screen.getByRole('button', { name: 'Image certificate' }));
+
+    expect(
+      within(
+        screen.getAllByRole('dialog', { name: 'Completed course' })[1],
+      ).getByRole('img', { name: 'Completed course' }),
+    ).toHaveAttribute('src', '/diplomas/example.jpg');
+  });
+
   it('keeps clicked details open after a hover dismissal was scheduled', () => {
     vi.useFakeTimers();
     render(<LearningTimeline items={items} />);

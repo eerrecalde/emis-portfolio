@@ -71,6 +71,22 @@
       }
     },
     {
+      "id": "master-dev-react-and-typescript-v3",
+      "displayName": "React and TypeScript, v3",
+      "shortDisplayName": "React + TypeScript",
+      "status": "completed",
+      "startDate": "2026-08",
+      "completedDate": "2026-08",
+      "sequence": 1,
+      "platform": { "name": "Master.dev" },
+      "summary": "Completed 11 August 2026. An advanced React and TypeScript course covering typed state, reducers, runtime schema validation, async data, context, and reusable generics.",
+      "topics": ["React", "TypeScript", "Zod", "Type systems"],
+      "diploma": {
+        "label": "View course certificate",
+        "url": "/diplomas/react-and-typescript-v3-master-dev.jpg"
+      }
+    },
+    {
       "id": "zero-to-mastery-system-design-architecture",
       "displayName": "Master the Coding Interview: System Design + Architecture",
       "shortDisplayName": "System Design",
@@ -105,12 +121,17 @@
       "id": "udemy-typescript-for-developers",
       "displayName": "TypeScript for developers",
       "shortDisplayName": "TypeScript",
-      "status": "in-progress",
+      "status": "completed",
       "startDate": "2026-09",
+      "completedDate": "2026-09",
       "sequence": 2,
       "platform": { "name": "Udemy" },
-      "summary": "In progress. A practical TypeScript course with Node, Express, and React.",
-      "topics": ["TypeScript", "Node.js", "Express", "React"]
+      "summary": "Completed 30 September 2026. An 11-hour practical TypeScript course with Node, Express, and React.",
+      "topics": ["TypeScript", "Node.js", "Express", "React"],
+      "diploma": {
+        "label": "View course certificate",
+        "url": "/diplomas/typescript-for-developers-udemy.jpg"
+      }
     }
   ]
 }

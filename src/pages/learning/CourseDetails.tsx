@@ -102,7 +102,7 @@ export function CourseDetails({
             ))}
           </ul>
         ) : null}
-        {item.diploma && isPdf(item.diploma.url) ? (
+        {item.diploma && isPreviewableDiploma(item.diploma.url) ? (
           <p className="course-details__links">
             <button
               className="course-details__diploma-button"
@@ -117,7 +117,9 @@ export function CourseDetails({
           <p className="course-details__hint">No certificate available</p>
         ) : null}
       </div>
-      {item.diploma && isPdf(item.diploma.url) && isDiplomaOpen ? (
+      {item.diploma &&
+      isPreviewableDiploma(item.diploma.url) &&
+      isDiplomaOpen ? (
         <DiplomaModal
           diploma={item.diploma}
           title={item.displayName}
@@ -192,8 +194,12 @@ function isPdf(url: string) {
   return /\.pdf(?:$|[?#])/i.test(url);
 }
 
+function isPreviewableDiploma(url: string) {
+  return isPdf(url) || /\.(?:avif|gif|jpe?g|png|webp)(?:$|[?#])/i.test(url);
+}
+
 function diplomaPreviewUrl(url: string) {
-  return url.replace(/\.pdf(?=$|[?#])/i, '-1.jpg');
+  return isPdf(url) ? url.replace(/\.pdf(?=$|[?#])/i, '-1.jpg') : url;
 }
 
 function formatLearningDate(value: string) {
