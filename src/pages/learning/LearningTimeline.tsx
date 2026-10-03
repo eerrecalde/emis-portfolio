@@ -6,6 +6,7 @@ import {
   useState,
 } from 'react';
 import type { LearningItem } from '../../types/portfolio';
+import { formatLearningDuration } from '../../data/learning';
 import { CourseDetails } from './CourseDetails';
 
 type LearningTimelineProps = { items: LearningItem[] };
@@ -144,7 +145,9 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
                 <span className="learning-timeline__meta">
                   {isInProgress ? 'In progress' : 'Completed'} ·{' '}
                   {item.platform.name}
-                  {item.diploma ? ' · Credential' : ''}
+                  {item.totalHours
+                    ? ` · ${formatLearningDuration(item.totalHours)}`
+                    : ''}
                 </span>
               </button>
               {activeCourseId === item.id ? (

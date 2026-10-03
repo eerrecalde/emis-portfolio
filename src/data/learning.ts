@@ -26,3 +26,11 @@ export function currentLearningItems(items: LearningItem[]) {
     )
     .slice(0, 2);
 }
+
+export function formatLearningDuration(totalHours: number) {
+  const totalMinutes = Math.round(totalHours * 60);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  return minutes ? `${hours}h ${minutes}m` : `${hours}h`;
+}

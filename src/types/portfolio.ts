@@ -86,6 +86,7 @@ export type LearningItem = {
   platform: { name: string };
   institution?: { name: string };
   diploma?: { label: string; url: string };
+  totalHours?: number;
   summary?: string;
   topics?: string[];
 };

@@ -18,6 +18,7 @@ const items: LearningItem[] = [
     startDate: '2026-07',
     completedDate: '2026-08',
     platform: { name: 'Provider' },
+    totalHours: 4.37,
     diploma: { label: 'Certificate', url: 'https://example.com/certificate' },
   },
   {
@@ -50,7 +51,7 @@ describe('LearningTimeline', () => {
     render(<LearningTimeline items={items} />);
 
     expect(
-      screen.getByText('Completed · Provider · Credential'),
+      screen.getByText('Completed · Provider · 4h 22m'),
     ).toBeInTheDocument();
     expect(screen.getByText('In progress · Provider')).toBeInTheDocument();
   });
@@ -94,6 +95,9 @@ describe('LearningTimeline', () => {
     fireEvent.click(course);
 
     expect(screen.getByRole('dialog')).toHaveTextContent('Completed course');
+    expect(screen.getByRole('dialog')).toHaveTextContent(
+      'Course length: 4h 22m',
+    );
     expect(screen.getByRole('dialog')).not.toHaveAttribute('aria-modal');
     expect(screen.queryByRole('link', { name: 'Certificate' })).toBeNull();
     expect(screen.queryByRole('button', { name: 'Certificate' })).toBeNull();

@@ -17,6 +17,7 @@
       "startDate": "2022-03",
       "completedDate": "2022-03",
       "platform": { "name": "Zero To Mastery Academy" },
+      "totalHours": 27,
       "summary": "Advanced JavaScript concepts."
     },
     {
@@ -30,6 +31,7 @@
       "institution": {
         "name": "University of California, Irvine"
       },
+      "totalHours": 40,
       "summary": "Completed 7 April 2025. A three-course specialisation from the University of California, Irvine.",
       "topics": ["Go"],
       "diploma": {
@@ -48,6 +50,7 @@
       "institution": {
         "name": "Meta"
       },
+      "totalHours": 30,
       "summary": "Completed 22 July 2026. A course authorised and taught by Meta.",
       "topics": ["React"],
       "diploma": {
@@ -63,6 +66,7 @@
       "startDate": "2026-08",
       "completedDate": "2026-08",
       "platform": { "name": "Zero To Mastery Academy" },
+      "totalHours": 12.5,
       "summary": "Completed 7 August 2026. A practical TypeScript course covering real-world applications.",
       "topics": ["TypeScript", "Type systems", "Application development"],
       "diploma": {
@@ -79,6 +83,7 @@
       "completedDate": "2026-08",
       "sequence": 1,
       "platform": { "name": "Master.dev" },
+      "totalHours": 4.37,
       "summary": "Completed 11 August 2026. An advanced React and TypeScript course covering typed state, reducers, runtime schema validation, async data, context, and reusable generics.",
       "topics": ["React", "TypeScript", "Zod", "Type systems"],
       "diploma": {
@@ -94,6 +99,7 @@
       "startDate": "2026-09",
       "completedDate": "2026-09",
       "platform": { "name": "Zero To Mastery Academy" },
+      "totalHours": 4,
       "summary": "Completed 7 September 2026. A course on system design and architecture for technical interviews.",
       "topics": ["System design", "Architecture", "Technical interviews"],
       "diploma": {
@@ -110,6 +116,7 @@
       "completedDate": "2026-09",
       "sequence": 1,
       "platform": { "name": "Zero To Mastery Academy" },
+      "totalHours": 38,
       "summary": "Completed 22 September 2026. A practical Node.js development bootcamp.",
       "topics": ["Node.js"],
       "diploma": {
@@ -126,6 +133,7 @@
       "completedDate": "2026-09",
       "sequence": 2,
       "platform": { "name": "Udemy" },
+      "totalHours": 11,
       "summary": "Completed 30 September 2026. An 11-hour practical TypeScript course with Node, Express, and React.",
       "topics": ["TypeScript", "Node.js", "Express", "React"],
       "diploma": {
@@ -142,6 +150,7 @@
       "completedDate": "2026-10",
       "sequence": 1,
       "platform": { "name": "Udemy" },
+      "totalHours": 3,
       "summary": "Completed 3 October 2026. A three-hour TypeScript coding interview practice course.",
       "topics": ["TypeScript", "Coding interviews"],
       "diploma": {
