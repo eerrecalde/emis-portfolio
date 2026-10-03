@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { formatLearningDuration } from '../../data/learning';
 import type { LearningItem } from '../../types/portfolio';
 
 type CourseDetailsProps = {
@@ -92,6 +93,11 @@ export function CourseDetails({
           {item.platform.name}
           {item.institution ? ` · ${item.institution.name}` : ''}
         </p>
+        {item.totalHours ? (
+          <p className="course-details__duration">
+            Course length: {formatLearningDuration(item.totalHours)}
+          </p>
+        ) : null}
         {item.summary ? (
           <p className="course-details__summary">{item.summary}</p>
         ) : null}

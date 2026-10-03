@@ -186,6 +186,7 @@ body {
 
 .course-details__status,
 .course-details__provider,
+.course-details__duration,
 .course-details__summary,
 .course-details__hint {
   margin: 0;
@@ -225,6 +226,13 @@ body {
 .course-details__provider {
   margin-top: 0.55rem;
   color: #c4b5fd;
+}
+
+.course-details__duration {
+  margin: 0.5rem 0 0;
+  color: #a5f3fc;
+  font-size: 0.875rem;
+  line-height: 1.55;
 }
 
 .course-details__summary {

@@ -33,6 +33,8 @@ does not begin until every Phase 1 curation task is done. See
 | M-12 | Mark the Udemy TypeScript course as complete and add its supplied certificate.       | Done   |
 | M-13 | Add the Master.dev React and TypeScript, v3 course and supplied certificate.         | Done   |
 | M-14 | Add the Udemy TypeScript coding-interview course and supplied certificate.           | Done   |
+| M-15 | Add verified course durations to the learning records and course cards.               | Done   |
+| M-16 | Remove redundant credential labels from learning timeline cards.                      | Done   |
 
 ## Phase 1 — repository curation
 

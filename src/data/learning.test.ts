@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import type { LearningItem } from '../types/portfolio';
-import { currentLearningItems, orderLearningItems } from './learning';
+import {
+  currentLearningItems,
+  formatLearningDuration,
+  orderLearningItems,
+} from './learning';
 
 const items: LearningItem[] = [
   {
@@ -74,5 +78,12 @@ describe('currentLearningItems', () => {
         },
       ]).map((item) => item.id),
     ).toEqual(['node', 'current-newer-second']);
+  });
+});
+
+describe('formatLearningDuration', () => {
+  it('formats whole and fractional course hours for card labels', () => {
+    expect(formatLearningDuration(30)).toBe('30h');
+    expect(formatLearningDuration(4.37)).toBe('4h 22m');
   });
 });
