@@ -11,6 +11,11 @@ describe('LearningPage', () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
+        'A selection of current study, completed courses, and credentials.',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
         'Course entries will appear here as they are published.',
       ),
     ).toBeInTheDocument();

@@ -20,7 +20,7 @@ export function LearningPage({ items }: LearningPageProps) {
           Learning record
         </h1>
         <p className="mt-5 text-lg leading-8 text-slate-300">
-          Current study, completed courses, and credentials.
+          A selection of current study, completed courses, and credentials.
         </p>
       </header>
 

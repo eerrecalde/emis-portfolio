@@ -39,6 +39,7 @@ does not begin until every Phase 1 curation task is done. See
 | M-18 | Replace the learning timeline with a responsive, most-recent-first course grid.      | Done   |
 | M-19 | Match each learning-grid card to the tallest card in its desktop row.                 | Done   |
 | M-20 | Remove the unnecessary mobile learning-grid rail.                                     | Done   |
+| M-21 | Clarify that the learning record is a curated selection.                              | Done   |
 
 ## Phase 1 — repository curation
 
