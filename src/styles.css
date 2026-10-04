@@ -37,21 +37,6 @@ body {
   padding: 1.5rem 0;
 }
 
-.learning-timeline__path {
-  position: absolute;
-  inset: 1.5rem 0;
-  width: 100%;
-  height: calc(100% - 3rem);
-  overflow: visible;
-}
-
-.learning-timeline__path path {
-  stroke: rgb(71 85 105 / 0.8);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 0.35;
-}
-
 .learning-timeline__item {
   position: relative;
 }
@@ -93,7 +78,7 @@ body {
 
 .learning-timeline__marker {
   position: absolute;
-  top: calc(50% - 0.4375rem);
+  top: 1.18rem;
   width: 0.875rem;
   height: 0.875rem;
   border: 3px solid #080d0f;
@@ -101,11 +86,12 @@ body {
 }
 
 .learning-timeline__item--left .learning-timeline__marker {
-  right: -0.5rem;
+  right: 1.1rem;
 }
 
 .learning-timeline__item--right .learning-timeline__marker {
-  left: -0.5rem;
+  right: 1.1rem;
+  left: auto;
 }
 
 .learning-timeline__node--completed .learning-timeline__marker {
@@ -372,10 +358,6 @@ body {
     border-left: 1px solid rgb(71 85 105 / 0.8);
   }
 
-  .learning-timeline__path {
-    display: none;
-  }
-
   .learning-timeline__item {
     margin: 0 0 1.5rem;
   }
@@ -393,7 +375,7 @@ body {
   .learning-timeline__marker,
   .learning-timeline__item--left .learning-timeline__marker,
   .learning-timeline__item--right .learning-timeline__marker {
-    top: 1.4rem;
+    top: 1.18rem;
     right: auto;
     left: -2rem;
   }
