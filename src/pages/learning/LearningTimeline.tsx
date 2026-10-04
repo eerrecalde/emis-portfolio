@@ -75,16 +75,6 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
       className="learning-timeline"
       aria-label="Courses in chronological order"
     >
-      <svg
-        aria-hidden="true"
-        className="learning-timeline__path"
-        fill="none"
-        preserveAspectRatio="none"
-        viewBox="0 0 100 100"
-      >
-        <path d={createTimelinePath(items.length)} pathLength="1" />
-      </svg>
-
       {items.map((item, index) => {
         const isInProgress = item.status === 'in-progress';
         const position = timelinePosition(index, totalRows);
@@ -202,26 +192,6 @@ function formatLearningDate(value: string) {
     year: 'numeric',
     timeZone: 'UTC',
   }).format(date);
-}
-
-function createTimelinePath(itemCount: number) {
-  if (itemCount === 0) {
-    return '';
-  }
-
-  const totalRows = Math.ceil(itemCount / 2);
-  const points = Array.from({ length: itemCount }, (_, index) => {
-    const position = timelinePosition(index, totalRows);
-
-    return {
-      x: position.isRight ? 92 : 8,
-      y: ((position.row - 0.5) / totalRows) * 100,
-    };
-  });
-
-  return points.slice(1).reduce((path, point) => {
-    return `${path} L ${point.x} ${point.y}`;
-  }, `M ${points[0].x} ${points[0].y}`);
 }
 
 function timelinePosition(index: number, totalRows: number) {

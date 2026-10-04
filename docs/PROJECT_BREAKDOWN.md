@@ -35,6 +35,7 @@ does not begin until every Phase 1 curation task is done. See
 | M-14 | Add the Udemy TypeScript coding-interview course and supplied certificate.           | Done   |
 | M-15 | Add verified course durations to the learning records and course cards.               | Done   |
 | M-16 | Remove redundant credential labels from learning timeline cards.                      | Done   |
+| M-17 | Replace the desktop learning-timeline connector with quieter course-card accents.    | Done   |
 
 ## Phase 1 — repository curation
 

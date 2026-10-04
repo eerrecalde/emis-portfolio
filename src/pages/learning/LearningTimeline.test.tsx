@@ -80,10 +80,7 @@ describe('LearningTimeline', () => {
     expect(courses[0]).toHaveStyle({ gridRow: '2' });
     expect(courses[3]).toHaveClass('learning-timeline__item--right');
     expect(courses[3]).toHaveStyle({ gridRow: '1' });
-    expect(container.querySelector('path')).toHaveAttribute(
-      'd',
-      'M 92 75 L 8 75 L 8 25 L 92 25',
-    );
+    expect(container.querySelector('svg')).not.toBeInTheDocument();
   });
 
   it('opens persistent course details by click and closes them with Escape', () => {
