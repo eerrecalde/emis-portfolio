@@ -33,11 +33,11 @@ const items: LearningItem[] = [
 afterEach(cleanup);
 
 describe('LearningTimeline', () => {
-  it('renders chronological course nodes with their milestone dates', () => {
+  it('renders course nodes with their milestone dates', () => {
     render(<LearningTimeline items={items} />);
 
     expect(
-      screen.getByRole('list', { name: 'Courses in chronological order' }),
+      screen.getByRole('list', { name: 'Courses, most recent first' }),
     ).toHaveTextContent('Aug 2026');
     expect(
       screen.getByRole('heading', { name: 'Completed course' }),
@@ -56,8 +56,8 @@ describe('LearningTimeline', () => {
     expect(screen.getByText('In progress · Provider')).toBeInTheDocument();
   });
 
-  it('keeps the DOM chronological while placing the oldest course at bottom-right', () => {
-    const { container } = render(
+  it('keeps the supplied most-recent-first order in the grid', () => {
+    render(
       <LearningTimeline
         items={[
           ...items,
@@ -67,7 +67,7 @@ describe('LearningTimeline', () => {
       />,
     );
     const courses = within(
-      screen.getByRole('list', { name: 'Courses in chronological order' }),
+      screen.getByRole('list', { name: 'Courses, most recent first' }),
     ).getAllByRole('listitem');
 
     expect(courses.map((course) => course.textContent)).toEqual([
@@ -76,11 +76,8 @@ describe('LearningTimeline', () => {
       expect.stringContaining('Third course'),
       expect.stringContaining('Newest course'),
     ]);
-    expect(courses[0]).toHaveClass('learning-timeline__item--right');
-    expect(courses[0]).toHaveStyle({ gridRow: '2' });
-    expect(courses[3]).toHaveClass('learning-timeline__item--right');
-    expect(courses[3]).toHaveStyle({ gridRow: '1' });
-    expect(container.querySelector('svg')).not.toBeInTheDocument();
+    expect(courses[0]).toHaveClass('learning-timeline__item');
+    expect(courses).toHaveLength(4);
   });
 
   it('opens persistent course details by click and closes them with Escape', () => {

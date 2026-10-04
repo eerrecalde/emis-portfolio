@@ -1,11 +1,11 @@
-import { orderLearningItems } from '../../data/learning';
+import { orderLearningItemsByRecency } from '../../data/learning';
 import type { LearningItem } from '../../types/portfolio';
 import { LearningTimeline } from './LearningTimeline';
 
 type LearningPageProps = { items: LearningItem[] };
 
 export function LearningPage({ items }: LearningPageProps) {
-  const orderedItems = orderLearningItems(items);
+  const orderedItems = orderLearningItemsByRecency(items);
   const completedCount = orderedItems.filter(
     (item) => item.status === 'completed',
   ).length;
@@ -29,7 +29,7 @@ export function LearningPage({ items }: LearningPageProps) {
           <>
             <p className="text-sm text-slate-400">
               {orderedItems.length} course{orderedItems.length === 1 ? '' : 's'},{' '}
-              {completedCount} completed
+              {completedCount} completed · Most recent first
             </p>
             <LearningTimeline items={orderedItems} />
           </>

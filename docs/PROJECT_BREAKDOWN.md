@@ -36,6 +36,7 @@ does not begin until every Phase 1 curation task is done. See
 | M-15 | Add verified course durations to the learning records and course cards.               | Done   |
 | M-16 | Remove redundant credential labels from learning timeline cards.                      | Done   |
 | M-17 | Replace the desktop learning-timeline connector with quieter course-card accents.    | Done   |
+| M-18 | Replace the learning timeline with a responsive, most-recent-first course grid.      | Done   |
 
 ## Phase 1 — repository curation
 

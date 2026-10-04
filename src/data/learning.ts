@@ -15,6 +15,15 @@ export function orderLearningItems(items: LearningItem[]) {
   );
 }
 
+export function orderLearningItemsByRecency(items: LearningItem[]) {
+  return [...items].sort(
+    (first, second) =>
+      milestoneDate(second).localeCompare(milestoneDate(first)) ||
+      (first.sequence ?? 0) - (second.sequence ?? 0) ||
+      first.displayName.localeCompare(second.displayName),
+  );
+}
+
 export function currentLearningItems(items: LearningItem[]) {
   return items
     .filter((item) => item.status === 'in-progress')
