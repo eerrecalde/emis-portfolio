@@ -38,6 +38,7 @@ does not begin until every Phase 1 curation task is done. See
 | M-17 | Replace the desktop learning-timeline connector with quieter course-card accents.    | Done   |
 | M-18 | Replace the learning timeline with a responsive, most-recent-first course grid.      | Done   |
 | M-19 | Match each learning-grid card to the tallest card in its desktop row.                 | Done   |
+| M-20 | Remove the unnecessary mobile learning-grid rail.                                     | Done   |
 
 ## Phase 1 — repository curation
 
