@@ -32,6 +32,8 @@ describe('LearningPage', () => {
       />,
     );
 
-    expect(screen.getByText('1 course, 1 completed')).toBeInTheDocument();
+    expect(
+      screen.getByText('1 course, 1 completed · Most recent first'),
+    ).toBeInTheDocument();
   });
 });

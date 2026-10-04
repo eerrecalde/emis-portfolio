@@ -12,7 +12,6 @@ import { CourseDetails } from './CourseDetails';
 type LearningTimelineProps = { items: LearningItem[] };
 
 export function LearningTimeline({ items }: LearningTimelineProps) {
-  const totalRows = Math.ceil(items.length / 2);
   const [activeCourseId, setActiveCourseId] = useState<string>();
   const [isPersistent, setIsPersistent] = useState(false);
   const isMobile = useIsMobile();
@@ -71,28 +70,16 @@ export function LearningTimeline({ items }: LearningTimelineProps) {
   }
 
   return (
-    <ol
-      className="learning-timeline"
-      aria-label="Courses in chronological order"
-    >
-      {items.map((item, index) => {
+    <ol className="learning-timeline" aria-label="Courses, most recent first">
+      {items.map((item) => {
         const isInProgress = item.status === 'in-progress';
-        const position = timelinePosition(index, totalRows);
 
         return (
           <li
-            className={`learning-timeline__item ${
-              position.isRight
-                ? 'learning-timeline__item--right'
-                : 'learning-timeline__item--left'
-            }`}
+            className="learning-timeline__item"
             key={item.id}
             onPointerEnter={() => !isMobile && openPreview(item.id)}
             onPointerLeave={() => !isMobile && schedulePreviewClose()}
-            style={{
-              gridColumn: position.isRight ? '7 / span 6' : '1 / span 6',
-              gridRow: position.row,
-            }}
           >
             <article className="learning-timeline__node-wrapper">
               <button
@@ -192,15 +179,4 @@ function formatLearningDate(value: string) {
     year: 'numeric',
     timeZone: 'UTC',
   }).format(date);
-}
-
-function timelinePosition(index: number, totalRows: number) {
-  const rowFromBottom = Math.floor(index / 2);
-  const isMovingLeft = rowFromBottom % 2 === 0;
-  const isFirstInRow = index % 2 === 0;
-
-  return {
-    isRight: isMovingLeft === isFirstInRow,
-    row: totalRows - rowFromBottom,
-  };
 }

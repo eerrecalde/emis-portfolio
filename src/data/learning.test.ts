@@ -4,6 +4,7 @@ import {
   currentLearningItems,
   formatLearningDuration,
   orderLearningItems,
+  orderLearningItemsByRecency,
 } from './learning';
 
 const items: LearningItem[] = [
@@ -78,6 +79,16 @@ describe('currentLearningItems', () => {
         },
       ]).map((item) => item.id),
     ).toEqual(['node', 'current-newer-second']);
+  });
+});
+
+describe('orderLearningItemsByRecency', () => {
+  it('orders newer milestones first while keeping same-month sequencing stable', () => {
+    expect(orderLearningItemsByRecency(items).map((item) => item.id)).toEqual([
+      'node',
+      'go',
+      'typescript',
+    ]);
   });
 });
 
